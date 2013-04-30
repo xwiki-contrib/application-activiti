@@ -37,9 +37,9 @@
   <description>Integrates Activiti BPM Engine in XWiki</description>
   <!--
   <scm>
-    <connection>scm:git:git://github.com/xwiki-contrib/application-crash.git</connection>
-    <developerConnection>scm:git:git@github.com:xwiki-contrib/application-crash.git</developerConnection>
-    <url>https://github.com/xwiki-contrib/application-crash</url>
+    <connection>scm:git:git://github.com/xwiki-contrib/application-activiti.git</connection>
+    <developerConnection>scm:git:git@github.com:xwiki-contrib/application-activiti.git</developerConnection>
+    <url>https://github.com/xwiki-contrib/application-activiti</url>
     <tag>HEAD</tag>
   </scm>
   -->
@@ -49,14 +49,9 @@
   <!--
   <developers>
     <developer>
-      <id>vmassol</id>
-      <name>Vincent Massol</name>
+      <id>sorinello</id>
+      <name>Sorin Burjan</name>
     </developer>
-    <developer>
-      <id>bouquetf</id>
-      <name>Frédéric Bouquet</name>
-    </developer>
-  </developers>
   <distributionManagement>
     <repository>
       <id>xwiki-staging</id>
@@ -65,14 +60,14 @@
     </repository>
   </distributionManagement>
   <modules>
-    <module>application-crash-api</module>
-    <module>application-crash-ui</module>
+    <module>application-activiti-api</module>
+    <module>application-activiti-ui</module>
   </modules>
   <profiles>
     <profile>
       <id>integration-tests</id>
       <modules>
-        <module>application-crash-test</module>
+        <module>application-activiti-test</module>
       </modules>
     </profile>
   </profiles>
