@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xwikidoc>
+  <web>Activiti</web>
+  <name>ActivitiAdmin</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>XWiki.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1366545229000</creationDate>
+  <date>1367161296000</date>
+  <contentUpdateDate>1367157857000</contentUpdateDate>
+  <version>1.1</version>
+  <title>ActivitiAdmin</title>
+  <template/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.ConfigurableClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <codeToExecute>
+        <disabled>0</disabled>
+        <editor>---</editor>
+        <name>codeToExecute</name>
+        <number>7</number>
+        <picker>0</picker>
+        <prettyName>codeToExecute</prettyName>
+        <rows>5</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </codeToExecute>
+      <configurationClass>
+        <disabled>0</disabled>
+        <name>configurationClass</name>
+        <number>3</number>
+        <picker>0</picker>
+        <prettyName>configurationClass</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </configurationClass>
+      <configureGlobally>
+        <defaultValue/>
+        <disabled>0</disabled>
+        <displayFormType>checkbox</displayFormType>
+        <displayType/>
+        <name>configureGlobally</name>
+        <number>4</number>
+        <prettyName>configureGlobally</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </configureGlobally>
+      <displayInSection>
+        <disabled>0</disabled>
+        <name>displayInSection</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>displayInSection</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </displayInSection>
+      <heading>
+        <disabled>0</disabled>
+        <name>heading</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>heading</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </heading>
+      <iconAttachment>
+        <disabled>0</disabled>
+        <name>iconAttachment</name>
+        <number>8</number>
+        <picker>0</picker>
+        <prettyName>iconAttachment</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </iconAttachment>
+      <linkPrefix>
+        <disabled>0</disabled>
+        <name>linkPrefix</name>
+        <number>5</number>
+        <picker>0</picker>
+        <prettyName>linkPrefix</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </linkPrefix>
+      <propertiesToShow>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>input</displayType>
+        <multiSelect>1</multiSelect>
+        <name>propertiesToShow</name>
+        <number>6</number>
+        <picker>0</picker>
+        <prettyName>propertiesToShow</prettyName>
+        <relationalStorage>1</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>20</size>
+        <sort>none</sort>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <values/>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </propertiesToShow>
+    </class>
+    <name>Activiti.ActivitiAdmin</name>
+    <number>0</number>
+    <className>XWiki.ConfigurableClass</className>
+    <guid>7a623beb-f7a6-4750-a556-9e56967d8aa0</guid>
+    <property>
+      <codeToExecute>{{include document='Activiti.ActivitiAdmin'/}}</codeToExecute>
+    </property>
+    <property>
+      <configurationClass/>
+    </property>
+    <property>
+      <configureGlobally>1</configureGlobally>
+    </property>
+    <property>
+      <displayInSection>Activiti</displayInSection>
+    </property>
+    <property>
+      <heading/>
+    </property>
+    <property>
+      <iconAttachment/>
+    </property>
+    <property>
+      <linkPrefix/>
+    </property>
+    <property>
+      <propertiesToShow/>
+    </property>
+  </object>
+  <content>{{velocity}}
+#if($hasAdmin &amp;&amp; $xcontext.isMainWiki())
+  #if($request.startProcessInstance)
+    #set($discard = $services.activiti.runtime.startProcessInstanceById($request.startProcessInstance))
+  #elseif($request.deleteProcessDefinition)
+    #set($discard = $services.activiti.repository.deleteProcessDefinition($request.deleteProcessDefinition))
+  #elseif($request.uploadProcessDefinition)
+    ## $request.uploadProcessDefinition
+    ## Uploads: $uploads
+    ## Method: $xwiki.fileupload.getFileItems()
+    #set($uploads = $xwiki.fileupload.getFileItems())
+    #foreach ($upload in $xwiki.fileupload.getFileItems())
+      $upload.getFieldName()
+      #if($upload.getFieldName() == "filepath")
+        $services.activiti.repository.uploadProcessDefinition("$upload.getName()", $upload.getInputStream())
+        ## $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))
+        $response.sendRedirect($request.xredirect)
+
+      #end
+    #end
+  #end
+  = Repository Information =
+  {{info}}This section presents the Deployed Processes (BPMN 2.0) diagrams in the Activiti Engine{{/info}}
+  #set($processes = $services.activiti.repository.getDeployedProcesses())
+  (%style="width:99%"%)
+  |=Deployment Information|=Process Information|=Process Description|=Actions|=Process Diagram
+  #foreach($process in $processes)
+    |Id: $process.getDeploymentId()
+    Name: $!services.activiti.repository.getDeploymentName("$process.getDeploymentId()")|Version: $process.getVersion()
+    Key: $process.getKey()
+    Id: $process.getId()
+    Name: $process.getName()
+    File Name: $process.getResourceName() |$!process.getDescription()|((({{html}}
+      &lt;form action="" method="post"&gt;
+          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+          &lt;input type="hidden" name="startProcessInstance" value="${process.getId()}" /&gt;
+          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;
+            &lt;!-- Leave also the line for a regular form button --&gt;
+            &lt;!-- &lt;input type="submit" value="Start Process Instance" class="button"/&gt; --&gt;
+          &lt;!-- &lt;/span&gt; --&gt;
+           &lt;div style="float:right"&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_add.png')" alt="Start Process" "title="Start Process"/&gt;&lt;/div&gt;
+      &lt;/form&gt;
+      &lt;form action="" method="post"&gt;
+          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+          &lt;input type="hidden" name="deleteProcessDefinition" value="${process.getId()}" /&gt;
+          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;
+            &lt;!-- Leave also the line for a regular form button --&gt;
+            &lt;!-- &lt;input type="submit" value="Delete Process" class="button"/&gt; --&gt;
+          &lt;!-- &lt;/span&gt; --&gt;
+        &lt;div&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_delete.png')" alt="Delete Process Definition" "title="Delete Process Definition" /&gt;&lt;/div&gt;
+      &lt;/form&gt;
+    {{/html}})))|(% style="text-align:center" %)[[image:icon:chart_organisation&gt;&gt;Activiti.ImageWriter||queryString="processId=$process.getId()" target="_blank"]]
+  #end
+  == Upload Process Diagram ==
+  {{info}}You can upload a BPMN 2.0 diagram from here into the Activiti Engine{{/info}}
+
+  {{html}}
+  &lt;form class="xform" action="$xwiki.getURL("Activiti.ActivitiAdmin")" enctype="multipart/form-data" method="post"&gt;
+
+      ## CSRF prevention
+      &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+      &lt;input type="hidden" name="xredirect" value="$escapetool.xml($xwiki.getRelativeRequestURL())" /&gt;
+      &lt;input type="hidden" name="uploadProcessDefinition" value="upload" /&gt;
+        &lt;div class="fileupload-field"&gt;
+          &lt;label class="hidden" for="xwikiuploadfile"&gt;$msg.get('core.viewers.attachments.upload.file')&lt;/label&gt;
+          &lt;input id="xwikiuploadfile" type="file" name="filepath" value="upload" size="40" class="uploadFileInput"/&gt;
+        &lt;div&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;input type="submit" value="$msg.get('core.viewers.attachments.upload.submit')" class="button"/&gt;&lt;/span&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;a class="cancel secondary button" href="$doc.getURL()"&gt;$msg.get('core.viewers.attachments.upload.cancel')&lt;/a&gt;&lt;/span&gt;
+  &lt;/form&gt;
+  {{/html}}
+  = Runtime Information =
+  == Active Instances ==
+  {{info}}This section lists all the instances which are active state (in execution){{/info}}
+  #set($runningInstances = $services.activiti.runtime.getProcessInstances())
+  |= Process Definition Id|= Execution Id|= Suspended
+  #foreach($instance in $runningInstances)
+    |$instance.getProcessDefinitionId()|$instance.getId()|$instance.isSuspended()
+  #end
+  == Completed Process Instances ==
+  {{info}}This section lists all the completed Instances{{/info}}
+  #set($completedInstances = $services.activiti.history.getCompletedProcessInstances())
+  |= Process Definition Id|= Execution Id|=Date Started|= Date Completed|=Duration (miliseconds)|=Process Variables
+  #foreach($instance in $completedInstances)
+    |$instance.getProcessDefinitionId()|$instance.getId()|$instance.getStartTime()|$instance.getEndTime()|$instance.getDurationInMillis()|
+    #foreach ($variable in $services.activiti.history.getHistoricaInstanceVariables($instance.getId()))
+      $variable.getName() $variable.getValue()
+    #end
+  #end
+  
+  = Task Service =
+== Active tasks ==
+#set($tasks = $services.activiti.task.getUsersTasks())
+|=Task ID|=Task Name|=Task Assignee|=Task Creation Time|=Task Description|=Action
+#foreach($task in $tasks)
+  |$task.getId()|$task.getName()|$!task.getAssignee()|$task.getCreateTime()|$task.getDescription()|[[Go to task&gt;&gt;Activiti.TaskFormGenerator||queryString="generateFormForTaskId=$task.getId()"]]
+#end
+== Pooled active tasks ==
+#set($tasks = $services.activiti.task.getAllUnassignedUsersTasks())
+|=Task ID|=Task Name|=Task Creation Time|=Task Description|=Action
+#foreach($task in $tasks)
+  |$task.getId()|$task.getName()|$task.getCreateTime()|$task.getDescription()|[[Claim&gt;&gt;Activiti.UserTasks||queryString="claimTask=$task.getId()"]]
+#end
+== Completed tasks ==
+#set($pastTasks = $services.activiti.history.getAllUsersHistoryTasks())
+|=Task ID|=Task Name|=Task Assignee|=Task Start Time|=Task End Time|=Task Description
+#foreach($task in $pastTasks)
+  |$task.getId()|$task.getName()|$task.getAssignee()|$task.getStartTime()|$task.getEndTime()|$task.getDescription()
+#end
+#else
+  {{error}}Please access this page from the Administration section{{/error}}
+#end
+{{/velocity}}</content>
+</xwikidoc>

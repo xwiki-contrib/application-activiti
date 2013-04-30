@@ -1,0 +1,6 @@
+org.xwiki.activiti.internal.DefaultActivitiEngine
+org.xwiki.activiti.internal.ActivitiScriptService
+org.xwiki.activiti.internal.ActivitiUserEntityManagerFactory
+org.xwiki.activiti.internal.ActivitiGroupEntityManagerFactory
+org.xwiki.activiti.internal.ActivitiUserEntityManager
+org.xwiki.activiti.internal.ActivitiGroupEntityManager
