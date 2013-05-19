@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Activiti</web>
+<name>EventListenerMappingConfig</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>Activiti.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1368562727000</creationDate>
+<date>1368986499000</date>
+<contentUpdateDate>1368986499000</contentUpdateDate>
+<version>31.1</version>
+<title>Event Listener Mapping Configuration</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>Activiti.EventListenerMappingClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<event>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>radio</displayType>
+<multiSelect>0</multiSelect>
+<name>event</name>
+<number>1</number>
+<picker>0</picker>
+<prettyName>Event Name</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>id</sort>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>DocumentCreatedEvent=Document Created|DocumentUpdatedEvent=Document Updated|DocumentDeletedEvent=Document Deleted</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</event>
+<message>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>message</name>
+<number>3</number>
+<picker>0</picker>
+<prettyName>Message to send to Activiti Engine</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</message>
+<space>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>space</name>
+<number>2</number>
+<picker>0</picker>
+<prettyName>Space to Listen on</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</space>
+</class>
+<name>Activiti.EventListenerMappingConfig</name>
+<number>0</number>
+<className>Activiti.EventListenerMappingClass</className>
+<guid>0d979608-fbee-4657-a444-bbf18fdbe5b2</guid>
+<property>
+<event>DocumentCreatedEvent</event>
+</property>
+<property>
+<message>autoStart</message>
+</property>
+<property>
+<space>Drafts</space>
+</property>
+</object>
+<content>{{velocity}}
+#if($request.addObject)
+  #set($object=$doc.newObject('Activiti.EventListenerMappingClass'))
+  #set($event = $request.getParameter("event"))
+  #set($space = $request.getParameter("space"))
+  #set($message = $request.getParameter("message"))
+  ## Handle Request
+  Event: $event
+  Space: $space
+  Message: $message
+  $object.set('event', $event)
+  $object.set('space', $space)
+  $object.set('message', $message)
+  #set($discard=$doc.save())
+  $response.sendRedirect($doc.getURL())
+
+#end
+##List available Mappings
+= Existing Mappings =
+#set($mappingObjects = $doc.getObjects('Activiti.EventListenerMappingClass'))
+#if(!$mappingObjects.isEmpty())
+|=Event Type|=Listening in Space|=Message to send to Activiti Engine
+  #foreach($mapObject in $mappingObjects)
+   |$mapObject.getProperty('event').getValue()|$mapObject.getProperty('space').getValue()|$mapObject.getProperty('message').getValue()
+  #end
+#end
+= Add Mapping =
+##Generate Custom Form
+#set($discard=$doc.use($object))
+
+{{html wiki="true"}}
+&lt;form action="" method="get" class="xform third" id="mapListener&gt;
+(((  
+            ; &lt;label for="event"&gt;Event&lt;/label&gt;
+              &lt;select id="event" name="event"&gt;
+                &lt;option value="DocumentCreatedEvent"&gt;Document Created&lt;/option&gt;
+                &lt;option value="DocumentDeletedEvent"&gt;Document Deleted&lt;/option&gt;
+                &lt;option value="DocumentUpdatedEvent"&gt;Document Updated&lt;/option&gt;
+            &lt;/select&gt; 
+
+            ; &lt;label for="space"&gt;Space&lt;/label&gt;
+              &lt;input id="space" class="suggestSpaces" type="text" id="space" name="space" autocomplete="off"&gt;
+
+            ; &lt;label for="message"&gt;Message&lt;/label&gt;
+              &lt;input id="message" type="text" id="message" name="message" &gt;
+
+            &lt;div class="xform buttons"&gt;
+            &lt;span class="buttonwrapper"&gt;&lt;input type="submit" name="addObject" value="Add Mapping" class="button"/&gt;&lt;/span&gt;
+            &lt;/div&gt;
+)))
+&lt;/form&gt;
+{{/html}}
+{{/velocity}}</content></xwikidoc>

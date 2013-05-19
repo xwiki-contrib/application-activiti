@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Activiti</web>
+<name>TaskFormGenerator</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent>Published.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1366582806000</creationDate>
+<date>1368987914000</date>
+<contentUpdateDate>1367163367000</contentUpdateDate>
+<version>20.2</version>
+<title>#if($task.getName())Task: $task.getName() with Description: $task.getDescription()#else Task Form Generator#end</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment>Changed parent to Published.WebHome following the rename of that page</comment>
+<minorEdit>true</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity}}
+#if($isGuest)
+  {{error}}You must be logged in{{/error}}
+#else
+  ## We take from the request the parameters starting with "ActivitiFormProperty_"
+  ## create a Map with them which we pass to the Activiti Engine
+  #if($request.completeTask)
+    #set($objectMap = {})
+    #set($prefix='ActivitiFormProperty_')
+    Prefix Length $prefix.length()
+    #foreach($entry in $request.parameterMap.entrySet())
+      #if($entry.key.startsWith($prefix))
+        #set($propNameStart=$entry.key.lastIndexOf('_')+1)
+        #set($propertyName=$entry.key.substring($propNameStart))
+        $propertyName/$entry.value.get(0)
+        #set($discard=$objectMap.put($propertyName, $entry.value.get(0)))
+      #end
+    #end
+    $objectMap.entrySet()
+    $services.activiti.getProcessEngine().getFormService().submitTaskFormData($request.taskId, $objectMap)
+    $response.sendRedirect($request.xredirect))
+  #end
+  #if($request.generateFormForTaskId)
+    #set($taskId = $request.generateFormForTaskId)
+    #if($taskId)
+      #set($formProperties = $services.activiti.form.getTaskFormProperties("$taskId"))
+      #set($task = $services.activiti.task.getTaskById($taskId))
+      #set($executionId =  $task.getExecutionId())
+      #if($task.getDueDate())
+        Due Date: $task.getDueDate()
+      #end
+      ##
+      ## Get the variables for this Execution and display them
+      ##  so the users sees the input from the previous tasks
+      ##
+      #set($instanceVariables = $services.activiti.getRuntimeService().getVariables($executionId))
+      #if(!$instanceVariables.isEmpty())
+        {{html}}
+          &lt;form class="xform" action="" name="form" id="ActivitiProcessVariableGenerator"&gt;
+            &lt;dl&gt;
+            #foreach($variable in $instanceVariables.entrySet())
+              &lt;dt&gt;&lt;label for="ActivitiInstanceVariable_$variable.key"&gt;$variable.key&lt;/label&gt;&lt;/dt&gt;
+              &lt;dd&gt;$variable.value&lt;/dd&gt;
+            #end
+            &lt;/dt&gt;
+          &lt;/form&gt;
+        {{/html}}
+      #end
+      ##
+      ##
+      ##  Since Properties from Activiti have several defined types, this macro generates
+      ##  the corresponding HTML input element according to the internal data type which Activiti supports
+      ##  Activiti internal data types: 
+      ##  * string (org.activiti.engine.impl.form.StringFormType)
+      ##  * long (org.activiti.engine.impl.form.LongFormType)
+      ##  * enum (org.activiti.engine.impl.form.EnumFormType)
+      ##  * date (org.activiti.engine.impl.form.DateFormType)
+      ##  * boolean (org.activiti.engine.impl.form.BooleanFormType)   
+      #macro(generateInput $property)
+        #set($activitiPropertyTypeName = $property.getType().getName())
+        #set($activitiPropertyRequired = $property.isRequired())
+        &lt;dl&gt;
+         &lt;dt&gt;
+           &lt;label for="ActivitiFormProperty_$property.getId()"&gt;$property.getName()&lt;/label&gt;
+         &lt;/dt&gt;
+         &lt;dd&gt;
+        #if($activitiPropertyTypeName == "string")
+          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="text" size="60" value="$!property.getValue()"/&gt;
+        #end
+        #if($activitiPropertyTypeName == "long")
+          ## The Activiti long type is actually not a String input, but a number input.
+          ## Putting a non-number in this field will throw a cast exception
+           &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="text" size="60" value="$!property.getValue()"/&gt;
+        #end
+        #if($activitiPropertyTypeName == "enum")
+          #set($enumValues = $property.getType().getInformation("values"))
+          #foreach($enumValue in $enumValues.keySet())
+            &lt;input type="checkbox" name="ActivitiFormProperty_$property.getId()" value="$enumValue"&gt;$enumValues.get("$enumValue")&lt;br&gt;
+          #end
+        #end
+        #if($activitiPropertyTypeName == "date")
+          ## #set ($format = $property.getInformation($property.getType().getKey()))
+          #set ($format = 'dd/MM/yyyy')
+          ## $property.getType()
+          #set ($formattedValue = $escapetool.xml($datetool.format($format,$property.getValue())))
+          ## $formattedValue
+          ## A simple date picker widget.
+          #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/calendarDateSelect.css', true))
+          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/calendarDateSelect.js', true))
+          ## Used to parse and serialize the selected date using the date format specified in the XClass.
+          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/simpleDateFormat.js', true))
+          ## A wrapper over the CalendarDateSelect widget that uses the SimpleDateFormat to parse/serialize the dates.
+          #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/dateTimePicker.css', true))
+          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/dateTimePicker.js'))
+          ## $property.getName()
+          ## $property.getId()
+          &lt;input type="text" id="ActivitiFormProperty_$property.getId()" class="datetime" name="ActivitiFormProperty_$property.getId()" title="$!escapetool.xml($format)" value="2013/07/12"/&gt;
+           ## &lt;input type="text" id="$!id" name="$!id" value="2013/07/12" class="datetime t$!value.time" title="$!escapetool.xml($format)"/&gt;
+        #end
+        #if($activitiPropertyTypeName == "boolean")
+          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="true" checked="checked"&gt;Yes&lt;br&gt;
+          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="false"&gt;No
+        #end
+         &lt;/dd&gt;
+         &lt;/dl&gt;
+      #end##Macro End
+
+      {{html}}
+        &lt;form class="xform" action="" name="form" id="ActivitiFormGenerator"&gt;
+        &lt;input type="hidden" name="taskId" value="$taskId"/&gt;
+        ## We get the value of the redirect and send it to the next form which will perform the redirect back to the user profile
+        &lt;input type="hidden" name="xredirect" value="$request.xredirect"/&gt;
+        #foreach($property in $formProperties)
+         #generateInput($property)
+        #end
+        &lt;p class="buttons"&gt;
+          &lt;span class="buttonwrapper"&gt;
+            &lt;input class="button" type="submit" name="completeTask" value="Complete Task"/&gt;
+          &lt;/span&gt;
+        &lt;/p&gt;
+        &lt;/form&gt;
+      {{/html}}
+    #else
+      {{error}}No form Id received{{/error}}
+    #end   
+  #end
+#end
+{{/velocity}}</content></xwikidoc>

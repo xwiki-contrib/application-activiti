@@ -31,7 +31,7 @@
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-activiti</artifactId>
-  <name>XWiki Contrib - Activiti Integration Application - Parent POM</name>
+  <name>XWiki Contrib - Activiti integration with XWiki - Parent POM</name>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <description>Integrates Activiti BPM Engine in XWiki</description>
@@ -46,12 +46,13 @@
   <properties>
     <platform.version>${commons.version}</platform.version>
   </properties>
-  <!--
   <developers>
     <developer>
       <id>sorinello</id>
       <name>Sorin Burjan</name>
     </developer>
+  </developers>
+  <!--
   <distributionManagement>
     <repository>
       <id>xwiki-staging</id>
@@ -59,9 +60,12 @@
       <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+  -->
   <modules>
     <module>application-activiti-api</module>
     <module>application-activiti-ui</module>
+    <module>application-activiti-bridge</module>
+    <module>application-activiti-listener</module>
   </modules>
   <profiles>
     <profile>
@@ -71,5 +75,4 @@
       </modules>
     </profile>
   </profiles>
-  -->
 </project>
