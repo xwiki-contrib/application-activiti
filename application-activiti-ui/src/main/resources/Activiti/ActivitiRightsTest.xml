@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xwikidoc>
-<web>Activiti</web>
-<name>ActivitiRightsTest</name>
-<language></language>
-<defaultLanguage>en</defaultLanguage>
-<translation>0</translation>
-<parent>Published.WebHome</parent>
-<creator>XWiki.sorinello</creator>
-<author>XWiki.Admin</author>
-<customClass></customClass>
-<contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1366901764000</creationDate>
-<date>1368987914000</date>
-<contentUpdateDate>1367001851000</contentUpdateDate>
-<version>8.2</version>
-<title>ActivitiRightsTest</title>
-<template></template>
-<defaultTemplate></defaultTemplate>
-<validationScript></validationScript>
-<comment>Changed parent to Published.WebHome following the rename of that page</comment>
-<minorEdit>true</minorEdit>
-<syntaxId>xwiki/2.1</syntaxId>
-<hidden>false</hidden>
-<content>{{velocity}}
+  <web>Activiti</web>
+  <name>ActivitiRightsTest</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>Published.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1366901764000</creationDate>
+  <date>1368987914000</date>
+  <contentUpdateDate>1367001851000</contentUpdateDate>
+  <version>1.1</version>
+  <title>ActivitiRightsTest</title>
+  <template/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{velocity}}
 $request.deleteProcessDefinition
 #if($request.deleteProcessDefinition)
     #set($discard = $services.activiti.repository.deleteProcessDefinition($request.deleteProcessDefinition))
@@ -40,4 +41,5 @@ $request.deleteProcessDefinition
         &lt;/fieldset&gt;
       &lt;/form&gt;
     {{/html}}
-{{/velocity}}</content></xwikidoc>
+{{/velocity}}</content>
+</xwikidoc>
