@@ -1,6 +1,7 @@
 package org.xwiki.activiti.internal;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -40,5 +41,10 @@ public class RuntimeScriptService
     public void startProcessInstanceById(String processId)
     {
         this.activitiEngine.startProcessInstanceById(processId);
+    }
+
+    public Map<String, Object> getVariables(String executionId)
+    {
+        return this.activitiEngine.getVariables(executionId);
     }
 }

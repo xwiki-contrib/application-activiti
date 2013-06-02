@@ -1,0 +1,2922 @@
+[1mdiff --git a/application-activiti-api/.bpmn/src/main/resources/DemoProcess3.bpmn2d b/application-activiti-api/.bpmn/src/main/resources/DemoProcess3.bpmn2d[m
+[1mdeleted file mode 100644[m
+[1mindex c18ba6f..0000000[m
+[1m--- a/application-activiti-api/.bpmn/src/main/resources/DemoProcess3.bpmn2d[m
+[1m+++ /dev/null[m
+[36m@@ -1,6 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="ASCII"?>[m
+[31m-<pi:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms" visible="true" gridUnit="10" diagramTypeId="BPMNdiagram" name="DemoProcess3" snapToGrid="true" version="0.9.2">[m
+[31m-  <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.1" foreground="//@colors.0" lineWidth="1" transparency="0.0" width="1000" height="1000"/>[m
+[31m-  <colors red="227" green="238" blue="249"/>[m
+[31m-  <colors red="255" green="255" blue="255"/>[m
+[31m-</pi:Diagram>[m
+[1mdiff --git a/application-activiti-api/.bpmn/src/main/resources/DemoProcess5.bpmn2d b/application-activiti-api/.bpmn/src/main/resources/DemoProcess5.bpmn2d[m
+[1mdeleted file mode 100644[m
+[1mindex b5f7d7b..0000000[m
+[1m--- a/application-activiti-api/.bpmn/src/main/resources/DemoProcess5.bpmn2d[m
+[1m+++ /dev/null[m
+[36m@@ -1,281 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="ASCII"?>[m
+[31m-<pi:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms" visible="true" active="true" gridUnit="10" diagramTypeId="BPMNdiagram" name="DemoProcess5" snapToGrid="true" version="0.9.2">[m
+[31m-  <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.1" foreground="//@colors.0" lineWidth="1" transparency="0.0" width="1000" height="1000"/>[m
+[31m-  <children xsi:type="pi:ContainerShape" visible="true" active="true">[m
+[31m-    <properties key="independentObject" value="33208428"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Polygon" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="40" height="40" x="510" y="137">[m
+[31m-      <graphicsAlgorithmChildren xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" width="40" height="40" style="//@styles.0">[m
+[31m-        <points y="20"/>[m
+[31m-        <points x="20"/>[m
+[31m-        <points x="40" y="20"/>[m
+[31m-        <points x="20" y="40"/>[m
+[31m-        <points y="20"/>[m
+[31m-      </graphicsAlgorithmChildren>[m
+[31m-      <points y="20"/>[m
+[31m-      <points x="20"/>[m
+[31m-      <points x="40" y="20"/>[m
+[31m-      <points x="20" y="40"/>[m
+[31m-      <points y="20"/>[m
+[31m-    </graphicsAlgorithm>[m
+[31m-    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.4 //@connections.5" incomingConnections="//@connections.3"/>[m
+[31m-    <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="//@children.0/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.1">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>[m
+[31m-    </anchors>[m
+[31m-    <anchors xsi:type="pi:ChopboxAnchor"/>[m
+[31m-    <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="//@children.0/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="0.51" relativeHeight="0.93">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>[m
+[31m-    </anchors>[m
+[31m-    <children visible="true">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polyline" lineWidth="5" filled="false" transparency="0.0" style="//@styles.0">[m
+[31m-        <points x="30" y="10"/>[m
+[31m-        <points x="10" y="30"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </children>[m
+[31m-    <children visible="true">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polyline" lineWidth="5" filled="false" transparency="0.0" style="//@styles.0">[m
+[31m-        <points x="10" y="10"/>[m
+[31m-        <points x="30" y="30"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </children>[m
+[31m-  </children>[m
+[31m-  <children xsi:type="pi:ContainerShape" visible="true" active="true">[m
+[31m-    <properties key="independentObject" value="17646641"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="55" x="650" y="130">[m
+[31m-      <graphicsAlgorithmChildren xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="55" style="//@styles.1" cornerHeight="20" cornerWidth="20"/>[m
+[31m-    </graphicsAlgorithm>[m
+[31m-    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.0" incomingConnections="//@connections.5"/>[m
+[31m-    <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="//@children.1/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>[m
+[31m-    </anchors>[m
+[31m-    <children visible="true">[m
+[31m-      <properties key="independentObject" value="17646641"/>[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" width="105" height="30" y="20" style="//@styles.1" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="Script Task"/>[m
+[31m-    </children>[m
+[31m-    <children visible="true">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="16" height="16" x="5" y="5" id="org.activiti.designer.guiscripttask" stretchH="false" stretchV="false" proportional="false"/>[m
+[31m-    </children>[m
+[31m-  </children>[m
+[31m-  <children xsi:type="pi:ContainerShape" visible="true" active="true">[m
+[31m-    <properties key="independentObject" value="23456124"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="840" y="140">[m
+[31m-      <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="3" transparency="0.0" width="35" height="35" style="//@styles.0"/>[m
+[31m-    </graphicsAlgorithm>[m
+[31m-    <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="//@connections.0"/>[m
+[31m-  </children>[m
+[31m-  <children xsi:type="pi:ContainerShape" visible="true" active="true">[m
+[31m-    <properties key="independentObject" value="5585056"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="55" x="120" y="130">[m
+[31m-      <graphicsAlgorithmChildren xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="55" style="//@styles.1" cornerHeight="20" cornerWidth="20"/>[m
+[31m-    </graphicsAlgorithm>[m
+[31m-    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.2" incomingConnections="//@connections.1 //@connections.4"/>[m
+[31m-    <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="//@children.3/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>[m
+[31m-    </anchors>[m
+[31m-    <children visible="true">[m
+[31m-      <properties key="independentObject" value="5585056"/>[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" width="105" height="30" y="20" style="//@styles.1" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="User Task"/>[m
+[31m-    </children>[m
+[31m-    <children visible="true">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="16" height="16" x="5" y="5" id="org.activiti.designer.guiusertask" stretchH="false" stretchV="false" proportional="false"/>[m
+[31m-    </children>[m
+[31m-  </children>[m
+[31m-  <children xsi:type="pi:ContainerShape" visible="true" active="true">[m
+[31m-    <properties key="independentObject" value="10787332"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Ellipse" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="35" height="35" x="30" y="140">[m
+[31m-      <graphicsAlgorithmChildren xsi:type="al:Ellipse" lineWidth="1" transparency="0.0" width="35" height="35" style="//@styles.0"/>[m
+[31m-    </graphicsAlgorithm>[m
+[31m-    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.1"/>[m
+[31m-    <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="//@children.4/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>[m
+[31m-    </anchors>[m
+[31m-    <children visible="true">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="20" height="20" x="7" y="7" id="org.activiti.designer.guimessage.startevent.message" stretchH="false" stretchV="false" proportional="false"/>[m
+[31m-    </children>[m
+[31m-  </children>[m
+[31m-  <children xsi:type="pi:ContainerShape" visible="true" active="true">[m
+[31m-    <properties key="independentObject" value="24261230"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="55" x="320" y="130">[m
+[31m-      <graphicsAlgorithmChildren xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="55" style="//@styles.1" cornerHeight="20" cornerWidth="20"/>[m
+[31m-    </graphicsAlgorithm>[m
+[31m-    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.3" incomingConnections="//@connections.2"/>[m
+[31m-    <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="//@children.5/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeWidth="1.0" relativeHeight="0.51">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>[m
+[31m-    </anchors>[m
+[31m-    <children visible="true">[m
+[31m-      <properties key="independentObject" value="24261230"/>[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" width="105" height="30" y="20" style="//@styles.1" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="User Task"/>[m
+[31m-    </children>[m
+[31m-    <children visible="true">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="16" height="16" x="5" y="5" id="org.activiti.designer.guiusertask" stretchH="false" stretchV="false" proportional="false"/>[m
+[31m-    </children>[m
+[31m-  </children>[m
+[31m-  <styles foreground="//@colors.2" lineWidth="20" id="EVENT">[m
+[31m-    <renderingStyle>[m
+[31m-      <adaptedGradientColoredAreas definedStyleId="bpmnEventStyle" gradientType="0">[m
+[31m-        <adaptedGradientColoredAreas styleAdaption="0">[m
+[31m-          <gradientColor>[m
+[31m-            <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">[m
+[31m-              <color red="250" green="251" blue="252"/>[m
+[31m-            </start>[m
+[31m-            <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">[m
+[31m-              <color red="250" green="251" blue="252"/>[m
+[31m-            </end>[m
+[31m-          </gradientColor>[m
+[31m-        </adaptedGradientColoredAreas>[m
+[31m-        <adaptedGradientColoredAreas styleAdaption="0">[m
+[31m-          <gradientColor>[m
+[31m-            <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </start>[m
+[31m-            <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </end>[m
+[31m-          </gradientColor>[m
+[31m-        </adaptedGradientColoredAreas>[m
+[31m-        <adaptedGradientColoredAreas styleAdaption="0">[m
+[31m-          <gradientColor>[m
+[31m-            <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </start>[m
+[31m-            <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </end>[m
+[31m-          </gradientColor>[m
+[31m-        </adaptedGradientColoredAreas>[m
+[31m-      </adaptedGradientColoredAreas>[m
+[31m-    </renderingStyle>[m
+[31m-  </styles>[m
+[31m-  <styles foreground="//@colors.2" lineWidth="20" id="TASK">[m
+[31m-    <renderingStyle>[m
+[31m-      <adaptedGradientColoredAreas definedStyleId="bpmnTaskStyle" gradientType="0">[m
+[31m-        <adaptedGradientColoredAreas styleAdaption="0">[m
+[31m-          <gradientColor>[m
+[31m-            <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">[m
+[31m-              <color red="250" green="251" blue="252"/>[m
+[31m-            </start>[m
+[31m-            <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">[m
+[31m-              <color red="255" green="255" blue="204"/>[m
+[31m-            </end>[m
+[31m-          </gradientColor>[m
+[31m-        </adaptedGradientColoredAreas>[m
+[31m-        <adaptedGradientColoredAreas styleAdaption="0">[m
+[31m-          <gradientColor>[m
+[31m-            <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </start>[m
+[31m-            <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </end>[m
+[31m-          </gradientColor>[m
+[31m-        </adaptedGradientColoredAreas>[m
+[31m-        <adaptedGradientColoredAreas styleAdaption="0">[m
+[31m-          <gradientColor>[m
+[31m-            <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </start>[m
+[31m-            <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">[m
+[31m-              <color red="229" green="229" blue="194"/>[m
+[31m-            </end>[m
+[31m-          </gradientColor>[m
+[31m-        </adaptedGradientColoredAreas>[m
+[31m-      </adaptedGradientColoredAreas>[m
+[31m-    </renderingStyle>[m
+[31m-  </styles>[m
+[31m-  <styles background="//@colors.2" foreground="//@colors.2" lineWidth="1" id="BPMN-POLYGON-ARROW"/>[m
+[31m-  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.1/@anchors.0" end="//@children.2/@anchors.0">[m
+[31m-    <properties key="independentObject" value="4663000"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0"/>[m
+[31m-    <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" x="10" style="//@styles.1" font="//@fonts.0"/>[m
+[31m-    </connectionDecorators>[m
+[31m-    <connectionDecorators visible="true" locationRelative="true" location="1.0">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" style="//@styles.2">[m
+[31m-        <points x="-10" y="-5" before="3" after="3"/>[m
+[31m-        <points/>[m
+[31m-        <points x="-10" y="5" before="3" after="3"/>[m
+[31m-        <points x="-8" before="3" after="3"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </connectionDecorators>[m
+[31m-  </connections>[m
+[31m-  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.4/@anchors.0" end="//@children.3/@anchors.0">[m
+[31m-    <properties key="independentObject" value="10247421"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0"/>[m
+[31m-    <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" x="10" style="//@styles.1" font="//@fonts.0"/>[m
+[31m-    </connectionDecorators>[m
+[31m-    <connectionDecorators visible="true" locationRelative="true" location="1.0">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" style="//@styles.2">[m
+[31m-        <points x="-10" y="-5" before="3" after="3"/>[m
+[31m-        <points/>[m
+[31m-        <points x="-10" y="5" before="3" after="3"/>[m
+[31m-        <points x="-8" before="3" after="3"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </connectionDecorators>[m
+[31m-  </connections>[m
+[31m-  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.3/@anchors.0" end="//@children.5/@anchors.0">[m
+[31m-    <properties key="independentObject" value="29837400"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0"/>[m
+[31m-    <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" x="10" style="//@styles.1" font="//@fonts.0" value=""/>[m
+[31m-    </connectionDecorators>[m
+[31m-    <connectionDecorators visible="true" locationRelative="true" location="1.0">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" style="//@styles.2">[m
+[31m-        <points x="-10" y="-5" before="3" after="3"/>[m
+[31m-        <points/>[m
+[31m-        <points x="-10" y="5" before="3" after="3"/>[m
+[31m-        <points x="-8" before="3" after="3"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </connectionDecorators>[m
+[31m-  </connections>[m
+[31m-  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.5/@anchors.0" end="//@children.0/@anchors.0">[m
+[31m-    <properties key="independentObject" value="30421573"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0"/>[m
+[31m-    <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" x="10" style="//@styles.1" font="//@fonts.0" value=""/>[m
+[31m-    </connectionDecorators>[m
+[31m-    <connectionDecorators visible="true" locationRelative="true" location="1.0">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" style="//@styles.2">[m
+[31m-        <points x="-10" y="-5" before="3" after="3"/>[m
+[31m-        <points/>[m
+[31m-        <points x="-10" y="5" before="3" after="3"/>[m
+[31m-        <points x="-8" before="3" after="3"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </connectionDecorators>[m
+[31m-  </connections>[m
+[31m-  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.0/@anchors.0" end="//@children.3/@anchors.0">[m
+[31m-    <properties key="independentObject" value="15491455"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0"/>[m
+[31m-    <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" width="79" height="13" x="10" style="//@styles.1" font="//@fonts.0" value="Sent back to edit"/>[m
+[31m-    </connectionDecorators>[m
+[31m-    <connectionDecorators visible="true" locationRelative="true" location="1.0">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" style="//@styles.2">[m
+[31m-        <points x="-10" y="-5" before="3" after="3"/>[m
+[31m-        <points/>[m
+[31m-        <points x="-10" y="5" before="3" after="3"/>[m
+[31m-        <points x="-8" before="3" after="3"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </connectionDecorators>[m
+[31m-    <bendpoints x="529" y="35"/>[m
+[31m-    <bendpoints x="172" y="35"/>[m
+[31m-  </connections>[m
+[31m-  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.0/@anchors.0" end="//@children.1/@anchors.0">[m
+[31m-    <properties key="independentObject" value="28992925"/>[m
+[31m-    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0"/>[m
+[31m-    <connectionDecorators visible="true" active="true" locationRelative="true" location="0.5">[m
+[31m-      <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" transparency="0.0" width="46" height="13" x="-40" y="5" style="//@styles.1" font="//@fonts.0" value="Approved"/>[m
+[31m-    </connectionDecorators>[m
+[31m-    <connectionDecorators visible="true" locationRelative="true" location="1.0">[m
+[31m-      <graphicsAlgorithm xsi:type="al:Polygon" lineWidth="1" filled="true" transparency="0.0" style="//@styles.2">[m
+[31m-        <points x="-10" y="-5" before="3" after="3"/>[m
+[31m-        <points/>[m
+[31m-        <points x="-10" y="5" before="3" after="3"/>[m
+[31m-        <points x="-8" before="3" after="3"/>[m
+[31m-      </graphicsAlgorithm>[m
+[31m-    </connectionDecorators>[m
+[31m-  </connections>[m
+[31m-  <colors red="227" green="238" blue="249"/>[m
+[31m-  <colors red="255" green="255" blue="255"/>[m
+[31m-  <colors/>[m
+[31m-  <fonts name="Arial" size="8"/>[m
+[31m-</pi:Diagram>[m
+[1mdiff --git a/application-activiti-api/src/main/java/org/xwiki/activiti/ActivitiEngine.java b/application-activiti-api/src/main/java/org/xwiki/activiti/ActivitiEngine.java[m
+[1mindex d076868..bbc208e 100644[m
+[1m--- a/application-activiti-api/src/main/java/org/xwiki/activiti/ActivitiEngine.java[m
+[1m+++ b/application-activiti-api/src/main/java/org/xwiki/activiti/ActivitiEngine.java[m
+[36m@@ -22,6 +22,7 @@[m [mpackage org.xwiki.activiti;[m
+ [m
+ import java.io.InputStream;[m
+ import java.util.List;[m
+[32m+[m[32mimport java.util.Map;[m
+ [m
+ import org.activiti.engine.FormService;[m
+ import org.activiti.engine.HistoryService;[m
+[36m@@ -44,7 +45,6 @@[m [mimport org.xwiki.component.annotation.Role;[m
+  * [m
+  * @author Sorin Burjan[m
+  */[m
+[31m-[m
+ @Role[m
+ public interface ActivitiEngine[m
+ {[m
+[36m@@ -71,6 +71,14 @@[m [mpublic interface ActivitiEngine[m
+     List<ProcessDefinition> getDeployedProcesses();[m
+ [m
+     /**[m
+[32m+[m[32m     * A deployed process definition[m
+[32m+[m[32m     *[m[41m [m
+[32m+[m[32m     * @return A deployed process definition[m
+[32m+[m[32m     */[m
+[32m+[m
+[32m+[m[32m    ProcessDefinition getProcessDefinitionById(String processDefinitionId);[m
+[32m+[m
+[32m+[m[32m    /**[m
+      * List of running Process Instances[m
+      * [m
+      * @return List of running Process Instances[m
+[36m@@ -78,8 +86,8 @@[m [mpublic interface ActivitiEngine[m
+     List<Execution> getProcessInstances();[m
+ [m
+     /**[m
+[31m-     * For deleting a deployed Process Definition, the Deployment corresponding to that process must be deleted. This[m
+[31m-     * method will find out the deploymentId of the Process Definition to be deleted, and then deletes the whole[m
+[32m+[m[32m     * For deleting a deployed Process Definition, the Deployment corresponding to that process must also be deleted.[m
+[32m+[m[32m     * This method will find out the deploymentId of the Process Definition to be deleted, and then deletes the whole[m
+      * deployment with all its active tasks and its history[m
+      * [m
+      * @param process definition key which was deployed with the process deployment[m
+[36m@@ -177,4 +185,10 @@[m [mpublic interface ActivitiEngine[m
+ [m
+     void uploadProcessDefinition(String resourceName, InputStream processDefinition);[m
+ [m
+[32m+[m[32m    List<ProcessDefinition> getProcessesStartablyByCurrentUser(String userId);[m
+[32m+[m
+[32m+[m[32m    void submitTaskFormData(String taskId, Map<String, String> properties);[m
+[32m+[m
+[32m+[m[32m    Map<String, Object> getVariables(String executionId);[m
+[32m+[m
+ }[m
+[1mdiff --git a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiScriptService.java b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiScriptService.java[m
+[1mindex 96561b6..d952be9 100644[m
+[1m--- a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiScriptService.java[m
+[1m+++ b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiScriptService.java[m
+[36m@@ -32,7 +32,9 @@[m [mimport org.activiti.engine.RuntimeService;[m
+ import org.activiti.engine.TaskService;[m
+ import org.xwiki.activiti.ActivitiEngine;[m
+ import org.xwiki.activiti.XWikiActivitiBridge;[m
+[32m+[m[32mimport org.xwiki.bridge.DocumentAccessBridge;[m
+ import org.xwiki.component.annotation.Component;[m
+[32m+[m[32mimport org.xwiki.model.reference.EntityReferenceSerializer;[m
+ import org.xwiki.script.service.ScriptService;[m
+ [m
+ /**[m
+[36m@@ -51,9 +53,15 @@[m [mpublic class ActivitiScriptService implements ScriptService[m
+     @Inject[m
+     private XWikiActivitiBridge bridge;[m
+ [m
+[32m+[m[32m    @Inject[m
+[32m+[m[32m    private DocumentAccessBridge documentAccessBridge;[m
+[32m+[m
+[32m+[m[32m    @Inject[m
+[32m+[m[32m    private EntityReferenceSerializer<String> entityReferenceSerializer;[m
+[32m+[m
+     public RepositoryScriptService getRepository()[m
+     {[m
+[31m-        return new RepositoryScriptService(activiti, bridge);[m
+[32m+[m[32m        return new RepositoryScriptService(activiti, bridge, documentAccessBridge, entityReferenceSerializer);[m
+     }[m
+ [m
+     public RuntimeScriptService getRuntime()[m
+[1mdiff --git a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiUserEntityManager.java b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiUserEntityManager.java[m
+[1mindex 445cef7..fe4fee6 100644[m
+[1m--- a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiUserEntityManager.java[m
+[1m+++ b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/ActivitiUserEntityManager.java[m
+[36m@@ -151,7 +151,7 @@[m [mpublic class ActivitiUserEntityManager extends UserEntityManager implements Sess[m
+         } catch (QueryException e) {[m
+             logger.error("Unable to execute query", e);[m
+         }[m
+[31m-        logger.info("called from User ENtity: " + groups);[m
+[32m+[m[32m        logger.info("called from User Entity: " + groups);[m
+         return groups;[m
+     }[m
+ [m
+[1mdiff --git a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/DefaultActivitiEngine.java b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/DefaultActivitiEngine.java[m
+[1mindex 59073d3..2914311 100644[m
+[1m--- a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/DefaultActivitiEngine.java[m
+[1m+++ b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/DefaultActivitiEngine.java[m
+[36m@@ -55,6 +55,8 @@[m [mimport org.xwiki.component.annotation.Component;[m
+ import org.xwiki.component.manager.ComponentManager;[m
+ import org.xwiki.component.phase.Initializable;[m
+ import org.xwiki.component.phase.InitializationException;[m
+[32m+[m[32mimport org.xwiki.model.reference.DocumentReference;[m
+[32m+[m[32mimport org.xwiki.model.reference.EntityReferenceSerializer;[m
+ import org.xwiki.script.ScriptContextManager;[m
+ [m
+ /**[m
+[36m@@ -74,10 +76,10 @@[m [mpublic class DefaultActivitiEngine implements ActivitiEngine, Initializable[m
+     private DocumentAccessBridge documentAccessBridge;[m
+ [m
+     @Inject[m
+[31m-    private ComponentManager componentManager;[m
+[32m+[m[32m    private EntityReferenceSerializer<String> entityReferenceSerializer;[m
+ [m
+[31m-    // @Inject[m
+[31m-    // private ScriptServiceManager scriptServiceManager;[m
+[32m+[m[32m    @Inject[m
+[32m+[m[32m    private ComponentManager componentManager;[m
+ [m
+     @Inject[m
+     private org.xwiki.context.Execution execution;[m
+[36m@@ -111,14 +113,14 @@[m [mpublic class DefaultActivitiEngine implements ActivitiEngine, Initializable[m
+             ProcessEngineConfiguration.createProcessEngineConfigurationFromResourceDefault();[m
+         processEngine = configuration.buildProcessEngine();[m
+ [m
+[31m-        // Override the default User and Group Factories This is done after the process engine is built because[m
+[32m+[m[32m        // Override the default User and Group Factories. This is done after the process engine is built because[m
+         // otherwise the getSessionFactories() method will return null[m
+         Map<Class< ? >, org.activiti.engine.impl.interceptor.SessionFactory> sessionFactories =[m
+             ((ProcessEngineConfigurationImpl) configuration).getSessionFactories();[m
+         sessionFactories.put(UserEntityManager.class, userEntityManagerFactory);[m
+         sessionFactories.put(GroupEntityManager.class, groupEntityManagerFactory);[m
+ [m
+[31m-        // We inject Script Service Manager so we allow the usage of services from within Activiti[m
+[32m+[m[32m        // We inject Script Service Manager thus allowing the usage of services from within Activiti[m
+         Map<Object, Object> beans = new HashMap<Object, Object>();[m
+         // beans.put("services", this.scriptServiceManager);[m
+         beans.putAll(this.scriptContextManager.getScriptContext().getBindings(ScriptContext.ENGINE_SCOPE));[m
+[36m@@ -210,8 +212,8 @@[m [mpublic class DefaultActivitiEngine implements ActivitiEngine, Initializable[m
+     @Override[m
+     public List<Task> getCurrentUserTasks()[m
+     {[m
+[31m-        return this.processEngine.getTaskService().createTaskQuery()[m
+[31m-            .taskAssignee(documentAccessBridge.getCurrentUserReference().toString()).list();[m
+[32m+[m[32m        return this.processEngine.getTaskService().createTaskQuery().taskAssignee(this.getCurrentUserReference())[m
+[32m+[m[32m            .list();[m
+     }[m
+ [m
+     @Override[m
+[36m@@ -220,8 +222,7 @@[m [mpublic class DefaultActivitiEngine implements ActivitiEngine, Initializable[m
+         // Order the list descending by the end time of the tasks, so the latest finished tasks will be on top of the[m
+         // list[m
+         return this.processEngine.getHistoryService().createHistoricTaskInstanceQuery()[m
+[31m-            .taskAssignee(documentAccessBridge.getCurrentUserReference().toString()).finished()[m
+[31m-            .orderByHistoricTaskInstanceEndTime().desc().list();[m
+[32m+[m[32m            .taskAssignee(this.getCurrentUserReference()).finished().orderByHistoricTaskInstanceEndTime().desc().list();[m
+     }[m
+ [m
+     @Override[m
+[36m@@ -245,14 +246,14 @@[m [mpublic class DefaultActivitiEngine implements ActivitiEngine, Initializable[m
+     @Override[m
+     public List<Task> getCurrentUserCandidateTasks()[m
+     {[m
+[31m-        return this.processEngine.getTaskService().createTaskQuery()[m
+[31m-            .taskCandidateUser(documentAccessBridge.getCurrentUserReference().toString()).taskUnassigned().list();[m
+[32m+[m[32m        return this.processEngine.getTaskService().createTaskQuery().taskCandidateUser(this.getCurrentUserReference())[m
+[32m+[m[32m            .taskUnassigned().list();[m
+     }[m
+ [m
+     @Override[m
+     public void claimTask(String taskId)[m
+     {[m
+[31m-        this.processEngine.getTaskService().claim(taskId, documentAccessBridge.getCurrentUserReference().toString());[m
+[32m+[m[32m        this.processEngine.getTaskService().claim(taskId, this.getCurrentUserReference());[m
+     }[m
+ [m
+     @Override[m
+[36m@@ -287,4 +288,40 @@[m [mpublic class DefaultActivitiEngine implements ActivitiEngine, Initializable[m
+     {[m
+         this.processEngine.getRepositoryService().createDeployment().addInputStream(resourceName, inputStream).deploy();[m
+     }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public List<ProcessDefinition> getProcessesStartablyByCurrentUser(String userId)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        return this.processEngine.getRepositoryService().createProcessDefinitionQuery().startableByUser(userId).list();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public void submitTaskFormData(String taskId, Map<String, String> properties)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        // Make sure the user submitting the form is the actual Task Assignee[m
+[32m+[m[32m        Task currentTask = this.processEngine.getTaskService().createTaskQuery().taskId(taskId).singleResult();[m
+[32m+[m[32m        if (currentTask.getAssignee().equals(this.getCurrentUserReference())) {[m
+[32m+[m[32m            this.processEngine.getFormService().submitTaskFormData(taskId, properties);[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public Map<String, Object> getVariables(String executionId)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        return this.processEngine.getRuntimeService().getVariables(executionId);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private String getCurrentUserReference()[m
+[32m+[m[32m    {[m
+[32m+[m[32m        DocumentReference docRef = documentAccessBridge.getCurrentUserReference();[m
+[32m+[m[32m        return this.entityReferenceSerializer.serialize(docRef);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public ProcessDefinition getProcessDefinitionById(String processDefinitionId)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        return this.processEngine.getRepositoryService().getProcessDefinition(processDefinitionId);[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+ }[m
+[1mdiff --git a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/FormScriptService.java b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/FormScriptService.java[m
+[1mindex 1d9af18..45cb39b 100644[m
+[1m--- a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/FormScriptService.java[m
+[1m+++ b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/FormScriptService.java[m
+[36m@@ -1,22 +1,13 @@[m
+ package org.xwiki.activiti.internal;[m
+ [m
+ import java.util.List;[m
+[31m-[m
+[31m-import javax.inject.Inject;[m
+[32m+[m[32mimport java.util.Map;[m
+ [m
+ import org.activiti.engine.form.FormProperty;[m
+[31m-import org.slf4j.Logger;[m
+ import org.xwiki.activiti.ActivitiEngine;[m
+[31m-import org.xwiki.bridge.DocumentAccessBridge;[m
+ [m
+ public class FormScriptService[m
+ {[m
+[31m-    @Inject[m
+[31m-    private Logger logger;[m
+[31m-[m
+[31m-    @Inject[m
+[31m-    private DocumentAccessBridge documentAccessBridge;[m
+[31m-[m
+     private ActivitiEngine activitiEngine;[m
+ [m
+     FormScriptService(ActivitiEngine activitiEngine)[m
+[36m@@ -32,4 +23,9 @@[m [mpublic class FormScriptService[m
+     {[m
+         return this.activitiEngine.getTaskFormProperties(taskId);[m
+     }[m
+[32m+[m
+[32m+[m[32m    public void submitTaskFormData(String taskId, Map<String, String> properties)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        this.activitiEngine.submitTaskFormData(taskId, properties);[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RepositoryScriptService.java b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RepositoryScriptService.java[m
+[1mindex 7d25b80..6737467 100644[m
+[1m--- a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RepositoryScriptService.java[m
+[1m+++ b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RepositoryScriptService.java[m
+[36m@@ -3,28 +3,30 @@[m [mpackage org.xwiki.activiti.internal;[m
+ import java.io.InputStream;[m
+ import java.util.List;[m
+ [m
+[31m-import javax.inject.Inject;[m
+[31m-[m
+ import org.activiti.engine.repository.ProcessDefinition;[m
+[31m-import org.slf4j.Logger;[m
+ import org.xwiki.activiti.ActivitiEngine;[m
+ import org.xwiki.activiti.XWikiActivitiBridge;[m
+[32m+[m[32mimport org.xwiki.bridge.DocumentAccessBridge;[m
+[32m+[m[32mimport org.xwiki.model.reference.DocumentReference;[m
+[32m+[m[32mimport org.xwiki.model.reference.EntityReferenceSerializer;[m
+ [m
+ public class RepositoryScriptService[m
+ {[m
+[31m-    @Inject[m
+[31m-    private Logger logger;[m
+[31m-[m
+[31m-    // XWikiActivitiBridge bridge = Utils.getComponent(XWikiActivitiBridge.class);[m
+[31m-[m
+     private ActivitiEngine activitiEngine;[m
+ [m
+     private XWikiActivitiBridge bridge;[m
+ [m
+[31m-    RepositoryScriptService(ActivitiEngine activitiEngine, XWikiActivitiBridge bridge)[m
+[32m+[m[32m    private DocumentAccessBridge documentAccessBridge;[m
+[32m+[m
+[32m+[m[32m    private EntityReferenceSerializer<String> entityReferenceSerializer;[m
+[32m+[m
+[32m+[m[32m    RepositoryScriptService(ActivitiEngine activitiEngine, XWikiActivitiBridge bridge,[m
+[32m+[m[32m        DocumentAccessBridge documentAccessBridge, EntityReferenceSerializer<String> entityReferenceSerializer)[m
+     {[m
+         this.activitiEngine = activitiEngine;[m
+         this.bridge = bridge;[m
+[32m+[m[32m        this.documentAccessBridge = documentAccessBridge;[m
+[32m+[m[32m        this.entityReferenceSerializer = entityReferenceSerializer;[m
+     }[m
+ [m
+     /**[m
+[36m@@ -42,7 +44,6 @@[m [mpublic class RepositoryScriptService[m
+      */[m
+     public void deleteProcessDefinition(String processDefinitionId)[m
+     {[m
+[31m-        System.out.println("Deleting process definition: " + this.bridge.hasPermissions());[m
+         if (this.bridge.hasPermissions()) {[m
+             this.activitiEngine.deleteDeploymentByProcessDefinitionKey(processDefinitionId);[m
+         }[m
+[36m@@ -61,4 +62,16 @@[m [mpublic class RepositoryScriptService[m
+         }[m
+     }[m
+ [m
+[32m+[m[32m    public List<ProcessDefinition> getProcessesStartablyByCurrentUser()[m
+[32m+[m[32m    {[m
+[32m+[m
+[32m+[m[32m        DocumentReference docRef = documentAccessBridge.getCurrentUserReference();[m
+[32m+[m[32m        String userId = this.entityReferenceSerializer.serialize(docRef);[m
+[32m+[m[32m        return this.activitiEngine.getProcessesStartablyByCurrentUser(userId);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public ProcessDefinition getProcessDefinitionById(String processDefinitionId)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        return this.activitiEngine.getProcessDefinitionById(processDefinitionId);[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RuntimeScriptService.java b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RuntimeScriptService.java[m
+[1mindex 5043313..d11ba1d 100644[m
+[1m--- a/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RuntimeScriptService.java[m
+[1m+++ b/application-activiti-api/src/main/java/org/xwiki/activiti/internal/RuntimeScriptService.java[m
+[36m@@ -1,6 +1,7 @@[m
+ package org.xwiki.activiti.internal;[m
+ [m
+ import java.util.List;[m
+[32m+[m[32mimport java.util.Map;[m
+ [m
+ import javax.inject.Inject;[m
+ [m
+[36m@@ -41,4 +42,9 @@[m [mpublic class RuntimeScriptService[m
+     {[m
+         this.activitiEngine.startProcessInstanceById(processId);[m
+     }[m
+[32m+[m
+[32m+[m[32m    public Map<String, Object> getVariables(String executionId)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        return this.activitiEngine.getVariables(executionId);[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/application-activiti-api/src/main/resources/DemoProcess1.bpmn b/application-activiti-api/src/main/resources/DemoProcess1.bpmn[m
+[1mindex 7c579fc..95cab9a 100644[m
+[1m--- a/application-activiti-api/src/main/resources/DemoProcess1.bpmn[m
+[1m+++ b/application-activiti-api/src/main/resources/DemoProcess1.bpmn[m
+[36m@@ -1,21 +1,21 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+ <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">[m
+[31m-  <process id="demoProcess1" name="Demo Process 1" isExecutable="true">[m
+[32m+[m[32m  <process id="demoProcess1" name="Demo Process 1" isExecutable="true" activiti:candidateStarterUsers="xwiki:XWiki.sorinello">[m
+     <documentation>Demo Process 1. User Tasks</documentation>[m
+     <startEvent id="startevent1" name="Start"></startEvent>[m
+     <userTask id="usertask1" name="Fill in Form" activiti:assignee="xwiki:XWiki.sorinello">[m
+       <documentation>This is directly assigned to User xwiki:XWiki.sorinello.[m
+ Form using all the Activiti internal datatypes</documentation>[m
+       <extensionElements>[m
+[31m-        <activiti:formProperty id="nameId" name="Name" type="string"></activiti:formProperty>[m
+[31m-        <activiti:formProperty id="longId" name="Long" type="long"></activiti:formProperty>[m
+[31m-        <activiti:formProperty id="enumId" name="Enumeration" type="enum">[m
+[32m+[m[32m        <activiti:formProperty id="nameId" name="Form Name" type="string" variable="Nave in Variable" required="true"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="longId" name="Form Long" type="long" variable="Long in Variable" required="true"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="enumId" name="Form Enumeration" type="enum" variable="Enum in Variable" required="true">[m
+           <activiti:value id="FERRAR_I" name="ferrari"></activiti:value>[m
+           <activiti:value id="DACI_A" name="dacia"></activiti:value>[m
+           <activiti:value id="RENAUL_T" name="renault"></activiti:value>[m
+         </activiti:formProperty>[m
+[31m-        <activiti:formProperty id="dateId" name="Date" type="date"></activiti:formProperty>[m
+[31m-        <activiti:formProperty id="booleanId" name="Boolean" type="boolean"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="dateId" name="Form Date" type="date" variable="Date in Variable"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="booleanId" name="FOrm Boolean" type="boolean" variable="Variable in Boolean"></activiti:formProperty>[m
+       </extensionElements>[m
+     </userTask>[m
+     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>[m
+[1mdiff --git a/application-activiti-api/src/main/resources/DemoProcess2.bpmn b/application-activiti-api/src/main/resources/DemoProcess2.bpmn[m
+[1mindex 7278b07..e7edce6 100644[m
+[1m--- a/application-activiti-api/src/main/resources/DemoProcess2.bpmn[m
+[1m+++ b/application-activiti-api/src/main/resources/DemoProcess2.bpmn[m
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+ <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">[m
+[31m-  <process id="demoProcess2" name="Demo Process 2" isExecutable="true">[m
+[32m+[m[32m  <process id="demoProcess2" name="Demo Process 2" isExecutable="true" activiti:candidateStarterGroups="xwiki:XWiki.QA">[m
+     <documentation>Demo Process 2. User Tasks, Parallel Gateway</documentation>[m
+     <startEvent id="startevent1" name="Start"></startEvent>[m
+     <userTask id="solicitareCredit" name="Solicitare Credit" activiti:candidateGroups="xwiki:XWiki.FrontOffice">[m
+[1mdiff --git a/application-activiti-api/src/main/resources/DemoProcess3.bpmn b/application-activiti-api/src/main/resources/DemoProcess3.bpmn[m
+[1mindex 2308a41..18e34ab 100644[m
+[1m--- a/application-activiti-api/src/main/resources/DemoProcess3.bpmn[m
+[1m+++ b/application-activiti-api/src/main/resources/DemoProcess3.bpmn[m
+[36m@@ -7,10 +7,10 @@[m
+     <userTask id="usertask1" name="Enter Information" activiti:candidateGroups="xwiki:XWiki.Evaluare">[m
+       <documentation>Add some simple information</documentation>[m
+       <extensionElements>[m
+[31m-        <activiti:formProperty id="name" name="Your Name" type="string"></activiti:formProperty>[m
+[31m-        <activiti:formProperty id="email" name="Your E-Mail" type="string"></activiti:formProperty>[m
+[31m-        <activiti:formProperty id="ammount" name="Ammount Requested" type="long"></activiti:formProperty>[m
+[31m-        <activiti:formProperty id="criteria" name="Criteria Met" type="boolean"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="name" name="Your Name" type="string" required="true"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="email" name="Your E-Mail" type="string" required="true"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="ammount" name="Ammount Requested" type="long" required="true"></activiti:formProperty>[m
+[32m+[m[32m        <activiti:formProperty id="criteria" name="Criteria Met" type="boolean" required="true"></activiti:formProperty>[m
+       </extensionElements>[m
+     </userTask>[m
+     <sequenceFlow id="flow4" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>[m
+[1mdiff --git a/application-activiti-bridge/src/main/java/org/xwiki/activiti/bridge/internal/DefaultXWikiActivitiBridge.java b/application-activiti-bridge/src/main/java/org/xwiki/activiti/bridge/internal/DefaultXWikiActivitiBridge.java[m
+[1mindex cf64527..34d9fb1 100644[m
+[1m--- a/application-activiti-bridge/src/main/java/org/xwiki/activiti/bridge/internal/DefaultXWikiActivitiBridge.java[m
+[1m+++ b/application-activiti-bridge/src/main/java/org/xwiki/activiti/bridge/internal/DefaultXWikiActivitiBridge.java[m
+[36m@@ -55,12 +55,6 @@[m [mpublic class DefaultXWikiActivitiBridge implements XWikiActivitiBridge[m
+         return xwikiContext.isMainWiki() && xwikiContext.getWiki().getRightService().hasAdminRights(xwikiContext);[m
+     }[m
+ [m
+[31m-    public String getDocumentReference(Object xwikiDocument)[m
+[31m-    {[m
+[31m-        return null;[m
+[31m-[m
+[31m-    }[m
+[31m-[m
+     private XWikiContext getXWikiContext()[m
+     {[m
+         return (XWikiContext) this.execution.getContext().getProperty(XWikiContext.EXECUTIONCONTEXT_KEY);[m
+[1mdiff --git a/application-activiti-listener/src/main/java/org/xwiki/activiti/listener/internal/DefaultActivitiEventListener.java b/application-activiti-listener/src/main/java/org/xwiki/activiti/listener/internal/DefaultActivitiEventListener.java[m
+[1mindex 333e91e..67d14a7 100644[m
+[1m--- a/application-activiti-listener/src/main/java/org/xwiki/activiti/listener/internal/DefaultActivitiEventListener.java[m
+[1m+++ b/application-activiti-listener/src/main/java/org/xwiki/activiti/listener/internal/DefaultActivitiEventListener.java[m
+[36m@@ -45,6 +45,15 @@[m [mpublic class DefaultActivitiEventListener implements EventListener[m
+     @Inject[m
+     private Logger logger;[m
+ [m
+[32m+[m[32m    private String startMappingQuery =[m
+[32m+[m[32m        "select mapping.processId from Document doc, doc.object(Activiti.EventStartMappingClass) as mapping where mapping.event = :event and mapping.space = :space";[m
+[32m+[m
+[32m+[m[32m    private String messageMappingQuery =[m
+[32m+[m[32m        "select mapping.message from Document doc, doc.object(Activiti.EventMessageMappingClass) as mapping where mapping.event = :event and mapping.space = :space";[m
+[32m+[m
+[32m+[m[32m    private String signalMappingQuery =[m
+[32m+[m[32m        "select mapping.signal from Document doc, doc.object(Activiti.EventSignalMappingClass) as mapping where mapping.event = :event and mapping.space = :space";[m
+[32m+[m
+     @Override[m
+     public List<Event> getEvents()[m
+     {[m
+[36m@@ -68,92 +77,66 @@[m [mpublic class DefaultActivitiEventListener implements EventListener[m
+         String documentSpace = documentReference.getParent().getName();[m
+         Boolean documentExists = documentAccessBridge.exists(documentReference);[m
+ [m
+[31m-        String queryStatement =[m
+[31m-            "select mapping.message from Document doc, doc.object(Activiti.EventListenerMappingClass) as mapping where mapping.event = :event and mapping.space = :space";[m
+[32m+[m[32m        // Query to get the List of Processes to be started[m
+ [m
+         if (event instanceof DocumentCreatedEvent) {[m
+[31m-[m
+[31m-            try {[m
+[31m-                List<String> queryResults =[m
+[31m-                    queryManager.createQuery(queryStatement, Query.XWQL).bindValue("event", "DocumentCreatedEvent")[m
+[31m-                        .bindValue("space", documentSpace).execute();[m
+[31m-                if (!queryResults.isEmpty()) {[m
+[31m-                    ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);[m
+[31m-[m
+[31m-                    for (int i = 0; i < queryResults.size(); i++) {[m
+[31m-                        ProcessInstance processInstance =[m
+[31m-                            activiti.getProcessEngine().getRuntimeService()[m
+[31m-                                .startProcessInstanceByMessage(queryResults.get(i));[m
+[31m-                        activiti.getProcessEngine().getRuntimeService()[m
+[31m-                            .setVariable(processInstance.getId(), "document Name", documentName);[m
+[31m-                        activiti.getProcessEngine().getRuntimeService()[m
+[31m-                            .setVariable(processInstance.getId(), "document Space", documentSpace);[m
+[31m-                        logger.info("DocumentCreatedEvent fired. Document: " + documentName + " was created in space: "[m
+[31m-                            + documentSpace + ". Sending message " + queryResults.get(i) + " to Activiti Engine");[m
+[31m-                    }[m
+[31m-                }[m
+[31m-            } catch (QueryException e) {[m
+[31m-                logger.error("Query failed. ", e);[m
+[31m-            } catch (ComponentLookupException e) {[m
+[31m-                logger.error("Unable to get Activiti Engine. ", e);[m
+[31m-                e.printStackTrace();[m
+[31m-            }[m
+[32m+[m[32m            this.computeOnEvent("DocumentCreatedEvent", documentName, documentSpace);[m
+         }[m
+ [m
+         if (event instanceof DocumentUpdatedEvent) {[m
+[31m-            try {[m
+[31m-                List<String> queryResults =[m
+[31m-                    queryManager.createQuery(queryStatement, Query.XWQL).bindValue("event", "DocumentUpdatedEvent")[m
+[31m-                        .bindValue("space", documentSpace).execute();[m
+[31m-                if (!queryResults.isEmpty()) {[m
+[31m-                    ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);[m
+[31m-[m
+[31m-                    for (int i = 0; i < queryResults.size(); i++) {[m
+[31m-                        ProcessInstance processInstance =[m
+[31m-                            activiti.getProcessEngine().getRuntimeService()[m
+[31m-                                .startProcessInstanceByMessage(queryResults.get(i));[m
+[31m-                        activiti.getProcessEngine().getRuntimeService()[m
+[31m-                            .setVariable(processInstance.getId(), "document Name", documentName);[m
+[31m-                        activiti.getProcessEngine().getRuntimeService()[m
+[31m-                            .setVariable(processInstance.getId(), "document Space", documentSpace);[m
+[31m-                        logger.info("DocumentUpdatedEvent fired. Document: " + documentName + " was updated in space: "[m
+[31m-                            + documentSpace + ". Sending message " + queryResults.get(i) + " to Activiti Engine");[m
+[31m-                    }[m
+[31m-                }[m
+[31m-            } catch (QueryException e) {[m
+[31m-                logger.error("Query failed. ", e);[m
+[31m-            } catch (ComponentLookupException e) {[m
+[31m-                logger.error("Unable to get Activiti Engine. ", e);[m
+[31m-                e.printStackTrace();[m
+[31m-            }[m
+[32m+[m[32m            this.computeOnEvent("DocumentUpdatedEvent", documentName, documentSpace);[m
+         }[m
+ [m
+         if (event instanceof DocumentDeletedEvent) {[m
+[31m-            try {[m
+[31m-                List<String> queryResults =[m
+[31m-                    queryManager.createQuery(queryStatement, Query.XWQL).bindValue("event", "DocumentDeletedEvent")[m
+[31m-                        .bindValue("space", documentSpace).execute();[m
+[31m-                if (!queryResults.isEmpty()) {[m
+[31m-                    ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);[m
+[31m-[m
+[31m-                    for (int i = 0; i < queryResults.size(); i++) {[m
+[31m-                        ProcessInstance processInstance =[m
+[31m-                            activiti.getProcessEngine().getRuntimeService()[m
+[31m-                                .startProcessInstanceByMessage(queryResults.get(i));[m
+[31m-                        activiti.getProcessEngine().getRuntimeService()[m
+[31m-                            .setVariable(processInstance.getId(), "document Name", documentName);[m
+[32m+[m[32m            this.computeOnEvent("DocumentDeletedEvent", documentName, documentSpace);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void computeOnEvent(String event, String documentName, String documentSpace)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        try {[m
+[32m+[m[32m            List<String> startMappingResults =[m
+[32m+[m[32m                queryManager.createQuery(this.startMappingQuery, Query.XWQL).bindValue("event", event)[m
+[32m+[m[32m                    .bindValue("space", documentSpace).execute();[m
+[32m+[m[32m            List<String> messageMappingResults =[m
+[32m+[m[32m                queryManager.createQuery(this.messageMappingQuery, Query.XWQL).bindValue("event", event)[m
+[32m+[m[32m                    .bindValue("space", documentSpace).execute();[m
+[32m+[m[32m            List<String> signalMappingResults =[m
+[32m+[m[32m                queryManager.createQuery(this.signalMappingQuery, Query.XWQL).bindValue("event", event)[m
+[32m+[m[32m                    .bindValue("space", documentSpace).execute();[m
+[32m+[m[32m            if (!startMappingResults.isEmpty() || !messageMappingResults.isEmpty() || !signalMappingResults.isEmpty()) {[m
+[32m+[m[32m                ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);[m
+[32m+[m
+[32m+[m[32m                for (int i = 0; i < startMappingResults.size(); i++) {[m
+[32m+[m[32m                    ProcessInstance processInstance =[m
+                         activiti.getProcessEngine().getRuntimeService()[m
+[31m-                            .setVariable(processInstance.getId(), "document Space", documentSpace);[m
+[31m-                        logger.info("DocumentDeletedEvent fired. Document: " + documentName + " was deleted in space: "[m
+[31m-                            + documentSpace + ". Sending message " + queryResults.get(i) + " to Activiti Engine");[m
+[31m-                    }[m
+[32m+[m[32m                            .startProcessInstanceById(startMappingResults.get(i));[m
+[32m+[m[32m                    activiti.getProcessEngine().getRuntimeService()[m
+[32m+[m[32m                        .setVariable(processInstance.getId(), "document Name", documentName);[m
+[32m+[m[32m                    activiti.getProcessEngine().getRuntimeService()[m
+[32m+[m[32m                        .setVariable(processInstance.getId(), "document Space", documentSpace);[m
+[32m+[m[32m                    logger.info(event + " fired in space " + documentSpace + " on document " + documentName[m
+[32m+[m[32m                        + ". Starting Process: " + startMappingResults.get(i) + " to Activiti Engine");[m
+[32m+[m[32m                }[m
+[32m+[m[32m                for (int i = 0; i < messageMappingResults.size(); i++) {[m
+[32m+[m
+[32m+[m[32m                    // activiti.getRuntimeService().[m
+[32m+[m
+[32m+[m[32m                    logger.info(event + " fired in space " + documentSpace + " on document " + documentName[m
+[32m+[m[32m                        + ". Sending message " + signalMappingResults.get(i) + " to Activiti Engine");[m
+[32m+[m[32m                }[m
+[32m+[m[32m                for (int i = 0; i < signalMappingResults.size(); i++) {[m
+[32m+[m[32m                    activiti.getRuntimeService().signalEventReceived(signalMappingResults.get(i));[m
+[32m+[m[32m                    logger.info(event + " fired in space " + documentSpace + " on document " + documentName[m
+[32m+[m[32m                        + ". Sending signal " + signalMappingResults.get(i) + " to Activiti Engine");[m
+                 }[m
+[31m-            } catch (QueryException e) {[m
+[31m-                logger.error("Query failed. ", e);[m
+[31m-            } catch (ComponentLookupException e) {[m
+[31m-                logger.error("Unable to get Activiti Engine. ", e);[m
+[31m-                e.printStackTrace();[m
+             }[m
+[32m+[m[32m        } catch (QueryException e) {[m
+[32m+[m[32m            logger.error("Query failed. ", e);[m
+[32m+[m[32m        } catch (ComponentLookupException e) {[m
+[32m+[m[32m            logger.error("Unable to get Activiti Engine. ", e);[m
+[32m+[m[32m            e.printStackTrace();[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/application-activiti-ui/src/main/resources/Activiti/ActivitiAdmin.xml b/application-activiti-ui/src/main/resources/Activiti/ActivitiAdmin.xml[m
+[1mindex e354f03..edd099f 100644[m
+[1m--- a/application-activiti-ui/src/main/resources/Activiti/ActivitiAdmin.xml[m
+[1m+++ b/application-activiti-ui/src/main/resources/Activiti/ActivitiAdmin.xml[m
+[36m@@ -1,356 +1,221 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+[31m-[m
+ <xwikidoc>[m
+[31m-  <web>Activiti</web>[m
+[31m-  <name>ActivitiAdmin</name>[m
+[31m-  <language/>[m
+[31m-  <defaultLanguage/>[m
+[31m-  <translation>0</translation>[m
+[31m-  <parent>XWiki.WebHome</parent>[m
+[31m-  <creator>xwiki:XWiki.Admin</creator>[m
+[31m-  <author>xwiki:XWiki.Admin</author>[m
+[31m-  <customClass/>[m
+[31m-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>[m
+[31m-  <creationDate>1366545229000</creationDate>[m
+[31m-  <date>1368986478000</date>[m
+[31m-  <contentUpdateDate>1368986478000</contentUpdateDate>[m
+[31m-  <version>1.1</version>[m
+[31m-  <title>ActivitiAdmin</title>[m
+[31m-  <template/>[m
+[31m-  <defaultTemplate/>[m
+[31m-  <validationScript/>[m
+[31m-  <comment/>[m
+[31m-  <minorEdit>false</minorEdit>[m
+[31m-  <syntaxId>xwiki/2.1</syntaxId>[m
+[31m-  <hidden>false</hidden>[m
+[31m-  <object>[m
+[31m-    <class>[m
+[31m-      <name>XWiki.ConfigurableClass</name>[m
+[31m-      <customClass/>[m
+[31m-      <customMapping/>[m
+[31m-      <defaultViewSheet/>[m
+[31m-      <defaultEditSheet/>[m
+[31m-      <defaultWeb/>[m
+[31m-      <nameField/>[m
+[31m-      <validationScript/>[m
+[31m-      <codeToExecute>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <editor>---</editor>[m
+[31m-        <name>codeToExecute</name>[m
+[31m-        <number>7</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>codeToExecute</prettyName>[m
+[31m-        <rows>5</rows>[m
+[31m-        <size>40</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[31m-      </codeToExecute>[m
+[31m-      <configurationClass>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>configurationClass</name>[m
+[31m-        <number>3</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>configurationClass</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </configurationClass>[m
+[31m-      <configureGlobally>[m
+[31m-        <defaultValue/>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <displayFormType>checkbox</displayFormType>[m
+[31m-        <displayType/>[m
+[31m-        <name>configureGlobally</name>[m
+[31m-        <number>4</number>[m
+[31m-        <prettyName>configureGlobally</prettyName>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>[m
+[31m-      </configureGlobally>[m
+[31m-      <displayInSection>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>displayInSection</name>[m
+[31m-        <number>1</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>displayInSection</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </displayInSection>[m
+[31m-      <heading>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>heading</name>[m
+[31m-        <number>2</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>heading</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </heading>[m
+[31m-      <iconAttachment>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>iconAttachment</name>[m
+[31m-        <number>8</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>iconAttachment</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </iconAttachment>[m
+[31m-      <linkPrefix>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>linkPrefix</name>[m
+[31m-        <number>5</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>linkPrefix</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </linkPrefix>[m
+[31m-      <propertiesToShow>[m
+[31m-        <cache>0</cache>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <displayType>input</displayType>[m
+[31m-        <multiSelect>1</multiSelect>[m
+[31m-        <name>propertiesToShow</name>[m
+[31m-        <number>6</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>propertiesToShow</prettyName>[m
+[31m-        <relationalStorage>1</relationalStorage>[m
+[31m-        <separator> </separator>[m
+[31m-        <separators> ,|</separators>[m
+[31m-        <size>20</size>[m
+[31m-        <sort>none</sort>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <values/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[31m-      </propertiesToShow>[m
+[31m-    </class>[m
+[31m-    <name>Activiti.ActivitiAdmin</name>[m
+[31m-    <number>0</number>[m
+[31m-    <className>XWiki.ConfigurableClass</className>[m
+[31m-    <guid>7a623beb-f7a6-4750-a556-9e56967d8aa0</guid>[m
+[31m-    <property>[m
+[31m-      <codeToExecute>{{include document='Activiti.ActivitiAdmin'/}}</codeToExecute>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <configurationClass/>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <configureGlobally>1</configureGlobally>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <displayInSection>Activiti</displayInSection>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <heading/>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <iconAttachment/>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <linkPrefix/>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <propertiesToShow/>[m
+[31m-    </property>[m
+[31m-  </object>[m
+[31m-  <content>{{velocity}}[m
+[31m-#if($hasAdmin &amp;&amp; $xcontext.isMainWiki())[m
+[31m-  #if($request.startProcessInstance)[m
+[31m-    #set($discard = $services.activiti.runtime.startProcessInstanceById($request.startProcessInstance))[m
+[31m-  #elseif($request.deleteProcessDefinition)[m
+[31m-    #set($discard = $services.activiti.repository.deleteProcessDefinition($request.deleteProcessDefinition))[m
+[31m-  #elseif($request.uploadProcessDefinition)[m
+[31m-    ## $request.uploadProcessDefinition[m
+[31m-    ## Uploads: $uploads[m
+[31m-    ## Method: $xwiki.fileupload.getFileItems()[m
+[31m-    #set($uploads = $xwiki.fileupload.getFileItems())[m
+[31m-    #foreach ($upload in $xwiki.fileupload.getFileItems())[m
+[31m-      $upload.getFieldName()[m
+[31m-      #if($upload.getFieldName() == "filepath")[m
+[31m-        $services.activiti.repository.uploadProcessDefinition("$upload.getName()", $upload.getInputStream())[m
+[31m-        ## $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))[m
+[31m-        $response.sendRedirect($request.xredirect)[m
+[31m-      #end[m
+[31m-    #end[m
+[31m-  #elseif($request.addObject)[m
+[31m-    #set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))[m
+[31m-    #set($object = $document.newObject('Activiti.EventListenerMappingClass'))[m
+[31m-    #set($event = $request.getParameter("event"))[m
+[31m-    #set($space = $request.getParameter("space"))[m
+[31m-    #set($message = $request.getParameter("message"))[m
+[31m-    ## Handle Request[m
+[31m-    Event: $event[m
+[31m-    Space: $space[m
+[31m-    Message: $message[m
+[31m-    $object.set('event', $event)[m
+[31m-    $object.set('space', $space)[m
+[31m-    $object.set('message', $message)[m
+[31m-    #set($discard=$document.save())[m
+[31m-    ## $response.sendRedirect($doc.getURL())[m
+[31m-    $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))[m
+[31m-  #end[m
+[31m-  = Repository Information =[m
+[31m-  {{info}}This section presents the Deployed Processes (BPMN 2.0) diagrams in the Activiti Engine{{/info}}[m
+[31m-  #set($processes = $services.activiti.repository.getDeployedProcesses())[m
+[31m-  (%style="width:99%"%)[m
+[31m-  |=Deployment Information|=Process Information|=Process Description|=Actions|=Process Diagram[m
+[31m-  #foreach($process in $processes)[m
+[31m-    |Id: $process.getDeploymentId()[m
+[31m-    Name: $!services.activiti.repository.getDeploymentName("$process.getDeploymentId()")|Version: $process.getVersion()[m
+[31m-    Key: $process.getKey()[m
+[31m-    Id: $process.getId()[m
+[31m-    Name: $process.getName()[m
+[31m-    File Name: $process.getResourceName() |$!process.getDescription()|((({{html}}[m
+[31m-      &lt;form action="" method="post"&gt;[m
+[31m-          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m
+[31m-          &lt;input type="hidden" name="startProcessInstance" value="${process.getId()}" /&gt;[m
+[31m-          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;[m
+[31m-            &lt;!-- Leave also the line for a regular form button --&gt;[m
+[31m-            &lt;!-- &lt;input type="submit" value="Start Process Instance" class="button"/&gt; --&gt;[m
+[31m-          &lt;!-- &lt;/span&gt; --&gt;[m
+[31m-           &lt;div style="float:right"&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_add.png')" alt="Start Process" "title="Start Process"/&gt;&lt;/div&gt;[m
+[31m-      &lt;/form&gt;[m
+[31m-      &lt;form action="" method="post"&gt;[m
+[31m-          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m
+[31m-          &lt;input type="hidden" name="deleteProcessDefinition" value="${process.getId()}" /&gt;[m
+[31m-          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;[m
+[31m-            &lt;!-- Leave also the line for a regular form button --&gt;[m
+[31m-            &lt;!-- &lt;input type="submit" value="Delete Process" class="button"/&gt; --&gt;[m
+[31m-          &lt;!-- &lt;/span&gt; --&gt;[m
+[31m-        &lt;div&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_delete.png')" alt="Delete Process Definition" "title="Delete Process Definition" /&gt;&lt;/div&gt;[m
+[31m-      &lt;/form&gt;[m
+[31m-    {{/html}})))|(% style="text-align:center" %)[[image:icon:chart_organisation&gt;&gt;Activiti.ImageWriter||queryString="processId=$process.getId()" target="_blank"]][m
+[31m-  #end[m
+[31m-  == Upload Process Diagram ==[m
+[31m-  {{info}}You can upload a BPMN 2.0 diagram from here into the Activiti Engine{{/info}}[m
+[31m-[m
+[31m-  {{html}}[m
+[31m-  &lt;form class="xform" action="$xwiki.getURL("Activiti.ActivitiAdmin")" enctype="multipart/form-data" method="post"&gt;[m
+[31m-[m
+[31m-      ## CSRF prevention[m
+[31m-      &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m
+[31m-      &lt;input type="hidden" name="xredirect" value="$escapetool.xml($xwiki.getRelativeRequestURL())" /&gt;[m
+[31m-      &lt;input type="hidden" name="uploadProcessDefinition" value="upload" /&gt;[m
+[31m-        &lt;div class="fileupload-field"&gt;[m
+[31m-          &lt;label class="hidden" for="xwikiuploadfile"&gt;$msg.get('core.viewers.attachments.upload.file')&lt;/label&gt;[m
+[31m-          &lt;input id="xwikiuploadfile" type="file" name="filepath" value="upload" size="40" class="uploadFileInput"/&gt;[m
+[31m-        &lt;div&gt;[m
+[31m-        &lt;span class="buttonwrapper"&gt;&lt;input type="submit" value="$msg.get('core.viewers.attachments.upload.submit')" class="button"/&gt;&lt;/span&gt;[m
+[31m-        &lt;span class="buttonwrapper"&gt;&lt;a class="cancel secondary button" href="$doc.getURL()"&gt;$msg.get('core.viewers.attachments.upload.cancel')&lt;/a&gt;&lt;/span&gt;[m
+[31m-  &lt;/form&gt;[m
+[31m-  {{/html}}[m
+[31m-  = Runtime Information =[m
+[31m-  == Active Instances ==[m
+[31m-  {{info}}This section lists all the instances which are active state (in execution){{/info}}[m
+[31m-  #set($runningInstances = $services.activiti.runtime.getProcessInstances())[m
+[31m-  |= Process Definition Id|= Execution Id|= Suspended[m
+[31m-  #foreach($instance in $runningInstances)[m
+[31m-    |$instance.getProcessDefinitionId()|$instance.getId()|$instance.isSuspended()[m
+[31m-  #end[m
+[31m-  == Completed Process Instances ==[m
+[31m-  #set($completedInstances = $services.activiti.history.getCompletedProcessInstances())[m
+[31m-  #if(!$completedInstances.isEmpty())[m
+[31m-  |= Process Definition Id|= Execution Id|=Date Started|= Date Completed|=Duration (miliseconds)|=Process Variables[m
+[31m-  #foreach($instance in $completedInstances)[m
+[31m-    #set($processVariables = $services.activiti.history.getHistoricaInstanceVariables($instance.getId()))[m
+[31m-    |$instance.getProcessDefinitionId()|$instance.getId()|$instance.getStartTime()|$instance.getEndTime()|$instance.getDurationInMillis()|#foreach ($variable in $processVariables)$variable.getName(): $variable.getValue()#end[m
+[31m-  ##Blank line left on purpose[m
+[31m-[m
+[31m-  #end[m
+[31m-  #else[m
+[31m-    {{info}}No finished process instances{{/info}}[m
+[31m-  #end[m
+[31m-  [m
+[31m-  = Task Service =[m
+[31m-#set($activeTasks = $services.activiti.task.getUsersTasks())[m
+[31m-#if(!$activeTasks.isEmpty())[m
+[31m-  == Active Tasks ==[m
+[31m-  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Assignee|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m
+[31m-  #foreach($task in $activeTasks)[m
+[31m-    |$task.getId()|$task.getName()|$!task.getAssignee()|$task.getCreateTime()|$task.getDescription()|[[Go to task&gt;&gt;Activiti.TaskFormGenerator||queryString="generateFormForTaskId=$task.getId()"]][m
+[31m-  #end[m
+[31m-#else[m
+[31m-  {{info}}No Active Tasks{{/info}}[m
+[31m-#end[m
+[31m-[m
+[31m-#set($candidateTasks = $services.activiti.task.getAllUnassignedUsersTasks())[m
+[31m-== Candidate Tasks ==[m
+[31m-#if(!$candidateTasks.isEmpty())[m
+[31m-  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m
+[31m-  #foreach($task in $candidateTasks)[m
+[31m-    |$task.getId()|$task.getName()|$task.getCreateTime()|$task.getDescription()|[[Claim&gt;&gt;Activiti.UserTasks||queryString="claimTask=$task.getId()"]][m
+[31m-  #end[m
+[31m-#else[m
+[31m-  {{info}}No Candidate Tasks{{/info}}[m
+[31m-#end[m
+[31m-#set($historicalTasks = $services.activiti.history.getAllUsersHistoryTasks())[m
+[31m-== Completed Tasks ==[m
+[31m-#if(!$historicalTasks.isEmpty())[m
+[31m-  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Assignee|=(% style="width: 15%;" %)Task Start Time|=(% style="width: 15%;" %)Task End Time|=Task Description[m
+[31m-  #foreach($task in $historicalTasks)[m
+[31m-    |$task.getId()|$task.getName()|$task.getAssignee()|$task.getStartTime()|$task.getEndTime()|$task.getDescription()[m
+[31m-  #end[m
+[31m-#else[m
+[31m-  {{info}}No history of previous tasks{{/info}}[m
+[31m-#end[m
+[31m-[m
+[31m-[m
+[31m-##List available Mappings[m
+[31m-= Existing Mappings =[m
+[31m-#set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))[m
+[31m-#set($mappingObjects = $document.getObjects('Activiti.EventListenerMappingClass'))[m
+[31m-#if(!$mappingObjects.isEmpty())[m
+[31m-|=Event Type|=Listening in Space|=Message to send to Activiti Engine[m
+[31m-  #foreach($mapObject in $mappingObjects)[m
+[31m-   |$mapObject.getProperty('event').getValue()|$mapObject.getProperty('space').getValue()|$mapObject.getProperty('message').getValue()[m
+[31m-  #end[m
+[31m-#end[m
+[31m-= Add Mapping =[m
+[31m-##Generate Custom Form[m
+[31m-#set($discard=$doc.use($object))[m
+[31m-[m
+[31m-{{html wiki="true"}}[m
+[31m-&lt;form action="" method="post" class="xform third" id="mapListener&gt;[m
+[31m-(((  [m
+[31m-            ; &lt;label for="event"&gt;Event&lt;/label&gt;[m
+[31m-              &lt;select id="event" name="event"&gt;[m
+[31m-                &lt;option value="DocumentCreatedEvent"&gt;Document Created&lt;/option&gt;[m
+[31m-                &lt;option value="DocumentDeletedEvent"&gt;Document Deleted&lt;/option&gt;[m
+[31m-                &lt;option value="DocumentUpdatedEvent"&gt;Document Updated&lt;/option&gt;[m
+[31m-            &lt;/select&gt; [m
+[31m-[m
+[31m-            ; &lt;label for="space"&gt;Space&lt;/label&gt;[m
+[31m-              &lt;input id="space" class="suggestSpaces" type="text" id="space" name="space" autocomplete="off"&gt;[m
+[31m-[m
+[31m-            ; &lt;label for="message"&gt;Message&lt;/label&gt;[m
+[31m-              &lt;input id="message" type="text" id="message" name="message" &gt;[m
+[31m-[m
+[31m-            &lt;div class="xform buttons"&gt;[m
+[31m-            &lt;span class="buttonwrapper"&gt;&lt;input type="submit" name="addObject" value="Add Mapping" class="button"/&gt;&lt;/span&gt;[m
+[31m-            &lt;/div&gt;[m
+[31m-)))[m
+[31m-&lt;/form&gt;[m
+[31m-{{/html}}[m
+[31m-##[m
+[31m-#else[m
+[31m-  {{error}}Please access this page from the Administration section{{/error}}[m
+[31m-#end[m
+[31m-{{/velocity}}</content>[m
+[31m-</xwikidoc>[m
+[32m+[m[32m<web>Activiti</web>[m
+[32m+[m[32m<name>ActivitiAdmin</name>[m
+[32m+[m[32m<language></language>[m
+[32m+[m[32m<defaultLanguage></defaultLanguage>[m
+[32m+[m[32m<translation>0</translation>[m
+[32m+[m[32m<parent>XWiki.WebHome</parent>[m
+[32m+[m[32m<creator>XWiki.Admin</creator>[m
+[32m+[m[32m<author>XWiki.Admin</author>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<contentAuthor>XWiki.Admin</contentAuthor>[m
+[32m+[m[32m<creationDate>1366545229000</creationDate>[m
+[32m+[m[32m<date>1369169897000</date>[m
+[32m+[m[32m<contentUpdateDate>1369169896000</contentUpdateDate>[m
+[32m+[m[32m<version>48.1</version>[m
+[32m+[m[32m<title>ActivitiAdmin</title>[m
+[32m+[m[32m<template></template>[m
+[32m+[m[32m<defaultTemplate></defaultTemplate>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<comment></comment>[m
+[32m+[m[32m<minorEdit>false</minorEdit>[m
+[32m+[m[32m<syntaxId>xwiki/2.1</syntaxId>[m
+[32m+[m[32m<hidden>false</hidden>[m
+[32m+[m[32m<content>{{velocity}}[m[41m[m
+[32m+[m[32m#if($hasAdmin &amp;&amp; $xcontext.isMainWiki())[m[41m[m
+[32m+[m[32m  #if($request.startProcessInstance)[m[41m[m
+[32m+[m[32m    #set($discard = $services.activiti.runtime.startProcessInstanceById($request.startProcessInstance))[m[41m[m
+[32m+[m[32m  #elseif($request.deleteProcessDefinition)[m[41m[m
+[32m+[m[32m    #set($discard = $services.activiti.repository.deleteProcessDefinition($request.deleteProcessDefinition))[m[41m[m
+[32m+[m[32m  #elseif($request.uploadProcessDefinition)[m[41m[m
+[32m+[m[32m    ## $request.uploadProcessDefinition[m[41m[m
+[32m+[m[32m    ## Uploads: $uploads[m[41m[m
+[32m+[m[32m    ## Method: $xwiki.fileupload.getFileItems()[m[41m[m
+[32m+[m[32m    #set($uploads = $xwiki.fileupload.getFileItems())[m[41m[m
+[32m+[m[32m    #foreach ($upload in $xwiki.fileupload.getFileItems())[m[41m[m
+[32m+[m[32m      $upload.getFieldName()[m[41m[m
+[32m+[m[32m      #if($upload.getFieldName() == "filepath")[m[41m[m
+[32m+[m[32m        $services.activiti.repository.uploadProcessDefinition("$upload.getName()", $upload.getInputStream())[m[41m[m
+[32m+[m[32m        ## $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))[m[41m[m
+[32m+[m[32m        $response.sendRedirect($request.xredirect)[m[41m[m
+[32m+[m[32m      #end[m[41m[m
+[32m+[m[32m    #end[m[41m[m
+[32m+[m[32m  #elseif($request.addMapping)[m[41m[m
+[32m+[m[32m    #set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))[m[41m[m
+[32m+[m[32m    #set($object = $document.newObject('Activiti.EventListenerMappingClass'))[m[41m[m
+[32m+[m[32m    #set($event = $request.getParameter("event"))[m[41m[m
+[32m+[m[32m    #set($space = $request.getParameter("space"))[m[41m[m
+[32m+[m[32m    #set($message = $request.getParameter("message"))[m[41m[m
+[32m+[m[32m    ## Handle Request[m[41m[m
+[32m+[m[32m    Event: $event[m[41m[m
+[32m+[m[32m    Space: $space[m[41m[m
+[32m+[m[32m    Message: $message[m[41m[m
+[32m+[m[32m    $object.set('event', $event)[m[41m[m
+[32m+[m[32m    $object.set('space', $space)[m[41m[m
+[32m+[m[32m    $object.set('message', $message)[m[41m[m
+[32m+[m[32m    #set($discard=$document.save())[m[41m[m
+[32m+[m[32m    ## $response.sendRedirect($doc.getURL())[m[41m[m
+[32m+[m[32m    $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))[m[41m[m
+[32m+[m[32m  #elseif($request.deleteMapping)[m[41m[m
+[32m+[m[32m    #set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))[m[41m[m
+[32m+[m[32m    #set($object = $document.getObject('Activiti.EventListenerMappingClass', $mathtool.toInteger($request.deleteMapping)))[m[41m[m
+[32m+[m[32m    $document.removeObject($object)[m[41m[m
+[32m+[m[32m    $document.save()[m[41m[m
+[32m+[m[32m    $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m  = Repository Information =[m[41m[m
+[32m+[m[32m  {{info}}This section presents the Deployed Processes (BPMN 2.0) diagrams in the Activiti Engine{{/info}}[m[41m[m
+[32m+[m[32m  #set($processes = $services.activiti.repository.getDeployedProcesses())[m[41m[m
+[32m+[m[32m  (%style="width:99%"%)[m[41m[m
+[32m+[m[32m  |=Deployment Information|=Process Information|=Process Description|=Actions|=Process Diagram[m[41m[m
+[32m+[m[32m  #foreach($process in $processes)[m[41m[m
+[32m+[m[32m    |Id: $process.getDeploymentId()[m[41m[m
+[32m+[m[32m    Name: $!services.activiti.repository.getDeploymentName("$process.getDeploymentId()")|Version: $process.getVersion()[m[41m[m
+[32m+[m[32m    Key: $process.getKey()[m[41m[m
+[32m+[m[32m    Id: $process.getId()[m[41m[m
+[32m+[m[32m    Name: $process.getName()[m[41m[m
+[32m+[m[32m    File Name: $process.getResourceName() |$!process.getDescription()|((({{html}}[m[41m[m
+[32m+[m[32m      &lt;form action="" method="post"&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="startProcessInstance" value="${process.getId()}" /&gt;[m[41m[m
+[32m+[m[32m          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;[m[41m[m
+[32m+[m[32m            &lt;!-- Leave also the line for a regular form button --&gt;[m[41m[m
+[32m+[m[32m            &lt;!-- &lt;input type="submit" value="Start Process Instance" class="button"/&gt; --&gt;[m[41m[m
+[32m+[m[32m          &lt;!-- &lt;/span&gt; --&gt;[m[41m[m
+[32m+[m[32m           &lt;div style="float:right"&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_add.png')" alt="Start Process" "title="Start Process"/&gt;&lt;/div&gt;[m[41m[m
+[32m+[m[32m      &lt;/form&gt;[m[41m[m
+[32m+[m[32m      &lt;form action="" method="post"&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="deleteProcessDefinition" value="${process.getId()}" /&gt;[m[41m[m
+[32m+[m[32m          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;[m[41m[m
+[32m+[m[32m            &lt;!-- Leave also the line for a regular form button --&gt;[m[41m[m
+[32m+[m[32m            &lt;!-- &lt;input type="submit" value="Delete Process" class="button"/&gt; --&gt;[m[41m[m
+[32m+[m[32m          &lt;!-- &lt;/span&gt; --&gt;[m[41m[m
+[32m+[m[32m        &lt;div&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_delete.png')" alt="Delete Process Definition" "title="Delete Process Definition" /&gt;&lt;/div&gt;[m[41m[m
+[32m+[m[32m      &lt;/form&gt;[m[41m[m
+[32m+[m[32m    {{/html}})))|(% style="text-align:center" %)[[image:icon:chart_organisation&gt;&gt;Activiti.ImageWriter||queryString="processId=$process.getId()" target="_blank"]][m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m  == Upload Process Diagram ==[m[41m[m
+[32m+[m[32m  {{info}}You can upload a BPMN 2.0 diagram from here into the Activiti Engine{{/info}}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m  {{html}}[m[41m[m
+[32m+[m[32m  &lt;form class="xform" action="$xwiki.getURL("Activiti.ActivitiAdmin")" enctype="multipart/form-data" method="post"&gt;[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m      ## CSRF prevention[m[41m[m
+[32m+[m[32m      &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m[41m[m
+[32m+[m[32m      &lt;input type="hidden" name="xredirect" value="$escapetool.xml($xwiki.getRelativeRequestURL())" /&gt;[m[41m[m
+[32m+[m[32m      &lt;input type="hidden" name="uploadProcessDefinition" value="upload" /&gt;[m[41m[m
+[32m+[m[32m        &lt;div class="fileupload-field"&gt;[m[41m[m
+[32m+[m[32m          &lt;label class="hidden" for="xwikiuploadfile"&gt;$msg.get('core.viewers.attachments.upload.file')&lt;/label&gt;[m[41m[m
+[32m+[m[32m          &lt;input id="xwikiuploadfile" type="file" name="filepath" value="upload" size="40" class="uploadFileInput"/&gt;[m[41m[m
+[32m+[m[32m        &lt;div&gt;[m[41m[m
+[32m+[m[32m        &lt;span class="buttonwrapper"&gt;&lt;input type="submit" value="$msg.get('core.viewers.attachments.upload.submit')" class="button"/&gt;&lt;/span&gt;[m[41m[m
+[32m+[m[32m        &lt;span class="buttonwrapper"&gt;&lt;a class="cancel secondary button" href="$doc.getURL()"&gt;$msg.get('core.viewers.attachments.upload.cancel')&lt;/a&gt;&lt;/span&gt;[m[41m[m
+[32m+[m[32m  &lt;/form&gt;[m[41m[m
+[32m+[m[32m  {{/html}}[m[41m[m
+[32m+[m[32m  = Runtime Information =[m[41m[m
+[32m+[m[32m  == Active Instances ==[m[41m[m
+[32m+[m[32m  {{info}}This section lists all the instances which are active state (in execution){{/info}}[m[41m[m
+[32m+[m[32m  #set($runningInstances = $services.activiti.runtime.getProcessInstances())[m[41m[m
+[32m+[m[32m  |= Process Definition Id|= Execution Id|= Suspended[m[41m[m
+[32m+[m[32m  #foreach($instance in $runningInstances)[m[41m[m
+[32m+[m[32m    |$instance.getProcessDefinitionId()|$instance.getId()|$instance.isSuspended()[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m  == Completed Process Instances ==[m[41m[m
+[32m+[m[32m  #set($completedInstances = $services.activiti.history.getCompletedProcessInstances())[m[41m[m
+[32m+[m[32m  #if(!$completedInstances.isEmpty())[m[41m[m
+[32m+[m[32m  |= Process Definition Id|= Execution Id|=Date Started|= Date Completed|=Duration (miliseconds)|=Process Variables[m[41m[m
+[32m+[m[32m  #foreach($instance in $completedInstances)[m[41m[m
+[32m+[m[32m    #set($processVariables = $services.activiti.history.getHistoricaInstanceVariables($instance.getId()))[m[41m[m
+[32m+[m[32m    |$instance.getProcessDefinitionId()|$instance.getId()|$instance.getStartTime()|$instance.getEndTime()|$instance.getDurationInMillis()|#foreach ($variable in $processVariables)$variable.getName(): $variable.getValue()#end[m[41m[m
+[32m+[m[32m  ##Blank line left on purpose[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m  #else[m[41m[m
+[32m+[m[32m    {{info}}No finished process instances{{/info}}[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  = Task Service =[m[41m[m
+[32m+[m[32m#set($activeTasks = $services.activiti.task.getUsersTasks())[m[41m[m
+[32m+[m[32m#if(!$activeTasks.isEmpty())[m[41m[m
+[32m+[m[32m  == Active Tasks ==[m[41m[m
+[32m+[m[32m  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Assignee|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m[41m[m
+[32m+[m[32m  #foreach($task in $activeTasks)[m[41m[m
+[32m+[m[32m    |$task.getId()|$task.getName()|$!task.getAssignee()|$task.getCreateTime()|$task.getDescription()|[[Go to task&gt;&gt;Activiti.TaskFormGenerator||queryString="generateFormForTaskId=$task.getId()"]][m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{info}}No Active Tasks{{/info}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m#set($candidateTasks = $services.activiti.task.getAllUnassignedUsersTasks())[m[41m[m
+[32m+[m[32m== Candidate Tasks ==[m[41m[m
+[32m+[m[32m#if(!$candidateTasks.isEmpty())[m[41m[m
+[32m+[m[32m  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m[41m[m
+[32m+[m[32m  #foreach($task in $candidateTasks)[m[41m[m
+[32m+[m[32m    |$task.getId()|$task.getName()|$task.getCreateTime()|$task.getDescription()|[[Claim&gt;&gt;Activiti.UserTasks||queryString="claimTask=$task.getId()"]][m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{info}}No Candidate Tasks{{/info}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m#set($historicalTasks = $services.activiti.history.getAllUsersHistoryTasks())[m[41m[m
+[32m+[m[32m== Completed Tasks ==[m[41m[m
+[32m+[m[32m#if(!$historicalTasks.isEmpty())[m[41m[m
+[32m+[m[32m  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Assignee|=(% style="width: 15%;" %)Task Start Time|=(% style="width: 15%;" %)Task End Time|=Task Description[m[41m[m
+[32m+[m[32m  #foreach($task in $historicalTasks)[m[41m[m
+[32m+[m[32m    |$task.getId()|$task.getName()|$task.getAssignee()|$task.getStartTime()|$task.getEndTime()|$task.getDescription()[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{info}}No history of previous tasks{{/info}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m##List available Mappings[m[41m[m
+[32m+[m[32m= Existing Mappings =[m[41m[m
+[32m+[m[32m#set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))[m[41m[m
+[32m+[m[32m#set($mappingObjects = $document.getObjects('Activiti.EventListenerMappingClass'))[m[41m[m
+[32m+[m[32m#if(!$mappingObjects.isEmpty())[m[41m[m
+[32m+[m[32m|=Event Type|=Listening in Space|=Message to send to Activiti Engine|=Delete Mapping[m[41m[m
+[32m+[m[32m  #foreach($mapObject in $mappingObjects)[m[41m[m
+[32m+[m[32m   |$mapObject.getProperty('event').getValue()|$mapObject.getProperty('space').getValue()|$mapObject.getProperty('message').getValue()|((({{html wiki="true"}}[m[41m[m
+[32m+[m[32m   &lt;form action="" method="post" class="xform third" id="mapListener&gt;[m[41m[m
+[32m+[m[32m      &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m[41m[m
+[32m+[m[32m      &lt;input type="hidden" name="xredirect" value="$escapetool.xml($xwiki.getRelativeRequestURL())" /&gt;[m[41m[m
+[32m+[m[32m      &lt;input type="hidden" name="deleteMapping" value="$mapObject.getNumber()" /&gt;[m[41m[m
+[32m+[m[32m      &lt;input type="image" src="$xwiki.getSkinFile('icons/silk/cross.png')" alt="Delete Mapping" "title="Delete Mapping"/&gt;&lt;/div&gt;[m[41m[m
+[32m+[m[32m    &lt;/form&gt;[m[41m[m
+[32m+[m[32m    {{/html}}[m[41m[m
+[32m+[m[32m    )))[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m= Add Mapping =[m[41m[m
+[32m+[m[32m##Generate Custom Form[m[41m[m
+[32m+[m[32m#set($discard=$doc.use($object))[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m{{html wiki="true"}}[m[41m[m
+[32m+[m[32m&lt;form action="" method="post" class="xform third" id="mapListener&gt;[m[41m[m
+[32m+[m[32m((([m[41m  [m
+[32m+[m[32m            ; &lt;label for="event"&gt;Event&lt;/label&gt;[m[41m[m
+[32m+[m[32m              &lt;select id="event" name="event"&gt;[m[41m[m
+[32m+[m[32m                &lt;option value="DocumentCreatedEvent"&gt;Document Created&lt;/option&gt;[m[41m[m
+[32m+[m[32m                &lt;option value="DocumentDeletedEvent"&gt;Document Deleted&lt;/option&gt;[m[41m[m
+[32m+[m[32m                &lt;option value="DocumentUpdatedEvent"&gt;Document Updated&lt;/option&gt;[m[41m[m
+[32m+[m[32m            &lt;/select&gt;[m[41m [m
+[32m+[m[41m[m
+[32m+[m[32m            ; &lt;label for="space"&gt;Space&lt;/label&gt;[m[41m[m
+[32m+[m[32m              &lt;input id="space" class="suggestSpaces" type="text" id="space" name="space" autocomplete="off"&gt;[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m            ; &lt;label for="message"&gt;Message&lt;/label&gt;[m[41m[m
+[32m+[m[32m              &lt;input id="message" type="text" id="message" name="message" &gt;[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m            &lt;div class="xform buttons"&gt;[m[41m[m
+[32m+[m[32m            &lt;span class="buttonwrapper"&gt;&lt;input type="submit" name="addMapping" value="Add Mapping" class="button"/&gt;&lt;/span&gt;[m[41m[m
+[32m+[m[32m            &lt;/div&gt;[m[41m[m
+[32m+[m[32m)))[m[41m[m
+[32m+[m[32m&lt;/form&gt;[m[41m[m
+[32m+[m[32m{{/html}}[m[41m[m
+[32m+[m[32m##[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{error}}Please access this page from the Administration section{{/error}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m{{/velocity}}</content></xwikidoc>[m
+[1mdiff --git a/application-activiti-ui/src/main/resources/Activiti/ActivitiRightsTest.xml b/application-activiti-ui/src/main/resources/Activiti/ActivitiRightsTest.xml[m
+[1mindex b404366..238d77c 100644[m
+[1m--- a/application-activiti-ui/src/main/resources/Activiti/ActivitiRightsTest.xml[m
+[1m+++ b/application-activiti-ui/src/main/resources/Activiti/ActivitiRightsTest.xml[m
+[36m@@ -1,45 +1,43 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+[31m-[m
+ <xwikidoc>[m
+[31m-  <web>Activiti</web>[m
+[31m-  <name>ActivitiRightsTest</name>[m
+[31m-  <language/>[m
+[31m-  <defaultLanguage/>[m
+[31m-  <translation>0</translation>[m
+[31m-  <parent>Published.WebHome</parent>[m
+[31m-  <creator>xwiki:XWiki.Admin</creator>[m
+[31m-  <author>xwiki:XWiki.Admin</author>[m
+[31m-  <customClass/>[m
+[31m-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>[m
+[31m-  <creationDate>1366901764000</creationDate>[m
+[31m-  <date>1368987914000</date>[m
+[31m-  <contentUpdateDate>1367001851000</contentUpdateDate>[m
+[31m-  <version>1.1</version>[m
+[31m-  <title>ActivitiRightsTest</title>[m
+[31m-  <template/>[m
+[31m-  <defaultTemplate/>[m
+[31m-  <validationScript/>[m
+[31m-  <comment/>[m
+[31m-  <minorEdit>false</minorEdit>[m
+[31m-  <syntaxId>xwiki/2.1</syntaxId>[m
+[31m-  <hidden>false</hidden>[m
+[31m-  <content>{{velocity}}[m
+[31m-$request.deleteProcessDefinition[m
+[31m-#if($request.deleteProcessDefinition)[m
+[31m-    #set($discard = $services.activiti.repository.deleteProcessDefinition($request.deleteProcessDefinition))[m
+[31m-#end[m
+[31m-[m
+[31m-{{html}}[m
+[31m-      &lt;br/&gt;[m
+[31m-      &lt;form action="" method="post"&gt;[m
+[31m-        &lt;fieldset&gt;[m
+[31m-          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m
+[31m-          &lt;input type="hidden" name="deleteProcessDefinition" value="mmyProcessUI:1:18" /&gt;[m
+[31m-          &lt;span class="buttonwrapper"&gt;[m
+[31m-            &lt;input type="submit" value="Delete Process" class="button"/&gt;[m
+[31m-          &lt;/span&gt;[m
+[31m-        &lt;/fieldset&gt;[m
+[31m-      &lt;/form&gt;[m
+[31m-    {{/html}}[m
+[31m-{{/velocity}}</content>[m
+[31m-</xwikidoc>[m
+[32m+[m[32m<web>Activiti</web>[m
+[32m+[m[32m<name>ActivitiRightsTest</name>[m
+[32m+[m[32m<language></language>[m
+[32m+[m[32m<defaultLanguage>en</defaultLanguage>[m
+[32m+[m[32m<translation>0</translation>[m
+[32m+[m[32m<parent>Published.WebHome</parent>[m
+[32m+[m[32m<creator>XWiki.sorinello</creator>[m
+[32m+[m[32m<author>XWiki.Admin</author>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<contentAuthor>XWiki.Admin</contentAuthor>[m
+[32m+[m[32m<creationDate>1366901764000</creationDate>[m
+[32m+[m[32m<date>1368987914000</date>[m
+[32m+[m[32m<contentUpdateDate>1367001851000</contentUpdateDate>[m
+[32m+[m[32m<version>8.2</version>[m
+[32m+[m[32m<title>ActivitiRightsTest</title>[m
+[32m+[m[32m<template></template>[m
+[32m+[m[32m<defaultTemplate></defaultTemplate>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<comment>Changed parent to Published.WebHome following the rename of that page</comment>[m
+[32m+[m[32m<minorEdit>true</minorEdit>[m
+[32m+[m[32m<syntaxId>xwiki/2.1</syntaxId>[m
+[32m+[m[32m<hidden>false</hidden>[m
+[32m+[m[32m<content>{{velocity}}[m[41m[m
+[32m+[m[32m$request.deleteProcessDefinition[m[41m[m
+[32m+[m[32m#if($request.deleteProcessDefinition)[m[41m[m
+[32m+[m[32m    #set($discard = $services.activiti.repository.deleteProcessDefinition($request.deleteProcessDefinition))[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m{{html}}[m[41m[m
+[32m+[m[32m      &lt;br/&gt;[m[41m[m
+[32m+[m[32m      &lt;form action="" method="post"&gt;[m[41m[m
+[32m+[m[32m        &lt;fieldset&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="deleteProcessDefinition" value="mmyProcessUI:1:18" /&gt;[m[41m[m
+[32m+[m[32m          &lt;span class="buttonwrapper"&gt;[m[41m[m
+[32m+[m[32m            &lt;input type="submit" value="Delete Process" class="button"/&gt;[m[41m[m
+[32m+[m[32m          &lt;/span&gt;[m[41m[m
+[32m+[m[32m        &lt;/fieldset&gt;[m[41m[m
+[32m+[m[32m      &lt;/form&gt;[m[41m[m
+[32m+[m[32m    {{/html}}[m[41m[m
+[32m+[m[32m{{/velocity}}</content></xwikidoc>[m
+[1mdiff --git a/application-activiti-ui/src/main/resources/Activiti/ImageWriter.xml b/application-activiti-ui/src/main/resources/Activiti/ImageWriter.xml[m
+[1mindex 2bae844..6fe612a 100644[m
+[1m--- a/application-activiti-ui/src/main/resources/Activiti/ImageWriter.xml[m
+[1m+++ b/application-activiti-ui/src/main/resources/Activiti/ImageWriter.xml[m
+[36m@@ -1,41 +1,39 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+[31m-[m
+ <xwikidoc>[m
+[31m-  <web>Activiti</web>[m
+[31m-  <name>ImageWriter</name>[m
+[31m-  <language/>[m
+[31m-  <defaultLanguage/>[m
+[31m-  <translation>0</translation>[m
+[31m-  <parent>Published.WebHome</parent>[m
+[31m-  <creator>xwiki:XWiki.Admin</creator>[m
+[31m-  <author>xwiki:XWiki.Admin</author>[m
+[31m-  <customClass/>[m
+[31m-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>[m
+[31m-  <creationDate>1366487498000</creationDate>[m
+[31m-  <date>1368987914000</date>[m
+[31m-  <contentUpdateDate>1367078866000</contentUpdateDate>[m
+[31m-  <version>1.1</version>[m
+[31m-  <title>ImageWriter</title>[m
+[31m-  <template/>[m
+[31m-  <defaultTemplate/>[m
+[31m-  <validationScript/>[m
+[31m-  <comment/>[m
+[31m-  <minorEdit>false</minorEdit>[m
+[31m-  <syntaxId>xwiki/2.1</syntaxId>[m
+[31m-  <hidden>false</hidden>[m
+[31m-  <content>{{velocity}}[m
+[31m-#if($request.processId)[m
+[31m-  #set($image = $services.activiti.getProcessEngine().getRepositoryService().getProcessDiagram("$request.processId"))[m
+[31m-  #set($discard = $response.setContentType("image/png"))[m
+[31m-  #set($imageWriter = $response.getOutputStream())[m
+[31m-  #foreach($i in [1..$image.available()])[m
+[31m-    $imageWriter.write($image.read())[m
+[31m-  #end[m
+[31m-  $image.close()[m
+[31m-  $imageWriter.close()[m
+[31m-  $xcontext.setFinished(true)[m
+[31m-#else[m
+[31m-  {{info}} This page generates and displays the PNG diagram of a deployed process{{/info}}[m
+[31m-#end[m
+[31m-{{/velocity}}</content>[m
+[31m-</xwikidoc>[m
+[32m+[m[32m<web>Activiti</web>[m
+[32m+[m[32m<name>ImageWriter</name>[m
+[32m+[m[32m<language></language>[m
+[32m+[m[32m<defaultLanguage>en</defaultLanguage>[m
+[32m+[m[32m<translation>0</translation>[m
+[32m+[m[32m<parent>Published.WebHome</parent>[m
+[32m+[m[32m<creator>XWiki.Admin</creator>[m
+[32m+[m[32m<author>XWiki.Admin</author>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<contentAuthor>XWiki.Admin</contentAuthor>[m
+[32m+[m[32m<creationDate>1366487498000</creationDate>[m
+[32m+[m[32m<date>1368987914000</date>[m
+[32m+[m[32m<contentUpdateDate>1367078866000</contentUpdateDate>[m
+[32m+[m[32m<version>10.4</version>[m
+[32m+[m[32m<title>ImageWriter</title>[m
+[32m+[m[32m<template></template>[m
+[32m+[m[32m<defaultTemplate></defaultTemplate>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<comment>Changed parent to Published.WebHome following the rename of that page</comment>[m
+[32m+[m[32m<minorEdit>true</minorEdit>[m
+[32m+[m[32m<syntaxId>xwiki/2.1</syntaxId>[m
+[32m+[m[32m<hidden>false</hidden>[m
+[32m+[m[32m<content>{{velocity}}[m[41m[m
+[32m+[m[32m#if($request.processId)[m[41m[m
+[32m+[m[32m  #set($image = $services.activiti.getProcessEngine().getRepositoryService().getProcessDiagram("$request.processId"))[m[41m[m
+[32m+[m[32m  #set($discard = $response.setContentType("image/png"))[m[41m[m
+[32m+[m[32m  #set($imageWriter = $response.getOutputStream())[m[41m[m
+[32m+[m[32m  #foreach($i in [1..$image.available()])[m[41m[m
+[32m+[m[32m    $imageWriter.write($image.read())[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m  $image.close()[m[41m[m
+[32m+[m[32m  $imageWriter.close()[m[41m[m
+[32m+[m[32m  $xcontext.setFinished(true)[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{info}} This page generates and displays the PNG diagram of a deployed process{{/info}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m{{/velocity}}</content></xwikidoc>[m
+[1mdiff --git a/application-activiti-ui/src/main/resources/Activiti/TaskFormGenerator.xml b/application-activiti-ui/src/main/resources/Activiti/TaskFormGenerator.xml[m
+[1mindex 9fdcbd9..1470b54 100644[m
+[1m--- a/application-activiti-ui/src/main/resources/Activiti/TaskFormGenerator.xml[m
+[1m+++ b/application-activiti-ui/src/main/resources/Activiti/TaskFormGenerator.xml[m
+[36m@@ -1,154 +1,261 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+[31m-[m
+ <xwikidoc>[m
+[31m-  <web>Activiti</web>[m
+[31m-  <name>TaskFormGenerator</name>[m
+[31m-  <language/>[m
+[31m-  <defaultLanguage/>[m
+[31m-  <translation>0</translation>[m
+[31m-  <parent>Published.WebHome</parent>[m
+[31m-  <creator>xwiki:XWiki.Admin</creator>[m
+[31m-  <author>xwiki:XWiki.Admin</author>[m
+[31m-  <customClass/>[m
+[31m-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>[m
+[31m-  <creationDate>1366582806000</creationDate>[m
+[31m-  <date>1368987914000</date>[m
+[31m-  <contentUpdateDate>1367163367000</contentUpdateDate>[m
+[31m-  <version>1.1</version>[m
+[31m-  <title>#if($task.getName())Task: $task.getName() with Description: $task.getDescription()#else Task Form Generator#end</title>[m
+[31m-  <template/>[m
+[31m-  <defaultTemplate/>[m
+[31m-  <validationScript/>[m
+[31m-  <comment/>[m
+[31m-  <minorEdit>false</minorEdit>[m
+[31m-  <syntaxId>xwiki/2.1</syntaxId>[m
+[31m-  <hidden>false</hidden>[m
+[31m-  <content>{{velocity}}[m
+[31m-#if($isGuest)[m
+[31m-  {{error}}You must be logged in{{/error}}[m
+[31m-#else[m
+[31m-  ## We take from the request the parameters starting with "ActivitiFormProperty_"[m
+[31m-  ## create a Map with them which we pass to the Activiti Engine[m
+[31m-  #if($request.completeTask)[m
+[31m-    #set($objectMap = {})[m
+[31m-    #set($prefix='ActivitiFormProperty_')[m
+[31m-    Prefix Length $prefix.length()[m
+[31m-    #foreach($entry in $request.parameterMap.entrySet())[m
+[31m-      #if($entry.key.startsWith($prefix))[m
+[31m-        #set($propNameStart=$entry.key.lastIndexOf('_')+1)[m
+[31m-        #set($propertyName=$entry.key.substring($propNameStart))[m
+[31m-        $propertyName/$entry.value.get(0)[m
+[31m-        #set($discard=$objectMap.put($propertyName, $entry.value.get(0)))[m
+[31m-      #end[m
+[31m-    #end[m
+[31m-    $objectMap.entrySet()[m
+[31m-    $services.activiti.getProcessEngine().getFormService().submitTaskFormData($request.taskId, $objectMap)[m
+[31m-    $response.sendRedirect($request.xredirect))[m
+[31m-  #end[m
+[31m-  #if($request.generateFormForTaskId)[m
+[31m-    #set($taskId = $request.generateFormForTaskId)[m
+[31m-    #if($taskId)[m
+[31m-      #set($formProperties = $services.activiti.form.getTaskFormProperties("$taskId"))[m
+[31m-      #set($task = $services.activiti.task.getTaskById($taskId))[m
+[31m-      #set($executionId =  $task.getExecutionId())[m
+[31m-      #if($task.getDueDate())[m
+[31m-        Due Date: $task.getDueDate()[m
+[31m-      #end[m
+[31m-      ##[m
+[31m-      ## Get the variables for this Execution and display them[m
+[31m-      ##  so the users sees the input from the previous tasks[m
+[31m-      ##[m
+[31m-      #set($instanceVariables = $services.activiti.getRuntimeService().getVariables($executionId))[m
+[31m-      #if(!$instanceVariables.isEmpty())[m
+[31m-        {{html}}[m
+[31m-          &lt;form class="xform" action="" name="form" id="ActivitiProcessVariableGenerator"&gt;[m
+[31m-            &lt;dl&gt;[m
+[31m-            #foreach($variable in $instanceVariables.entrySet())[m
+[31m-              &lt;dt&gt;&lt;label for="ActivitiInstanceVariable_$variable.key"&gt;$variable.key&lt;/label&gt;&lt;/dt&gt;[m
+[31m-              &lt;dd&gt;$variable.value&lt;/dd&gt;[m
+[31m-            #end[m
+[31m-            &lt;/dt&gt;[m
+[31m-          &lt;/form&gt;[m
+[31m-        {{/html}}[m
+[31m-      #end[m
+[31m-      ##[m
+[31m-      ##[m
+[31m-      ##  Since Properties from Activiti have several defined types, this macro generates[m
+[31m-      ##  the corresponding HTML input element according to the internal data type which Activiti supports[m
+[31m-      ##  Activiti internal data types: [m
+[31m-      ##  * string (org.activiti.engine.impl.form.StringFormType)[m
+[31m-      ##  * long (org.activiti.engine.impl.form.LongFormType)[m
+[31m-      ##  * enum (org.activiti.engine.impl.form.EnumFormType)[m
+[31m-      ##  * date (org.activiti.engine.impl.form.DateFormType)[m
+[31m-      ##  * boolean (org.activiti.engine.impl.form.BooleanFormType)   [m
+[31m-      #macro(generateInput $property)[m
+[31m-        #set($activitiPropertyTypeName = $property.getType().getName())[m
+[31m-        #set($activitiPropertyRequired = $property.isRequired())[m
+[31m-        &lt;dl&gt;[m
+[31m-         &lt;dt&gt;[m
+[31m-           &lt;label for="ActivitiFormProperty_$property.getId()"&gt;$property.getName()&lt;/label&gt;[m
+[31m-         &lt;/dt&gt;[m
+[31m-         &lt;dd&gt;[m
+[31m-        #if($activitiPropertyTypeName == "string")[m
+[31m-          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="text" size="60" value="$!property.getValue()"/&gt;[m
+[31m-        #end[m
+[31m-        #if($activitiPropertyTypeName == "long")[m
+[31m-          ## The Activiti long type is actually not a String input, but a number input.[m
+[31m-          ## Putting a non-number in this field will throw a cast exception[m
+[31m-           &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="text" size="60" value="$!property.getValue()"/&gt;[m
+[31m-        #end[m
+[31m-        #if($activitiPropertyTypeName == "enum")[m
+[31m-          #set($enumValues = $property.getType().getInformation("values"))[m
+[31m-          #foreach($enumValue in $enumValues.keySet())[m
+[31m-            &lt;input type="checkbox" name="ActivitiFormProperty_$property.getId()" value="$enumValue"&gt;$enumValues.get("$enumValue")&lt;br&gt;[m
+[31m-          #end[m
+[31m-        #end[m
+[31m-        #if($activitiPropertyTypeName == "date")[m
+[31m-          ## #set ($format = $property.getInformation($property.getType().getKey()))[m
+[31m-          #set ($format = 'dd/MM/yyyy')[m
+[31m-          ## $property.getType()[m
+[31m-          #set ($formattedValue = $escapetool.xml($datetool.format($format,$property.getValue())))[m
+[31m-          ## $formattedValue[m
+[31m-          ## A simple date picker widget.[m
+[31m-          #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/calendarDateSelect.css', true))[m
+[31m-          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/calendarDateSelect.js', true))[m
+[31m-          ## Used to parse and serialize the selected date using the date format specified in the XClass.[m
+[31m-          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/simpleDateFormat.js', true))[m
+[31m-          ## A wrapper over the CalendarDateSelect widget that uses the SimpleDateFormat to parse/serialize the dates.[m
+[31m-          #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/dateTimePicker.css', true))[m
+[31m-          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/dateTimePicker.js'))[m
+[31m-          ## $property.getName()[m
+[31m-          ## $property.getId()[m
+[31m-          &lt;input type="text" id="ActivitiFormProperty_$property.getId()" class="datetime" name="ActivitiFormProperty_$property.getId()" title="$!escapetool.xml($format)" value="2013/07/12"/&gt;[m
+[31m-           ## &lt;input type="text" id="$!id" name="$!id" value="2013/07/12" class="datetime t$!value.time" title="$!escapetool.xml($format)"/&gt;[m
+[31m-        #end[m
+[31m-        #if($activitiPropertyTypeName == "boolean")[m
+[31m-          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="true" checked="checked"&gt;Yes&lt;br&gt;[m
+[31m-          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="false"&gt;No[m
+[31m-        #end[m
+[31m-         &lt;/dd&gt;[m
+[31m-         &lt;/dl&gt;[m
+[31m-      #end##Macro End[m
+[31m-[m
+[31m-      {{html}}[m
+[31m-        &lt;form class="xform" action="" name="form" id="ActivitiFormGenerator"&gt;[m
+[31m-        &lt;input type="hidden" name="taskId" value="$taskId"/&gt;[m
+[31m-        ## We get the value of the redirect and send it to the next form which will perform the redirect back to the user profile[m
+[31m-        &lt;input type="hidden" name="xredirect" value="$request.xredirect"/&gt;[m
+[31m-        #foreach($property in $formProperties)[m
+[31m-         #generateInput($property)[m
+[31m-        #end[m
+[31m-        &lt;p class="buttons"&gt;[m
+[31m-          &lt;span class="buttonwrapper"&gt;[m
+[31m-            &lt;input class="button" type="submit" name="completeTask" value="Complete Task"/&gt;[m
+[31m-          &lt;/span&gt;[m
+[31m-        &lt;/p&gt;[m
+[31m-        &lt;/form&gt;[m
+[31m-      {{/html}}[m
+[31m-    #else[m
+[31m-      {{error}}No form Id received{{/error}}[m
+[31m-    #end   [m
+[31m-  #end[m
+[31m-#end[m
+[31m-{{/velocity}}</content>[m
+[31m-</xwikidoc>[m
+[32m+[m[32m<web>Activiti</web>[m
+[32m+[m[32m<name>TaskFormGenerator</name>[m
+[32m+[m[32m<language></language>[m
+[32m+[m[32m<defaultLanguage></defaultLanguage>[m
+[32m+[m[32m<translation>0</translation>[m
+[32m+[m[32m<parent>Published.WebHome</parent>[m
+[32m+[m[32m<creator>XWiki.Admin</creator>[m
+[32m+[m[32m<author>XWiki.Admin</author>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<contentAuthor>XWiki.Admin</contentAuthor>[m
+[32m+[m[32m<creationDate>1366582806000</creationDate>[m
+[32m+[m[32m<date>1369859640000</date>[m
+[32m+[m[32m<contentUpdateDate>1369859533000</contentUpdateDate>[m
+[32m+[m[32m<version>33.1</version>[m
+[32m+[m[32m<title>#if($task.getName())Task: $task.getName() with Description: $task.getDescription()#else Task Form Generator#end</title>[m
+[32m+[m[32m<template></template>[m
+[32m+[m[32m<defaultTemplate></defaultTemplate>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<comment></comment>[m
+[32m+[m[32m<minorEdit>false</minorEdit>[m
+[32m+[m[32m<syntaxId>xwiki/2.1</syntaxId>[m
+[32m+[m[32m<hidden>false</hidden>[m
+[32m+[m[32m<object>[m
+[32m+[m[32m<class>[m
+[32m+[m[32m<name>XWiki.JavaScriptExtension</name>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<customMapping></customMapping>[m
+[32m+[m[32m<defaultViewSheet></defaultViewSheet>[m
+[32m+[m[32m<defaultEditSheet></defaultEditSheet>[m
+[32m+[m[32m<defaultWeb></defaultWeb>[m
+[32m+[m[32m<nameField></nameField>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<cache>[m
+[32m+[m[32m<cache>0</cache>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayType>select</displayType>[m
+[32m+[m[32m<multiSelect>0</multiSelect>[m
+[32m+[m[32m<name>cache</name>[m
+[32m+[m[32m<number>5</number>[m
+[32m+[m[32m<prettyName>Caching policy</prettyName>[m
+[32m+[m[32m<relationalStorage>0</relationalStorage>[m
+[32m+[m[32m<separator> </separator>[m
+[32m+[m[32m<separators> ,|</separators>[m
+[32m+[m[32m<size>1</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<values>long|short|default|forbid</values>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[32m+[m[32m</cache>[m
+[32m+[m[32m<code>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>code</name>[m
+[32m+[m[32m<number>2</number>[m
+[32m+[m[32m<prettyName>Code</prettyName>[m
+[32m+[m[32m<rows>20</rows>[m
+[32m+[m[32m<size>50</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[32m+[m[32m</code>[m
+[32m+[m[32m<name>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>name</name>[m
+[32m+[m[32m<number>1</number>[m
+[32m+[m[32m<prettyName>Name</prettyName>[m
+[32m+[m[32m<size>30</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[32m+[m[32m</name>[m
+[32m+[m[32m<parse>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayFormType>select</displayFormType>[m
+[32m+[m[32m<displayType>yesno</displayType>[m
+[32m+[m[32m<name>parse</name>[m
+[32m+[m[32m<number>4</number>[m
+[32m+[m[32m<prettyName>Parse content</prettyName>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>[m
+[32m+[m[32m</parse>[m
+[32m+[m[32m<use>[m
+[32m+[m[32m<cache>0</cache>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayType>select</displayType>[m
+[32m+[m[32m<multiSelect>0</multiSelect>[m
+[32m+[m[32m<name>use</name>[m
+[32m+[m[32m<number>3</number>[m
+[32m+[m[32m<prettyName>Use this extension</prettyName>[m
+[32m+[m[32m<relationalStorage>0</relationalStorage>[m
+[32m+[m[32m<separator> </separator>[m
+[32m+[m[32m<separators> ,|</separators>[m
+[32m+[m[32m<size>1</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[32m+[m[32m</use>[m
+[32m+[m[32m</class>[m
+[32m+[m[32m<name>Activiti.TaskFormGenerator</name>[m
+[32m+[m[32m<number>0</number>[m
+[32m+[m[32m<className>XWiki.JavaScriptExtension</className>[m
+[32m+[m[32m<guid>ef69f946-d157-4632-8140-4479821dd796</guid>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<cache>default</cache>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<code>$$('input.required').each(function(element) {[m[41m[m
+[32m+[m[32mnew LiveValidation(element, {validMessage: 'Ok', failureMessage: "Supply a value!" }).add(Validate.Presence);[m[41m[m
+[32m+[m[32m});</code>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<name>validator</name>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<parse>0</parse>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<use>currentPage</use>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m</object>[m
+[32m+[m[32m<content>{{velocity}}[m[41m[m
+[32m+[m[32m#if($isGuest)[m[41m[m
+[32m+[m[32m  {{error}}You must be logged in{{/error}}[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m    $request.getRequestURL()[m[41m[m
+[32m+[m[32m  $request.getQueryString()[m[41m[m
+[32m+[m[32m  $xwiki.get('jsfx').use('uicomponents/widgets/validation/livevalidation_prototype.js')[m[41m[m
+[32m+[m[32m  $xwiki.get('ssfx').use('uicomponents/widgets/validation/livevalidation.css', true)[m[41m[m
+[32m+[m[32m  ## We take from the request the parameters starting with "ActivitiFormProperty_"[m[41m[m
+[32m+[m[32m  ## create a Map with them which we pass to the Activiti Engine[m[41m[m
+[32m+[m[32m  #if($request.completeTask)[m[41m[m
+[32m+[m[32m    #set($objectMap = {})[m[41m[m
+[32m+[m[32m    #set($prefix='ActivitiFormProperty_')[m[41m[m
+[32m+[m[32m    Prefix Length $prefix.length()[m[41m[m
+[32m+[m[32m    #foreach($entry in $request.parameterMap.entrySet())[m[41m[m
+[32m+[m[32m      $request.parameterMap.entrySet()[m[41m[m
+[32m+[m[32m      #if($entry.key.startsWith($prefix))[m[41m[m
+[32m+[m[32m        #set($propIdStart=$entry.key.lastIndexOf('_')+1)[m[41m[m
+[32m+[m[32m        #set($propertyId=$entry.key.substring($propIdStart))[m[41m[m
+[32m+[m[32m        ## if the value from request is empty string, don't add it to the Map[m[41m[m
+[32m+[m[32m        ## It is useless to add an empty string, and it also breaks the required form property since empty string is considered a value[m[41m[m
+[32m+[m[32m        ## thus form data can be submitted with empty values and Activiti will not throw an exception[m[41m[m
+[32m+[m[32m        #if("$entry.value.get(0)" != "")[m[41m[m
+[32m+[m[32m          #set($propertyValues = [])[m[41m[m
+[32m+[m[32m          $property[m[41m[m
+[32m+[m[32m          #set($discard=$objectMap.put($propertyId, $entry.value.get(0)))[m[41m[m
+[32m+[m[32m        #end[m[41m[m
+[32m+[m[32m      #end[m[41m[m
+[32m+[m[32m    #end[m[41m[m
+[32m+[m[32m    ## Map: $objectMap.entrySet()[m[41m[m
+[32m+[m[32m    $services.activiti.form.submitTaskFormData($request.taskId, $objectMap)[m[41m[m
+[32m+[m[32m    $response.sendRedirect($request.xredirect))[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m  #if($request.generateFormForTaskId)[m[41m[m
+[32m+[m[32m    #set($taskId = $request.generateFormForTaskId)[m[41m[m
+[32m+[m[32m    #if($taskId)[m[41m[m
+[32m+[m[32m      #set($formProperties = $services.activiti.form.getTaskFormProperties("$taskId"))[m[41m[m
+[32m+[m[32m      #set($task = $services.activiti.task.getTaskById($taskId))[m[41m[m
+[32m+[m[32m      #set($executionId =  $task.getExecutionId())[m[41m[m
+[32m+[m[32m      #if($task.getDueDate())[m[41m[m
+[32m+[m[32m        Due Date: $task.getDueDate()[m[41m[m
+[32m+[m[32m      #end[m[41m[m
+[32m+[m[32m      ##[m[41m[m
+[32m+[m[32m      ## Get the variables for this Execution and display them[m[41m[m
+[32m+[m[32m      ##  so the users sees the input from the previous tasks[m[41m[m
+[32m+[m[32m      ##[m[41m[m
+[32m+[m[32m      #set($instanceVariables = $services.activiti.runtime.getVariables($executionId))[m[41m[m
+[32m+[m[32m      #if(!$instanceVariables.isEmpty())[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m        {{html}}[m[41m[m
+[32m+[m[32m          &lt;form class="xform" action="" name="form" id="ActivitiProcessVariableGenerator"&gt;[m[41m[m
+[32m+[m[32m            &lt;dl&gt;[m[41m[m
+[32m+[m[32m            #foreach($variable in $instanceVariables.entrySet())[m[41m[m
+[32m+[m[32m              &lt;dt&gt;&lt;label for="ActivitiInstanceVariable_$variable.key"&gt;$variable.key&lt;/label&gt;&lt;/dt&gt;[m[41m[m
+[32m+[m[32m              &lt;dd&gt;$instanceVariables.get($variable.key)&lt;/dd&gt;[m[41m[m
+[32m+[m[32m            #end[m[41m[m
+[32m+[m[32m            &lt;/dt&gt;[m[41m[m
+[32m+[m[32m          &lt;/form&gt;[m[41m[m
+[32m+[m[32m        {{/html}}[m[41m[m
+[32m+[m[32m      #end[m[41m[m
+[32m+[m[32m      ##[m[41m[m
+[32m+[m[32m      ##[m[41m[m
+[32m+[m[32m      ##  Since Properties from Activiti have several defined types, this macro generates[m[41m[m
+[32m+[m[32m      ##  the corresponding HTML input element according to the internal data type which Activiti supports[m[41m[m
+[32m+[m[32m      ##  Activiti internal data types:[m[41m [m
+[32m+[m[32m      ##  * string (org.activiti.engine.impl.form.StringFormType)[m[41m[m
+[32m+[m[32m      ##  * long (org.activiti.engine.impl.form.LongFormType)[m[41m[m
+[32m+[m[32m      ##  * enum (org.activiti.engine.impl.form.EnumFormType)[m[41m[m
+[32m+[m[32m      ##  * date (org.activiti.engine.impl.form.DateFormType)[m[41m[m
+[32m+[m[32m      ##  * boolean (org.activiti.engine.impl.form.BooleanFormType)[m[41m   [m
+[32m+[m[32m      #macro(generateInput $property)[m[41m[m
+[32m+[m[32m        #set($activitiPropertyTypeName = $property.getType().getName())[m[41m[m
+[32m+[m[32m        #set($activitiPropertyRequired = $property.isRequired())[m[41m[m
+[32m+[m[32m        &lt;dl&gt;[m[41m[m
+[32m+[m[32m         &lt;dt&gt;[m[41m[m
+[32m+[m[32m           &lt;label for="ActivitiFormProperty_$property.getId()"&gt;$property.getName()#if($activitiPropertyRequired)&lt;span class="xRequired"&gt;(Required)&lt;/span&gt;#end&lt;/label&gt;[m[41m[m
+[32m+[m[32m         &lt;/dt&gt;[m[41m[m
+[32m+[m[32m         &lt;dd&gt;[m[41m[m
+[32m+[m[32m        #if($activitiPropertyTypeName == "string")[m[41m[m
+[32m+[m[32m          &lt;input id="ActivitiFormProperty_$property.getId()" #if($activitiPropertyRequired)class="required"#end name="ActivitiFormProperty_$property.getId()" type="text" size="60"/&gt;[m[41m[m
+[32m+[m[32m        #end[m[41m[m
+[32m+[m[32m        #if($activitiPropertyTypeName == "long")[m[41m[m
+[32m+[m[32m          ## The Activiti long type is actually not a String input, but a number input.[m[41m[m
+[32m+[m[32m          ## Putting a non-number in this field will throw a cast exception[m[41m[m
+[32m+[m[32m           &lt;input id="ActivitiFormProperty_$property.getId()" #if($activitiPropertyRequired)class="required"#end name="ActivitiFormProperty_$property.getId()" type="text" size="60"/&gt;[m[41m[m
+[32m+[m[32m        #end[m[41m[m
+[32m+[m[32m        #if($activitiPropertyTypeName == "enum")[m[41m[m
+[32m+[m[32m          #set($enumValues = $property.getType().getInformation("values"))[m[41m[m
+[32m+[m[32m          #foreach($enumValue in $enumValues.keySet())[m[41m[m
+[32m+[m[32m            &lt;input type="radio" id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" value="$enumValue" checked="yes"&gt; $enumValues.get("$enumValue") &lt;br&gt;[m[41m[m
+[32m+[m[32m           ## &lt;input type="checkbox" name="ActivitiFormProperty_$property.getId()" value="$enumValue"&gt;$enumValues.get("$enumValue")&lt;br&gt;[m[41m[m
+[32m+[m[32m          #end[m[41m[m
+[32m+[m[32m        #end[m[41m[m
+[32m+[m[32m        #if($activitiPropertyTypeName == "date")[m[41m[m
+[32m+[m[32m          ## #set ($format = $property.getInformation($property.getType().getKey()))[m[41m[m
+[32m+[m[32m          #set($xWikiDateFormat = $xwiki.getXWikiPreference('dateformat'))[m[41m[m
+[32m+[m[32m          DateFormat $xWikiDateFormat[m[41m[m
+[32m+[m[32m          #set ($format = 'dd/MM/yyyy')[m[41m[m
+[32m+[m[32m          ## $property.getType()[m[41m[m
+[32m+[m[32m          #set ($formattedValue = $escapetool.xml($datetool.format($format,$property.getValue())))[m[41m[m
+[32m+[m[32m          ## $formattedValue[m[41m[m
+[32m+[m[32m          ## A simple date picker widget.[m[41m[m
+[32m+[m[32m          #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/calendarDateSelect.css', true))[m[41m[m
+[32m+[m[32m          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/calendarDateSelect.js', true))[m[41m[m
+[32m+[m[32m          ## Used to parse and serialize the selected date using the date format specified in the XClass.[m[41m[m
+[32m+[m[32m          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/simpleDateFormat.js', true))[m[41m[m
+[32m+[m[32m          ## A wrapper over the CalendarDateSelect widget that uses the SimpleDateFormat to parse/serialize the dates.[m[41m[m
+[32m+[m[32m          #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/dateTimePicker.css', true))[m[41m[m
+[32m+[m[32m          #set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/dateTimePicker.js'))[m[41m[m
+[32m+[m[32m          ## $property.getName()[m[41m[m
+[32m+[m[32m          ## $property.getId()[m[41m[m
+[32m+[m[32m          &lt;input type="text" id="ActivitiFormProperty_$property.getId()" class="datetime #if($activitiPropertyRequired)required#end" name="ActivitiFormProperty_$property.getId()" title="$!escapetool.xml($format)" value="$datetool.get("dd/MM/yyyy")/&gt;[m[41m[m
+[32m+[m[32m           ## &lt;input type="text" id="$!id" name="$!id" value="2013/07/12" class="datetime t$!value.time" title="$!escapetool.xml($format)"/&gt;[m[41m[m
+[32m+[m[32m        #end[m[41m[m
+[32m+[m[32m        #if($activitiPropertyTypeName == "boolean")[m[41m[m
+[32m+[m[32m          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="true" checked="checked"&gt;Yes&lt;br&gt;[m[41m[m
+[32m+[m[32m          &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="false"&gt;No[m[41m[m
+[32m+[m[32m        #end[m[41m[m
+[32m+[m[32m         &lt;/dd&gt;[m[41m[m
+[32m+[m[32m         &lt;/dl&gt;[m[41m[m
+[32m+[m[32m      #end##Macro End[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m      {{html}}[m[41m[m
+[32m+[m[32m        &lt;form class="xform half" action="" name="form" id="ActivitiFormGenerator"&gt;[m[41m[m
+[32m+[m[32m        &lt;input type="hidden" name="taskId" value="$taskId"/&gt;[m[41m[m
+[32m+[m[32m        ## We get the value of the redirect and send it to the next form which will perform the redirect back to the user profile[m[41m[m
+[32m+[m[32m        &lt;input type="hidden" name="xredirect" value="$request.xredirect"/&gt;[m[41m[m
+[32m+[m[32m        #foreach($property in $formProperties)[m[41m[m
+[32m+[m[32m         #generateInput($property)[m[41m[m
+[32m+[m[32m        #end[m[41m[m
+[32m+[m[32m        &lt;p class="buttons"&gt;[m[41m[m
+[32m+[m[32m          &lt;span class="buttonwrapper"&gt;[m[41m[m
+[32m+[m[32m            &lt;input class="button" type="submit" name="completeTask" value="Complete Task"/&gt;[m[41m[m
+[32m+[m[32m          &lt;/span&gt;[m[41m[m
+[32m+[m[32m        &lt;/p&gt;[m[41m[m
+[32m+[m[32m        &lt;/form&gt;[m[41m[m
+[32m+[m[32m      {{/html}}[m[41m[m
+[32m+[m[32m    #else[m[41m[m
+[32m+[m[32m      {{error}}No form Id received{{/error}}[m[41m[m
+[32m+[m[32m    #end[m[41m   [m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m{{/velocity}}</content></xwikidoc>[m
+[1mdiff --git a/application-activiti-ui/src/main/resources/Activiti/UserProfileSkinExtension.xml b/application-activiti-ui/src/main/resources/Activiti/UserProfileSkinExtension.xml[m
+[1mindex 840fab7..e6078f7 100644[m
+[1m--- a/application-activiti-ui/src/main/resources/Activiti/UserProfileSkinExtension.xml[m
+[1m+++ b/application-activiti-ui/src/main/resources/Activiti/UserProfileSkinExtension.xml[m
+[36m@@ -1,140 +1,138 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+[31m-[m
+ <xwikidoc>[m
+[31m-  <web>Activiti</web>[m
+[31m-  <name>UserProfileSkinExtension</name>[m
+[31m-  <language/>[m
+[31m-  <defaultLanguage/>[m
+[31m-  <translation>0</translation>[m
+[31m-  <parent>Activiti.WebHome</parent>[m
+[31m-  <creator>xwiki:XWiki.Admin</creator>[m
+[31m-  <author>xwiki:XWiki.Admin</author>[m
+[31m-  <customClass/>[m
+[31m-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>[m
+[31m-  <creationDate>1367006465000</creationDate>[m
+[31m-  <date>1367061538000</date>[m
+[31m-  <contentUpdateDate>1367061538000</contentUpdateDate>[m
+[31m-  <version>1.1</version>[m
+[31m-  <title>UserProfileSkinExtension</title>[m
+[31m-  <template/>[m
+[31m-  <defaultTemplate/>[m
+[31m-  <validationScript/>[m
+[31m-  <comment/>[m
+[31m-  <minorEdit>false</minorEdit>[m
+[31m-  <syntaxId>xwiki/2.1</syntaxId>[m
+[31m-  <hidden>false</hidden>[m
+[31m-  <object>[m
+[31m-    <class>[m
+[31m-      <name>XWiki.JavaScriptExtension</name>[m
+[31m-      <customClass/>[m
+[31m-      <customMapping/>[m
+[31m-      <defaultViewSheet/>[m
+[31m-      <defaultEditSheet/>[m
+[31m-      <defaultWeb/>[m
+[31m-      <nameField/>[m
+[31m-      <validationScript/>[m
+[31m-      <cache>[m
+[31m-        <cache>0</cache>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <displayType>select</displayType>[m
+[31m-        <multiSelect>0</multiSelect>[m
+[31m-        <name>cache</name>[m
+[31m-        <number>5</number>[m
+[31m-        <prettyName>Caching policy</prettyName>[m
+[31m-        <relationalStorage>0</relationalStorage>[m
+[31m-        <separator> </separator>[m
+[31m-        <separators> ,|</separators>[m
+[31m-        <size>1</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <values>long|short|default|forbid</values>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[31m-      </cache>[m
+[31m-      <code>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>code</name>[m
+[31m-        <number>2</number>[m
+[31m-        <prettyName>Code</prettyName>[m
+[31m-        <rows>20</rows>[m
+[31m-        <size>50</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[31m-      </code>[m
+[31m-      <name>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>name</name>[m
+[31m-        <number>1</number>[m
+[31m-        <prettyName>Name</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </name>[m
+[31m-      <parse>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <displayFormType>select</displayFormType>[m
+[31m-        <displayType>yesno</displayType>[m
+[31m-        <name>parse</name>[m
+[31m-        <number>4</number>[m
+[31m-        <prettyName>Parse content</prettyName>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>[m
+[31m-      </parse>[m
+[31m-      <use>[m
+[31m-        <cache>0</cache>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <displayType>select</displayType>[m
+[31m-        <multiSelect>0</multiSelect>[m
+[31m-        <name>use</name>[m
+[31m-        <number>3</number>[m
+[31m-        <prettyName>Use this extension</prettyName>[m
+[31m-        <relationalStorage>0</relationalStorage>[m
+[31m-        <separator> </separator>[m
+[31m-        <separators> ,|</separators>[m
+[31m-        <size>1</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[31m-      </use>[m
+[31m-    </class>[m
+[31m-    <name>Activiti.UserProfileSkinExtension</name>[m
+[31m-    <number>0</number>[m
+[31m-    <className>XWiki.JavaScriptExtension</className>[m
+[31m-    <guid>8f59f2d5-4296-4f1b-a798-38f8bc63b57d</guid>[m
+[31m-    <property>[m
+[31m-      <cache>long</cache>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <code>if ($('dashboardTab') == null){[m
+[31m-  // alert("not here")[m
+[31m-}[m
+[31m-else[m
+[31m-  [m
+[31m-  var activitiListElement = new Element('li', {'class': 'vertical-tab', 'id': 'ActivitiInjected'});[m
+[31m-  var activitiHrefElement = new Element('a', {'href': '?category=activiti'})[m
+[31m-  var activitiImgElement  = new Element('img', {'alt': 'Activiti Tasks', 'src': '/xwiki/resources/icons/silk/activiti.png'})[m
+[31m-  var activitiSpanElement = new Element('span').update("Activiti Tasks Injected")[m
+[31m-[m
+[31m-  var content = new Element('div',{'id': 'activitiPaneInjected', 'class': 'vertical-pane hidden'})[m
+[31m-  $('activitiPane').insert({after: content});[m
+[31m-[m
+[31m-[m
+[31m-  $('activitiTab').insert({after: activitiListElement})[m
+[31m-  $('ActivitiInjected').insert({top: activitiHrefElement}).down().insert({top: activitiImgElement}).insert({bottom: activitiSpanElement}).observe('click', function(event){[m
+[31m-[m
+[31m-$('ActivitiInjected').addClassName('active');[m
+[31m-})[m
+[32m+[m[32m<web>Activiti</web>[m
+[32m+[m[32m<name>UserProfileSkinExtension</name>[m
+[32m+[m[32m<language></language>[m
+[32m+[m[32m<defaultLanguage>en</defaultLanguage>[m
+[32m+[m[32m<translation>0</translation>[m
+[32m+[m[32m<parent>Activiti.WebHome</parent>[m
+[32m+[m[32m<creator>XWiki.Admin</creator>[m
+[32m+[m[32m<author>XWiki.Admin</author>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<contentAuthor>XWiki.Admin</contentAuthor>[m
+[32m+[m[32m<creationDate>1367006465000</creationDate>[m
+[32m+[m[32m<date>1367061538000</date>[m
+[32m+[m[32m<contentUpdateDate>1367061538000</contentUpdateDate>[m
+[32m+[m[32m<version>4.1</version>[m
+[32m+[m[32m<title>UserProfileSkinExtension</title>[m
+[32m+[m[32m<template></template>[m
+[32m+[m[32m<defaultTemplate></defaultTemplate>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<comment></comment>[m
+[32m+[m[32m<minorEdit>false</minorEdit>[m
+[32m+[m[32m<syntaxId>xwiki/2.1</syntaxId>[m
+[32m+[m[32m<hidden>false</hidden>[m
+[32m+[m[32m<object>[m
+[32m+[m[32m<class>[m
+[32m+[m[32m<name>XWiki.JavaScriptExtension</name>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<customMapping></customMapping>[m
+[32m+[m[32m<defaultViewSheet></defaultViewSheet>[m
+[32m+[m[32m<defaultEditSheet></defaultEditSheet>[m
+[32m+[m[32m<defaultWeb></defaultWeb>[m
+[32m+[m[32m<nameField></nameField>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<cache>[m
+[32m+[m[32m<cache>0</cache>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayType>select</displayType>[m
+[32m+[m[32m<multiSelect>0</multiSelect>[m
+[32m+[m[32m<name>cache</name>[m
+[32m+[m[32m<number>5</number>[m
+[32m+[m[32m<prettyName>Caching policy</prettyName>[m
+[32m+[m[32m<relationalStorage>0</relationalStorage>[m
+[32m+[m[32m<separator> </separator>[m
+[32m+[m[32m<separators> ,|</separators>[m
+[32m+[m[32m<size>1</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<values>long|short|default|forbid</values>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[32m+[m[32m</cache>[m
+[32m+[m[32m<code>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>code</name>[m
+[32m+[m[32m<number>2</number>[m
+[32m+[m[32m<prettyName>Code</prettyName>[m
+[32m+[m[32m<rows>20</rows>[m
+[32m+[m[32m<size>50</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[32m+[m[32m</code>[m
+[32m+[m[32m<name>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>name</name>[m
+[32m+[m[32m<number>1</number>[m
+[32m+[m[32m<prettyName>Name</prettyName>[m
+[32m+[m[32m<size>30</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[32m+[m[32m</name>[m
+[32m+[m[32m<parse>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayFormType>select</displayFormType>[m
+[32m+[m[32m<displayType>yesno</displayType>[m
+[32m+[m[32m<name>parse</name>[m
+[32m+[m[32m<number>4</number>[m
+[32m+[m[32m<prettyName>Parse content</prettyName>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>[m
+[32m+[m[32m</parse>[m
+[32m+[m[32m<use>[m
+[32m+[m[32m<cache>0</cache>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayType>select</displayType>[m
+[32m+[m[32m<multiSelect>0</multiSelect>[m
+[32m+[m[32m<name>use</name>[m
+[32m+[m[32m<number>3</number>[m
+[32m+[m[32m<prettyName>Use this extension</prettyName>[m
+[32m+[m[32m<relationalStorage>0</relationalStorage>[m
+[32m+[m[32m<separator> </separator>[m
+[32m+[m[32m<separators> ,|</separators>[m
+[32m+[m[32m<size>1</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[32m+[m[32m</use>[m
+[32m+[m[32m</class>[m
+[32m+[m[32m<name>Activiti.UserProfileSkinExtension</name>[m
+[32m+[m[32m<number>0</number>[m
+[32m+[m[32m<className>XWiki.JavaScriptExtension</className>[m
+[32m+[m[32m<guid>8f59f2d5-4296-4f1b-a798-38f8bc63b57d</guid>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<cache>long</cache>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<code>if ($('dashboardTab') == null){[m[41m[m
+[32m+[m[32m  // alert("not here")[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32melse[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  var activitiListElement = new Element('li', {'class': 'vertical-tab', 'id': 'ActivitiInjected'});[m[41m[m
+[32m+[m[32m  var activitiHrefElement = new Element('a', {'href': '?category=activiti'})[m[41m[m
+[32m+[m[32m  var activitiImgElement  = new Element('img', {'alt': 'Activiti Tasks', 'src': '/xwiki/resources/icons/silk/activiti.png'})[m[41m[m
+[32m+[m[32m  var activitiSpanElement = new Element('span').update("Activiti Tasks Injected")[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m  var content = new Element('div',{'id': 'activitiPaneInjected', 'class': 'vertical-pane hidden'})[m[41m[m
+[32m+[m[32m  $('activitiPane').insert({after: content});[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m  $('activitiTab').insert({after: activitiListElement})[m[41m[m
+[32m+[m[32m  $('ActivitiInjected').insert({top: activitiHrefElement}).down().insert({top: activitiImgElement}).insert({bottom: activitiSpanElement}).observe('click', function(event){[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m$('ActivitiInjected').addClassName('active');[m[41m[m
+[32m+[m[32m})[m[41m[m
+   </code>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <name>ActivitiUserProfileSkinExtensions</name>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <parse/>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <use>onDemand</use>[m
+[31m-    </property>[m
+[31m-  </object>[m
+[31m-  <content>{{info}}[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<name>ActivitiUserProfileSkinExtensions</name>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<parse></parse>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<use>onDemand</use>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m</object>[m
+[32m+[m[32m<content>{{info}}[m
+ Inject using javascript the Activiti section inside the profile of users[m
+[31m-{{/info}}</content>[m
+[31m-</xwikidoc>[m
+[32m+[m[32m{{/info}}</content></xwikidoc>[m
+[1mdiff --git a/application-activiti-ui/src/main/resources/Activiti/UserTasks.xml b/application-activiti-ui/src/main/resources/Activiti/UserTasks.xml[m
+[1mindex 037f3c6..82f52a4 100644[m
+[1m--- a/application-activiti-ui/src/main/resources/Activiti/UserTasks.xml[m
+[1m+++ b/application-activiti-ui/src/main/resources/Activiti/UserTasks.xml[m
+[36m@@ -1,74 +1,188 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+[31m-[m
+ <xwikidoc>[m
+[31m-  <web>Activiti</web>[m
+[31m-  <name>UserTasks</name>[m
+[31m-  <language/>[m
+[31m-  <defaultLanguage/>[m
+[31m-  <translation>0</translation>[m
+[31m-  <parent>Published.WebHome</parent>[m
+[31m-  <creator>xwiki:XWiki.Admin</creator>[m
+[31m-  <author>xwiki:XWiki.Admin</author>[m
+[31m-  <customClass/>[m
+[31m-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>[m
+[31m-  <creationDate>1366587466000</creationDate>[m
+[31m-  <date>1368987914000</date>[m
+[31m-  <contentUpdateDate>1367162628000</contentUpdateDate>[m
+[31m-  <version>1.1</version>[m
+[31m-  <title>User Tasks</title>[m
+[31m-  <template/>[m
+[31m-  <defaultTemplate/>[m
+[31m-  <validationScript/>[m
+[31m-  <comment/>[m
+[31m-  <minorEdit>false</minorEdit>[m
+[31m-  <syntaxId>xwiki/2.1</syntaxId>[m
+[31m-  <hidden>false</hidden>[m
+[31m-  <content>{{velocity}}[m
+[31m-#if(!$isGuest)[m
+[31m-  #if($request.claimTask)[m
+[31m-    $services.activiti.task.claimTask($request.claimTask)[m
+[31m-    $response.sendRedirect($request.xredirect)[m
+[31m-  #end[m
+[31m-[m
+[31m-[m
+[31m-#set($activeTasks = $services.activiti.task.getCurrentUserTasks())[m
+[31m-== Active Tasks ==[m
+[31m-#if(!$activeTasks.isEmpty())[m
+[31m-  (% style="width: 99%;" %)[m
+[31m-  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m
+[31m-  #foreach($task in $activeTasks)[m
+[31m-    |$task.getId()|$task.getName()|$datetool.format('yyyy/MMM/dd H:mm a', $task.getCreateTime())|$task.getDescription()|[[Go to Task&gt;&gt;Activiti.TaskFormGenerator||queryString="generateFormForTaskId=$task.getId()&amp;xredirect=$escapetool.xml($xwiki.getRelativeRequestURL())"]][m
+[31m-  #end[m
+[31m-#else[m
+[31m-  {{info}}No Active Tasks{{/info}}[m
+[31m-#end[m
+[31m-##[m
+[31m-#set($candidateTasks = $services.activiti.task.getCurrentUserCandidateTasks())[m
+[31m-== Candidate Tasks ==[m
+[31m-#if(!$candidateTasks.isEmpty())[m
+[31m-  (% style="width: 99%;" %)[m
+[31m-  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m
+[31m-  #foreach($task in $candidateTasks)[m
+[31m-    |$task.getId()|$task.getName()|$datetool.format('yyyy/MMM/dd H:mm a', $task.getCreateTime())|$task.getDescription()|[[Claim Task&gt;&gt;Activiti.UserTasks||queryString="claimTask=$task.getId()&amp;xredirect=$escapetool.xml($xwiki.getRelativeRequestURL())"]][m
+[31m-  #end[m
+[31m-#else[m
+[31m-  {{info}}No Candidate Tasks{{/info}}[m
+[31m-#end[m
+[31m-##[m
+[31m-#set($historicalTasks = $services.activiti.history.getCurrentUserHistoryTasks())[m
+[31m-== Completed Tasks ==[m
+[31m-#if(!$historicalTasks.isEmpty())[m
+[31m-  (% style="width: 99%;" %)[m
+[31m-  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Start Time|=(% style="width: 15%;" %)Task End Time|=Task Description[m
+[31m-  #foreach($task in $historicalTasks)[m
+[31m-    |$task.getId()|$task.getName()|$datetool.format('yyyy/MMM/dd H:mm a', $task.getStartTime())|$datetool.format('yyyy/MMM/dd H:mm a', $task.getEndTime())|$task.getDescription()[m
+[31m-  #end[m
+[31m-#else[m
+[31m-  {{info}}No history of previous tasks{{/info}}[m
+[31m-#end[m
+[31m-##[m
+[31m-#else[m
+[31m-{{warning}}You must be logged in{{/warning}}[m
+[31m-#end[m
+[31m-{{/velocity}}</content>[m
+[31m-</xwikidoc>[m
+[32m+[m[32m<web>Activiti</web>[m
+[32m+[m[32m<name>UserTasks</name>[m
+[32m+[m[32m<language></language>[m
+[32m+[m[32m<defaultLanguage></defaultLanguage>[m
+[32m+[m[32m<translation>0</translation>[m
+[32m+[m[32m<parent>Published.WebHome</parent>[m
+[32m+[m[32m<creator>XWiki.Admin</creator>[m
+[32m+[m[32m<author>XWiki.Admin</author>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<contentAuthor>XWiki.Admin</contentAuthor>[m
+[32m+[m[32m<creationDate>1366587466000</creationDate>[m
+[32m+[m[32m<date>1369867022000</date>[m
+[32m+[m[32m<contentUpdateDate>1369866612000</contentUpdateDate>[m
+[32m+[m[32m<version>41.1</version>[m
+[32m+[m[32m<title>User Tasks</title>[m
+[32m+[m[32m<template></template>[m
+[32m+[m[32m<defaultTemplate></defaultTemplate>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<comment></comment>[m
+[32m+[m[32m<minorEdit>false</minorEdit>[m
+[32m+[m[32m<syntaxId>xwiki/2.1</syntaxId>[m
+[32m+[m[32m<hidden>false</hidden>[m
+[32m+[m[32m<object>[m
+[32m+[m[32m<class>[m
+[32m+[m[32m<name>XWiki.StyleSheetExtension</name>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<customMapping></customMapping>[m
+[32m+[m[32m<defaultViewSheet></defaultViewSheet>[m
+[32m+[m[32m<defaultEditSheet></defaultEditSheet>[m
+[32m+[m[32m<defaultWeb></defaultWeb>[m
+[32m+[m[32m<nameField></nameField>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<cache>[m
+[32m+[m[32m<cache>0</cache>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayType>select</displayType>[m
+[32m+[m[32m<multiSelect>0</multiSelect>[m
+[32m+[m[32m<name>cache</name>[m
+[32m+[m[32m<number>5</number>[m
+[32m+[m[32m<prettyName>Caching policy</prettyName>[m
+[32m+[m[32m<relationalStorage>0</relationalStorage>[m
+[32m+[m[32m<separator> </separator>[m
+[32m+[m[32m<separators> ,|</separators>[m
+[32m+[m[32m<size>1</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<values>long|short|default|forbid</values>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[32m+[m[32m</cache>[m
+[32m+[m[32m<code>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>code</name>[m
+[32m+[m[32m<number>2</number>[m
+[32m+[m[32m<prettyName>Code</prettyName>[m
+[32m+[m[32m<rows>20</rows>[m
+[32m+[m[32m<size>50</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[32m+[m[32m</code>[m
+[32m+[m[32m<name>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>name</name>[m
+[32m+[m[32m<number>1</number>[m
+[32m+[m[32m<prettyName>Name</prettyName>[m
+[32m+[m[32m<size>30</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[32m+[m[32m</name>[m
+[32m+[m[32m<parse>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayFormType>select</displayFormType>[m
+[32m+[m[32m<displayType>yesno</displayType>[m
+[32m+[m[32m<name>parse</name>[m
+[32m+[m[32m<number>4</number>[m
+[32m+[m[32m<prettyName>Parse content</prettyName>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>[m
+[32m+[m[32m</parse>[m
+[32m+[m[32m<use>[m
+[32m+[m[32m<cache>0</cache>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<displayType>select</displayType>[m
+[32m+[m[32m<multiSelect>0</multiSelect>[m
+[32m+[m[32m<name>use</name>[m
+[32m+[m[32m<number>3</number>[m
+[32m+[m[32m<prettyName>Use this extension</prettyName>[m
+[32m+[m[32m<relationalStorage>0</relationalStorage>[m
+[32m+[m[32m<separator> </separator>[m
+[32m+[m[32m<separators> ,|</separators>[m
+[32m+[m[32m<size>1</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>[m
+[32m+[m[32m</use>[m
+[32m+[m[32m</class>[m
+[32m+[m[32m<name>Activiti.UserTasks</name>[m
+[32m+[m[32m<number>0</number>[m
+[32m+[m[32m<className>XWiki.StyleSheetExtension</className>[m
+[32m+[m[32m<guid>72a3ec5f-2487-4ea9-af1b-54b79cb3b218</guid>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<cache>default</cache>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<code></code>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<name>styles</name>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<parse></parse>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<use>onDemand</use>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m</object>[m
+[32m+[m[32m<content>{{velocity}}[m[41m[m
+[32m+[m[32m$xwiki.ssx.use("Activiti.ActivitiStyleSheet")[m[41m[m
+[32m+[m[32m## $xwiki.getURL($xwiki.getRelativeRequestURL(), 'view', 'categoty=activiti')[m[41m[m
+[32m+[m[32m#if(!$isGuest)[m[41m[m
+[32m+[m[32m  #if($request.startProcessInstance)[m[41m[m
+[32m+[m[32m    #set($discard = $services.activiti.runtime.startProcessInstanceById($request.startProcessInstance))[m[41m[m
+[32m+[m[32m    ## $response.sendRedirect($request.xredirect)[m[41m[m
+[32m+[m[32m  #elseif($request.claimTask)[m[41m[m
+[32m+[m[32m    $services.activiti.task.claimTask($request.claimTask)[m[41m[m
+[32m+[m[32m    $response.sendRedirect($request.xredirect)[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#set($startableProcesses = $services.activiti.repository.getProcessesStartablyByCurrentUser())[m[41m[m
+[32m+[m[32m#if(!$startableProcesses.isEmpty())[m[41m[m
+[32m+[m[32m  = Startable Processes =[m[41m[m
+[32m+[m[32m  (% class="activitiTable" %)[m[41m[m
+[32m+[m[32m  |=Process ID|=Process Name|=Process Description|=[m[41m[m
+[32m+[m[32m  #foreach($process in $startableProcesses)[m[41m[m
+[32m+[m[32m    |$process.getId()|$process.getName()|$process.getDescription()|((({{html}}&lt;form action="" method="post"&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="startProcessInstance" value="${process.getId()}" /&gt;[m[41m[m
+[32m+[m[32m          &lt;input type="hidden" name="xredirect" value="$xwiki.getRequestURL()" /&gt;[m[41m[m
+[32m+[m[32m          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;[m[41m[m
+[32m+[m[32m            &lt;!-- Leave also the line for a regular form button --&gt;[m[41m[m
+[32m+[m[32m          &lt;div style="float:right"&gt;&lt;input type="submit" value="Start Process Instance" class="button"/&gt;&lt;/div&gt;[m[41m[m
+[32m+[m[32m          &lt;!-- &lt;/span&gt; --&gt;[m[41m[m
+[32m+[m[32m           &lt;!-- &lt;div style="float:right"&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_add.png')" alt="Start Process" "title="Start Process"/&gt;&lt;/div&gt; --&gt;[m[41m[m
+[32m+[m[32m      &lt;/form&gt;[m[41m[m
+[32m+[m[32m      {{/html}}[m[41m[m
+[32m+[m[32m      )))[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m#set($activeTasks = $services.activiti.task.getCurrentUserTasks())[m[41m[m
+[32m+[m[32m== Active Tasks ==[m[41m[m
+[32m+[m[32m#if(!$activeTasks.isEmpty())[m[41m[m
+[32m+[m[32m  (% style="width: 99%;" %)[m[41m[m
+[32m+[m[32m  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m[41m[m
+[32m+[m[32m  #foreach($task in $activeTasks)[m[41m[m
+[32m+[m[32m    |$task.getId()|$task.getName()|$datetool.format('yyyy/MM/dd HH:mm', $task.getCreateTime())|$task.getDescription()|[[Go to Task&gt;&gt;Activiti.TaskFormGenerator||queryString="generateFormForTaskId=$task.getId()&amp;xredirect=$escapetool.xml($xwiki.getRelativeRequestURL())"]][m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{info}}No Active Tasks{{/info}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m##[m[41m[m
+[32m+[m[32m#set($candidateTasks = $services.activiti.task.getCurrentUserCandidateTasks())[m[41m[m
+[32m+[m[32m== Candidate Tasks ==[m[41m[m
+[32m+[m[32m#if(!$candidateTasks.isEmpty())[m[41m[m
+[32m+[m[32m  (% style="width: 99%;" %)[m[41m[m
+[32m+[m[32m  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action[m[41m[m
+[32m+[m[32m  #foreach($task in $candidateTasks)[m[41m[m
+[32m+[m[32m    |$task.getId()|$task.getName()|$datetool.format('yyyy/MM/dd HH:mm', $task.getCreateTime())|$task.getDescription()|[[Claim Task&gt;&gt;Activiti.UserTasks||queryString="claimTask=$task.getId()&amp;xredirect=$escapetool.xml($xwiki.getRelativeRequestURL())"]][m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{info}}No Candidate Tasks{{/info}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m##[m[41m[m
+[32m+[m[32m#set($historicalTasks = $services.activiti.history.getCurrentUserHistoryTasks())[m[41m[m
+[32m+[m[32m== Completed Tasks ==[m[41m[m
+[32m+[m[32m#if(!$historicalTasks.isEmpty())[m[41m[m
+[32m+[m[32m  (% style="width: 99%;" %)[m[41m[m
+[32m+[m[32m  |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Start Time|=(% style="width: 15%;" %)Task End Time|=Task Description[m[41m[m
+[32m+[m[32m  #foreach($task in $historicalTasks)[m[41m[m
+[32m+[m[32m    |$task.getId()|$task.getName()|$datetool.format('yyyy/MM/dd HH:mm', $task.getStartTime())|$datetool.format('yyyy/MM/dd HH:mm', $task.getEndTime())|$task.getDescription()[m[41m[m
+[32m+[m[32m  #end[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m  {{info}}No history of previous tasks{{/info}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m##[m[41m[m
+[32m+[m[32m#else[m[41m[m
+[32m+[m[32m{{warning}}You must be logged in{{/warning}}[m[41m[m
+[32m+[m[32m#end[m[41m[m
+[32m+[m[32m{{/velocity}}</content></xwikidoc>[m
+[1mdiff --git a/application-activiti-ui/src/main/resources/Activiti/WebHome.xml b/application-activiti-ui/src/main/resources/Activiti/WebHome.xml[m
+[1mindex 0f44d93..623ede3 100644[m
+[1m--- a/application-activiti-ui/src/main/resources/Activiti/WebHome.xml[m
+[1m+++ b/application-activiti-ui/src/main/resources/Activiti/WebHome.xml[m
+[36m@@ -1,156 +1,154 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+[31m-[m
+ <xwikidoc>[m
+[31m-  <web>Activiti</web>[m
+[31m-  <name>WebHome</name>[m
+[31m-  <language/>[m
+[31m-  <defaultLanguage/>[m
+[31m-  <translation>0</translation>[m
+[31m-  <parent>Published.WebHome</parent>[m
+[31m-  <creator>xwiki:XWiki.Admin</creator>[m
+[31m-  <author>xwiki:XWiki.Admin</author>[m
+[31m-  <customClass/>[m
+[31m-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>[m
+[31m-  <creationDate>1366545185000</creationDate>[m
+[31m-  <date>1368987914000</date>[m
+[31m-  <contentUpdateDate>1367000020000</contentUpdateDate>[m
+[31m-  <version>1.1</version>[m
+[31m-  <title>Activiti</title>[m
+[31m-  <template/>[m
+[31m-  <defaultTemplate/>[m
+[31m-  <validationScript/>[m
+[31m-  <comment/>[m
+[31m-  <minorEdit>false</minorEdit>[m
+[31m-  <syntaxId>xwiki/2.1</syntaxId>[m
+[31m-  <hidden>false</hidden>[m
+[31m-  <object>[m
+[31m-    <class>[m
+[31m-      <name>XWiki.GadgetClass</name>[m
+[31m-      <customClass/>[m
+[31m-      <customMapping/>[m
+[31m-      <defaultViewSheet/>[m
+[31m-      <defaultEditSheet/>[m
+[31m-      <defaultWeb/>[m
+[31m-      <nameField/>[m
+[31m-      <validationScript/>[m
+[31m-      <content>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <editor>---</editor>[m
+[31m-        <name>content</name>[m
+[31m-        <number>2</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>content</prettyName>[m
+[31m-        <rows>5</rows>[m
+[31m-        <size>40</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[31m-      </content>[m
+[31m-      <position>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>position</name>[m
+[31m-        <number>3</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>position</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </position>[m
+[31m-      <title>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>title</name>[m
+[31m-        <number>1</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>title</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </title>[m
+[31m-    </class>[m
+[31m-    <name>Activiti.WebHome</name>[m
+[31m-    <number>0</number>[m
+[31m-    <className>XWiki.GadgetClass</className>[m
+[31m-    <guid>46faab28-46b6-4a64-ae7c-ef7f954a06a0</guid>[m
+[31m-    <property>[m
+[31m-      <content>{{info}}[m
+[32m+[m[32m<web>Activiti</web>[m
+[32m+[m[32m<name>WebHome</name>[m
+[32m+[m[32m<language></language>[m
+[32m+[m[32m<defaultLanguage></defaultLanguage>[m
+[32m+[m[32m<translation>0</translation>[m
+[32m+[m[32m<parent>Published.WebHome</parent>[m
+[32m+[m[32m<creator>XWiki.Admin</creator>[m
+[32m+[m[32m<author>XWiki.Admin</author>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<contentAuthor>XWiki.Admin</contentAuthor>[m
+[32m+[m[32m<creationDate>1366545185000</creationDate>[m
+[32m+[m[32m<date>1368987914000</date>[m
+[32m+[m[32m<contentUpdateDate>1367000020000</contentUpdateDate>[m
+[32m+[m[32m<version>9.2</version>[m
+[32m+[m[32m<title>Activiti</title>[m
+[32m+[m[32m<template></template>[m
+[32m+[m[32m<defaultTemplate></defaultTemplate>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<comment>Changed parent to Published.WebHome following the rename of that page</comment>[m
+[32m+[m[32m<minorEdit>true</minorEdit>[m
+[32m+[m[32m<syntaxId>xwiki/2.1</syntaxId>[m
+[32m+[m[32m<hidden>false</hidden>[m
+[32m+[m[32m<object>[m
+[32m+[m[32m<class>[m
+[32m+[m[32m<name>XWiki.GadgetClass</name>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<customMapping></customMapping>[m
+[32m+[m[32m<defaultViewSheet></defaultViewSheet>[m
+[32m+[m[32m<defaultEditSheet></defaultEditSheet>[m
+[32m+[m[32m<defaultWeb></defaultWeb>[m
+[32m+[m[32m<nameField></nameField>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<content>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<editor>---</editor>[m
+[32m+[m[32m<name>content</name>[m
+[32m+[m[32m<number>2</number>[m
+[32m+[m[32m<picker>0</picker>[m
+[32m+[m[32m<prettyName>content</prettyName>[m
+[32m+[m[32m<rows>5</rows>[m
+[32m+[m[32m<size>40</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<validationMessage></validationMessage>[m
+[32m+[m[32m<validationRegExp></validationRegExp>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[32m+[m[32m</content>[m
+[32m+[m[32m<position>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>position</name>[m
+[32m+[m[32m<number>3</number>[m
+[32m+[m[32m<picker>0</picker>[m
+[32m+[m[32m<prettyName>position</prettyName>[m
+[32m+[m[32m<size>30</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<validationMessage></validationMessage>[m
+[32m+[m[32m<validationRegExp></validationRegExp>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[32m+[m[32m</position>[m
+[32m+[m[32m<title>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>title</name>[m
+[32m+[m[32m<number>1</number>[m
+[32m+[m[32m<picker>0</picker>[m
+[32m+[m[32m<prettyName>title</prettyName>[m
+[32m+[m[32m<size>30</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<validationMessage></validationMessage>[m
+[32m+[m[32m<validationRegExp></validationRegExp>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[32m+[m[32m</title>[m
+[32m+[m[32m</class>[m
+[32m+[m[32m<name>Activiti.WebHome</name>[m
+[32m+[m[32m<number>0</number>[m
+[32m+[m[32m<className>XWiki.GadgetClass</className>[m
+[32m+[m[32m<guid>46faab28-46b6-4a64-ae7c-ef7f954a06a0</guid>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<content>{{info}}[m
+ Activiti integration WebHome[m
+ {{/info}}</content>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <position>1, 1</position>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <title/>[m
+[31m-    </property>[m
+[31m-  </object>[m
+[31m-  <object>[m
+[31m-    <class>[m
+[31m-      <name>XWiki.GadgetClass</name>[m
+[31m-      <customClass/>[m
+[31m-      <customMapping/>[m
+[31m-      <defaultViewSheet/>[m
+[31m-      <defaultEditSheet/>[m
+[31m-      <defaultWeb/>[m
+[31m-      <nameField/>[m
+[31m-      <validationScript/>[m
+[31m-      <content>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <editor>---</editor>[m
+[31m-        <name>content</name>[m
+[31m-        <number>2</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>content</prettyName>[m
+[31m-        <rows>5</rows>[m
+[31m-        <size>40</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[31m-      </content>[m
+[31m-      <position>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>position</name>[m
+[31m-        <number>3</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>position</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </position>[m
+[31m-      <title>[m
+[31m-        <disabled>0</disabled>[m
+[31m-        <name>title</name>[m
+[31m-        <number>1</number>[m
+[31m-        <picker>0</picker>[m
+[31m-        <prettyName>title</prettyName>[m
+[31m-        <size>30</size>[m
+[31m-        <unmodifiable>0</unmodifiable>[m
+[31m-        <validationMessage/>[m
+[31m-        <validationRegExp/>[m
+[31m-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[31m-      </title>[m
+[31m-    </class>[m
+[31m-    <name>Activiti.WebHome</name>[m
+[31m-    <number>1</number>[m
+[31m-    <className>XWiki.GadgetClass</className>[m
+[31m-    <guid>3aa3e99f-7bc3-408b-8ff5-e498e3d5507b</guid>[m
+[31m-    <property>[m
+[31m-      <content>{{spaceindex space="Activiti"/}}</content>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <position>1, 2</position>[m
+[31m-    </property>[m
+[31m-    <property>[m
+[31m-      <title>Pages</title>[m
+[31m-    </property>[m
+[31m-  </object>[m
+[31m-  <content>[m
+[31m-{{dashboard/}}</content>[m
+[31m-</xwikidoc>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<position>1, 1</position>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<title></title>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m</object>[m
+[32m+[m[32m<object>[m
+[32m+[m[32m<class>[m
+[32m+[m[32m<name>XWiki.GadgetClass</name>[m
+[32m+[m[32m<customClass></customClass>[m
+[32m+[m[32m<customMapping></customMapping>[m
+[32m+[m[32m<defaultViewSheet></defaultViewSheet>[m
+[32m+[m[32m<defaultEditSheet></defaultEditSheet>[m
+[32m+[m[32m<defaultWeb></defaultWeb>[m
+[32m+[m[32m<nameField></nameField>[m
+[32m+[m[32m<validationScript></validationScript>[m
+[32m+[m[32m<content>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<editor>---</editor>[m
+[32m+[m[32m<name>content</name>[m
+[32m+[m[32m<number>2</number>[m
+[32m+[m[32m<picker>0</picker>[m
+[32m+[m[32m<prettyName>content</prettyName>[m
+[32m+[m[32m<rows>5</rows>[m
+[32m+[m[32m<size>40</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<validationMessage></validationMessage>[m
+[32m+[m[32m<validationRegExp></validationRegExp>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>[m
+[32m+[m[32m</content>[m
+[32m+[m[32m<position>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>position</name>[m
+[32m+[m[32m<number>3</number>[m
+[32m+[m[32m<picker>0</picker>[m
+[32m+[m[32m<prettyName>position</prettyName>[m
+[32m+[m[32m<size>30</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<validationMessage></validationMessage>[m
+[32m+[m[32m<validationRegExp></validationRegExp>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[32m+[m[32m</position>[m
+[32m+[m[32m<title>[m
+[32m+[m[32m<disabled>0</disabled>[m
+[32m+[m[32m<name>title</name>[m
+[32m+[m[32m<number>1</number>[m
+[32m+[m[32m<picker>0</picker>[m
+[32m+[m[32m<prettyName>title</prettyName>[m
+[32m+[m[32m<size>30</size>[m
+[32m+[m[32m<unmodifiable>0</unmodifiable>[m
+[32m+[m[32m<validationMessage></validationMessage>[m
+[32m+[m[32m<validationRegExp></validationRegExp>[m
+[32m+[m[32m<classType>com.xpn.xwiki.objects.classes.StringClass</classType>[m
+[32m+[m[32m</title>[m
+[32m+[m[32m</class>[m
+[32m+[m[32m<name>Activiti.WebHome</name>[m
+[32m+[m[32m<number>1</number>[m
+[32m+[m[32m<className>XWiki.GadgetClass</className>[m
+[32m+[m[32m<guid>3aa3e99f-7bc3-408b-8ff5-e498e3d5507b</guid>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<content>{{spaceindex space="Activiti"/}}</content>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<position>1, 2</position>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m<property>[m
+[32m+[m[32m<title>Pages</title>[m
+[32m+[m[32m</property>[m
+[32m+[m[32m</object>[m
+[32m+[m[32m<content>[m
+[32m+[m[32m{{dashboard/}}</content></xwikidoc>[m

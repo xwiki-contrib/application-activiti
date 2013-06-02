@@ -55,12 +55,6 @@ public class DefaultXWikiActivitiBridge implements XWikiActivitiBridge
         return xwikiContext.isMainWiki() && xwikiContext.getWiki().getRightService().hasAdminRights(xwikiContext);
     }
 
-    public String getDocumentReference(Object xwikiDocument)
-    {
-        return null;
-
-    }
-
     private XWikiContext getXWikiContext()
     {
         return (XWikiContext) this.execution.getContext().getProperty(XWikiContext.EXECUTIONCONTEXT_KEY);

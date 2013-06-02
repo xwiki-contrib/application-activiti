@@ -1,22 +1,13 @@
 package org.xwiki.activiti.internal;
 
 import java.util.List;
-
-import javax.inject.Inject;
+import java.util.Map;
 
 import org.activiti.engine.form.FormProperty;
-import org.slf4j.Logger;
 import org.xwiki.activiti.ActivitiEngine;
-import org.xwiki.bridge.DocumentAccessBridge;
 
 public class FormScriptService
 {
-    @Inject
-    private Logger logger;
-
-    @Inject
-    private DocumentAccessBridge documentAccessBridge;
-
     private ActivitiEngine activitiEngine;
 
     FormScriptService(ActivitiEngine activitiEngine)
@@ -31,5 +22,10 @@ public class FormScriptService
     public List<FormProperty> getTaskFormProperties(String taskId)
     {
         return this.activitiEngine.getTaskFormProperties(taskId);
+    }
+
+    public void submitTaskFormData(String taskId, Map<String, String> properties)
+    {
+        this.activitiEngine.submitTaskFormData(taskId, properties);
     }
 }

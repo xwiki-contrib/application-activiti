@@ -32,7 +32,9 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.xwiki.activiti.ActivitiEngine;
 import org.xwiki.activiti.XWikiActivitiBridge;
+import org.xwiki.bridge.DocumentAccessBridge;
 import org.xwiki.component.annotation.Component;
+import org.xwiki.model.reference.EntityReferenceSerializer;
 import org.xwiki.script.service.ScriptService;
 
 /**
@@ -51,9 +53,15 @@ public class ActivitiScriptService implements ScriptService
     @Inject
     private XWikiActivitiBridge bridge;
 
+    @Inject
+    private DocumentAccessBridge documentAccessBridge;
+
+    @Inject
+    private EntityReferenceSerializer<String> entityReferenceSerializer;
+
     public RepositoryScriptService getRepository()
     {
-        return new RepositoryScriptService(activiti, bridge);
+        return new RepositoryScriptService(activiti, bridge, documentAccessBridge, entityReferenceSerializer);
     }
 
     public RuntimeScriptService getRuntime()

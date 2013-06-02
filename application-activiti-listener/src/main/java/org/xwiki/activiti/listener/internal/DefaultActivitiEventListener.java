@@ -45,6 +45,15 @@ public class DefaultActivitiEventListener implements EventListener
     @Inject
     private Logger logger;
 
+    private String startMappingQuery =
+        "select mapping.processId from Document doc, doc.object(Activiti.EventStartMappingClass) as mapping where mapping.event = :event and mapping.space = :space";
+
+    private String messageMappingQuery =
+        "select mapping.message from Document doc, doc.object(Activiti.EventMessageMappingClass) as mapping where mapping.event = :event and mapping.space = :space";
+
+    private String signalMappingQuery =
+        "select mapping.signal from Document doc, doc.object(Activiti.EventSignalMappingClass) as mapping where mapping.event = :event and mapping.space = :space";
+
     @Override
     public List<Event> getEvents()
     {
@@ -68,92 +77,66 @@ public class DefaultActivitiEventListener implements EventListener
         String documentSpace = documentReference.getParent().getName();
         Boolean documentExists = documentAccessBridge.exists(documentReference);
 
-        String queryStatement =
-            "select mapping.message from Document doc, doc.object(Activiti.EventListenerMappingClass) as mapping where mapping.event = :event and mapping.space = :space";
+        // Query to get the List of Processes to be started
 
         if (event instanceof DocumentCreatedEvent) {
-
-            try {
-                List<String> queryResults =
-                    queryManager.createQuery(queryStatement, Query.XWQL).bindValue("event", "DocumentCreatedEvent")
-                        .bindValue("space", documentSpace).execute();
-                if (!queryResults.isEmpty()) {
-                    ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);
-
-                    for (int i = 0; i < queryResults.size(); i++) {
-                        ProcessInstance processInstance =
-                            activiti.getProcessEngine().getRuntimeService()
-                                .startProcessInstanceByMessage(queryResults.get(i));
-                        activiti.getProcessEngine().getRuntimeService()
-                            .setVariable(processInstance.getId(), "document Name", documentName);
-                        activiti.getProcessEngine().getRuntimeService()
-                            .setVariable(processInstance.getId(), "document Space", documentSpace);
-                        logger.info("DocumentCreatedEvent fired. Document: " + documentName + " was created in space: "
-                            + documentSpace + ". Sending message " + queryResults.get(i) + " to Activiti Engine");
-                    }
-                }
-            } catch (QueryException e) {
-                logger.error("Query failed. ", e);
-            } catch (ComponentLookupException e) {
-                logger.error("Unable to get Activiti Engine. ", e);
-                e.printStackTrace();
-            }
+            this.computeOnEvent("DocumentCreatedEvent", documentName, documentSpace);
         }
 
         if (event instanceof DocumentUpdatedEvent) {
-            try {
-                List<String> queryResults =
-                    queryManager.createQuery(queryStatement, Query.XWQL).bindValue("event", "DocumentUpdatedEvent")
-                        .bindValue("space", documentSpace).execute();
-                if (!queryResults.isEmpty()) {
-                    ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);
-
-                    for (int i = 0; i < queryResults.size(); i++) {
-                        ProcessInstance processInstance =
-                            activiti.getProcessEngine().getRuntimeService()
-                                .startProcessInstanceByMessage(queryResults.get(i));
-                        activiti.getProcessEngine().getRuntimeService()
-                            .setVariable(processInstance.getId(), "document Name", documentName);
-                        activiti.getProcessEngine().getRuntimeService()
-                            .setVariable(processInstance.getId(), "document Space", documentSpace);
-                        logger.info("DocumentUpdatedEvent fired. Document: " + documentName + " was updated in space: "
-                            + documentSpace + ". Sending message " + queryResults.get(i) + " to Activiti Engine");
-                    }
-                }
-            } catch (QueryException e) {
-                logger.error("Query failed. ", e);
-            } catch (ComponentLookupException e) {
-                logger.error("Unable to get Activiti Engine. ", e);
-                e.printStackTrace();
-            }
+            this.computeOnEvent("DocumentUpdatedEvent", documentName, documentSpace);
         }
 
         if (event instanceof DocumentDeletedEvent) {
-            try {
-                List<String> queryResults =
-                    queryManager.createQuery(queryStatement, Query.XWQL).bindValue("event", "DocumentDeletedEvent")
-                        .bindValue("space", documentSpace).execute();
-                if (!queryResults.isEmpty()) {
-                    ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);
+            this.computeOnEvent("DocumentDeletedEvent", documentName, documentSpace);
+        }
 
-                    for (int i = 0; i < queryResults.size(); i++) {
-                        ProcessInstance processInstance =
-                            activiti.getProcessEngine().getRuntimeService()
-                                .startProcessInstanceByMessage(queryResults.get(i));
+    }
+
+    private void computeOnEvent(String event, String documentName, String documentSpace)
+    {
+        try {
+            List<String> startMappingResults =
+                queryManager.createQuery(this.startMappingQuery, Query.XWQL).bindValue("event", event)
+                    .bindValue("space", documentSpace).execute();
+            List<String> messageMappingResults =
+                queryManager.createQuery(this.messageMappingQuery, Query.XWQL).bindValue("event", event)
+                    .bindValue("space", documentSpace).execute();
+            List<String> signalMappingResults =
+                queryManager.createQuery(this.signalMappingQuery, Query.XWQL).bindValue("event", event)
+                    .bindValue("space", documentSpace).execute();
+            if (!startMappingResults.isEmpty() || !messageMappingResults.isEmpty() || !signalMappingResults.isEmpty()) {
+                ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);
+
+                for (int i = 0; i < startMappingResults.size(); i++) {
+                    ProcessInstance processInstance =
                         activiti.getProcessEngine().getRuntimeService()
-                            .setVariable(processInstance.getId(), "document Name", documentName);
-                        activiti.getProcessEngine().getRuntimeService()
-                            .setVariable(processInstance.getId(), "document Space", documentSpace);
-                        logger.info("DocumentDeletedEvent fired. Document: " + documentName + " was deleted in space: "
-                            + documentSpace + ". Sending message " + queryResults.get(i) + " to Activiti Engine");
-                    }
+                            .startProcessInstanceById(startMappingResults.get(i));
+                    activiti.getProcessEngine().getRuntimeService()
+                        .setVariable(processInstance.getId(), "document Name", documentName);
+                    activiti.getProcessEngine().getRuntimeService()
+                        .setVariable(processInstance.getId(), "document Space", documentSpace);
+                    logger.info(event + " fired in space " + documentSpace + " on document " + documentName
+                        + ". Starting Process: " + startMappingResults.get(i) + " to Activiti Engine");
                 }
-            } catch (QueryException e) {
-                logger.error("Query failed. ", e);
-            } catch (ComponentLookupException e) {
-                logger.error("Unable to get Activiti Engine. ", e);
-                e.printStackTrace();
+                for (int i = 0; i < messageMappingResults.size(); i++) {
+
+                    // activiti.getRuntimeService().
+
+                    logger.info(event + " fired in space " + documentSpace + " on document " + documentName
+                        + ". Sending message " + signalMappingResults.get(i) + " to Activiti Engine");
+                }
+                for (int i = 0; i < signalMappingResults.size(); i++) {
+                    activiti.getRuntimeService().signalEventReceived(signalMappingResults.get(i));
+                    logger.info(event + " fired in space " + documentSpace + " on document " + documentName
+                        + ". Sending signal " + signalMappingResults.get(i) + " to Activiti Engine");
+                }
             }
+        } catch (QueryException e) {
+            logger.error("Query failed. ", e);
+        } catch (ComponentLookupException e) {
+            logger.error("Unable to get Activiti Engine. ", e);
+            e.printStackTrace();
         }
     }
 }

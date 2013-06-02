@@ -3,28 +3,30 @@ package org.xwiki.activiti.internal;
 import java.io.InputStream;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.activiti.engine.repository.ProcessDefinition;
-import org.slf4j.Logger;
 import org.xwiki.activiti.ActivitiEngine;
 import org.xwiki.activiti.XWikiActivitiBridge;
+import org.xwiki.bridge.DocumentAccessBridge;
+import org.xwiki.model.reference.DocumentReference;
+import org.xwiki.model.reference.EntityReferenceSerializer;
 
 public class RepositoryScriptService
 {
-    @Inject
-    private Logger logger;
-
-    // XWikiActivitiBridge bridge = Utils.getComponent(XWikiActivitiBridge.class);
-
     private ActivitiEngine activitiEngine;
 
     private XWikiActivitiBridge bridge;
 
-    RepositoryScriptService(ActivitiEngine activitiEngine, XWikiActivitiBridge bridge)
+    private DocumentAccessBridge documentAccessBridge;
+
+    private EntityReferenceSerializer<String> entityReferenceSerializer;
+
+    RepositoryScriptService(ActivitiEngine activitiEngine, XWikiActivitiBridge bridge,
+        DocumentAccessBridge documentAccessBridge, EntityReferenceSerializer<String> entityReferenceSerializer)
     {
         this.activitiEngine = activitiEngine;
         this.bridge = bridge;
+        this.documentAccessBridge = documentAccessBridge;
+        this.entityReferenceSerializer = entityReferenceSerializer;
     }
 
     /**
@@ -42,7 +44,6 @@ public class RepositoryScriptService
      */
     public void deleteProcessDefinition(String processDefinitionId)
     {
-        System.out.println("Deleting process definition: " + this.bridge.hasPermissions());
         if (this.bridge.hasPermissions()) {
             this.activitiEngine.deleteDeploymentByProcessDefinitionKey(processDefinitionId);
         }
@@ -61,4 +62,16 @@ public class RepositoryScriptService
         }
     }
 
+    public List<ProcessDefinition> getProcessesStartablyByCurrentUser()
+    {
+
+        DocumentReference docRef = documentAccessBridge.getCurrentUserReference();
+        String userId = this.entityReferenceSerializer.serialize(docRef);
+        return this.activitiEngine.getProcessesStartablyByCurrentUser(userId);
+    }
+
+    public ProcessDefinition getProcessDefinitionById(String processDefinitionId)
+    {
+        return this.activitiEngine.getProcessDefinitionById(processDefinitionId);
+    }
 }

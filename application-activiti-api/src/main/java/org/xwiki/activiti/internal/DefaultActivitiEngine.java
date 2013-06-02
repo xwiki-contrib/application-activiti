@@ -55,6 +55,8 @@ import org.xwiki.component.annotation.Component;
 import org.xwiki.component.manager.ComponentManager;
 import org.xwiki.component.phase.Initializable;
 import org.xwiki.component.phase.InitializationException;
+import org.xwiki.model.reference.DocumentReference;
+import org.xwiki.model.reference.EntityReferenceSerializer;
 import org.xwiki.script.ScriptContextManager;
 
 /**
@@ -74,10 +76,10 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
     private DocumentAccessBridge documentAccessBridge;
 
     @Inject
-    private ComponentManager componentManager;
+    private EntityReferenceSerializer<String> entityReferenceSerializer;
 
-    // @Inject
-    // private ScriptServiceManager scriptServiceManager;
+    @Inject
+    private ComponentManager componentManager;
 
     @Inject
     private org.xwiki.context.Execution execution;
@@ -111,14 +113,14 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
             ProcessEngineConfiguration.createProcessEngineConfigurationFromResourceDefault();
         processEngine = configuration.buildProcessEngine();
 
-        // Override the default User and Group Factories This is done after the process engine is built because
+        // Override the default User and Group Factories. This is done after the process engine is built because
         // otherwise the getSessionFactories() method will return null
         Map<Class< ? >, org.activiti.engine.impl.interceptor.SessionFactory> sessionFactories =
             ((ProcessEngineConfigurationImpl) configuration).getSessionFactories();
         sessionFactories.put(UserEntityManager.class, userEntityManagerFactory);
         sessionFactories.put(GroupEntityManager.class, groupEntityManagerFactory);
 
-        // We inject Script Service Manager so we allow the usage of services from within Activiti
+        // We inject Script Service Manager thus allowing the usage of services from within Activiti
         Map<Object, Object> beans = new HashMap<Object, Object>();
         // beans.put("services", this.scriptServiceManager);
         beans.putAll(this.scriptContextManager.getScriptContext().getBindings(ScriptContext.ENGINE_SCOPE));
@@ -210,8 +212,8 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
     @Override
     public List<Task> getCurrentUserTasks()
     {
-        return this.processEngine.getTaskService().createTaskQuery()
-            .taskAssignee(documentAccessBridge.getCurrentUserReference().toString()).list();
+        return this.processEngine.getTaskService().createTaskQuery().taskAssignee(this.getCurrentUserReference())
+            .list();
     }
 
     @Override
@@ -220,8 +222,7 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
         // Order the list descending by the end time of the tasks, so the latest finished tasks will be on top of the
         // list
         return this.processEngine.getHistoryService().createHistoricTaskInstanceQuery()
-            .taskAssignee(documentAccessBridge.getCurrentUserReference().toString()).finished()
-            .orderByHistoricTaskInstanceEndTime().desc().list();
+            .taskAssignee(this.getCurrentUserReference()).finished().orderByHistoricTaskInstanceEndTime().desc().list();
     }
 
     @Override
@@ -245,14 +246,14 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
     @Override
     public List<Task> getCurrentUserCandidateTasks()
     {
-        return this.processEngine.getTaskService().createTaskQuery()
-            .taskCandidateUser(documentAccessBridge.getCurrentUserReference().toString()).taskUnassigned().list();
+        return this.processEngine.getTaskService().createTaskQuery().taskCandidateUser(this.getCurrentUserReference())
+            .taskUnassigned().list();
     }
 
     @Override
     public void claimTask(String taskId)
     {
-        this.processEngine.getTaskService().claim(taskId, documentAccessBridge.getCurrentUserReference().toString());
+        this.processEngine.getTaskService().claim(taskId, this.getCurrentUserReference());
     }
 
     @Override
@@ -287,4 +288,40 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
     {
         this.processEngine.getRepositoryService().createDeployment().addInputStream(resourceName, inputStream).deploy();
     }
+
+    @Override
+    public List<ProcessDefinition> getProcessesStartablyByCurrentUser(String userId)
+    {
+        return this.processEngine.getRepositoryService().createProcessDefinitionQuery().startableByUser(userId).list();
+    }
+
+    @Override
+    public void submitTaskFormData(String taskId, Map<String, String> properties)
+    {
+        // Make sure the user submitting the form is the actual Task Assignee
+        Task currentTask = this.processEngine.getTaskService().createTaskQuery().taskId(taskId).singleResult();
+        if (currentTask.getAssignee().equals(this.getCurrentUserReference())) {
+            this.processEngine.getFormService().submitTaskFormData(taskId, properties);
+        }
+    }
+
+    @Override
+    public Map<String, Object> getVariables(String executionId)
+    {
+        return this.processEngine.getRuntimeService().getVariables(executionId);
+    }
+
+    private String getCurrentUserReference()
+    {
+        DocumentReference docRef = documentAccessBridge.getCurrentUserReference();
+        return this.entityReferenceSerializer.serialize(docRef);
+    }
+
+    @Override
+    public ProcessDefinition getProcessDefinitionById(String processDefinitionId)
+    {
+        return this.processEngine.getRepositoryService().getProcessDefinition(processDefinitionId);
+
+    }
+
 }

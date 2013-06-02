@@ -7,10 +7,10 @@
     <userTask id="usertask1" name="Enter Information" activiti:candidateGroups="xwiki:XWiki.Evaluare">
       <documentation>Add some simple information</documentation>
       <extensionElements>
-        <activiti:formProperty id="name" name="Your Name" type="string"></activiti:formProperty>
-        <activiti:formProperty id="email" name="Your E-Mail" type="string"></activiti:formProperty>
-        <activiti:formProperty id="ammount" name="Ammount Requested" type="long"></activiti:formProperty>
-        <activiti:formProperty id="criteria" name="Criteria Met" type="boolean"></activiti:formProperty>
+        <activiti:formProperty id="name" name="Your Name" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="email" name="Your E-Mail" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="ammount" name="Ammount Requested" type="long" required="true"></activiti:formProperty>
+        <activiti:formProperty id="criteria" name="Criteria Met" type="boolean" required="true"></activiti:formProperty>
       </extensionElements>
     </userTask>
     <sequenceFlow id="flow4" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>

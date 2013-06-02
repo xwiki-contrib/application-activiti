@@ -22,6 +22,7 @@ package org.xwiki.activiti;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 import org.activiti.engine.FormService;
 import org.activiti.engine.HistoryService;
@@ -44,7 +45,6 @@ import org.xwiki.component.annotation.Role;
  * 
  * @author Sorin Burjan
  */
-
 @Role
 public interface ActivitiEngine
 {
@@ -71,6 +71,14 @@ public interface ActivitiEngine
     List<ProcessDefinition> getDeployedProcesses();
 
     /**
+     * A deployed process definition
+     * 
+     * @return A deployed process definition
+     */
+
+    ProcessDefinition getProcessDefinitionById(String processDefinitionId);
+
+    /**
      * List of running Process Instances
      * 
      * @return List of running Process Instances
@@ -78,8 +86,8 @@ public interface ActivitiEngine
     List<Execution> getProcessInstances();
 
     /**
-     * For deleting a deployed Process Definition, the Deployment corresponding to that process must be deleted. This
-     * method will find out the deploymentId of the Process Definition to be deleted, and then deletes the whole
+     * For deleting a deployed Process Definition, the Deployment corresponding to that process must also be deleted.
+     * This method will find out the deploymentId of the Process Definition to be deleted, and then deletes the whole
      * deployment with all its active tasks and its history
      * 
      * @param process definition key which was deployed with the process deployment
@@ -176,5 +184,11 @@ public interface ActivitiEngine
     String getDeploymentName(String deploymentId);
 
     void uploadProcessDefinition(String resourceName, InputStream processDefinition);
+
+    List<ProcessDefinition> getProcessesStartablyByCurrentUser(String userId);
+
+    void submitTaskFormData(String taskId, Map<String, String> properties);
+
+    Map<String, Object> getVariables(String executionId);
 
 }

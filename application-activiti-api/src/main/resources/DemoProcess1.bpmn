@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
-  <process id="demoProcess1" name="Demo Process 1" isExecutable="true">
+  <process id="demoProcess1" name="Demo Process 1" isExecutable="true" activiti:candidateStarterUsers="xwiki:XWiki.sorinello">
     <documentation>Demo Process 1. User Tasks</documentation>
     <startEvent id="startevent1" name="Start"></startEvent>
     <userTask id="usertask1" name="Fill in Form" activiti:assignee="xwiki:XWiki.sorinello">
       <documentation>This is directly assigned to User xwiki:XWiki.sorinello.
 Form using all the Activiti internal datatypes</documentation>
       <extensionElements>
-        <activiti:formProperty id="nameId" name="Name" type="string"></activiti:formProperty>
-        <activiti:formProperty id="longId" name="Long" type="long"></activiti:formProperty>
-        <activiti:formProperty id="enumId" name="Enumeration" type="enum">
+        <activiti:formProperty id="nameId" name="Form Name" type="string" variable="Nave in Variable" required="true"></activiti:formProperty>
+        <activiti:formProperty id="longId" name="Form Long" type="long" variable="Long in Variable" required="true"></activiti:formProperty>
+        <activiti:formProperty id="enumId" name="Form Enumeration" type="enum" variable="Enum in Variable" required="true">
           <activiti:value id="FERRAR_I" name="ferrari"></activiti:value>
           <activiti:value id="DACI_A" name="dacia"></activiti:value>
           <activiti:value id="RENAUL_T" name="renault"></activiti:value>
         </activiti:formProperty>
-        <activiti:formProperty id="dateId" name="Date" type="date"></activiti:formProperty>
-        <activiti:formProperty id="booleanId" name="Boolean" type="boolean"></activiti:formProperty>
+        <activiti:formProperty id="dateId" name="Form Date" type="date" variable="Date in Variable"></activiti:formProperty>
+        <activiti:formProperty id="booleanId" name="FOrm Boolean" type="boolean" variable="Variable in Boolean"></activiti:formProperty>
       </extensionElements>
     </userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>

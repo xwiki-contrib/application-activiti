@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1366545229000</creationDate>
-  <date>1368986478000</date>
-  <contentUpdateDate>1368986478000</contentUpdateDate>
+  <date>1369169897000</date>
+  <contentUpdateDate>1369169896000</contentUpdateDate>
   <version>1.1</version>
   <title>ActivitiAdmin</title>
   <template/>
@@ -23,153 +23,6 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>false</hidden>
-  <object>
-    <class>
-      <name>XWiki.ConfigurableClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <codeToExecute>
-        <disabled>0</disabled>
-        <editor>---</editor>
-        <name>codeToExecute</name>
-        <number>7</number>
-        <picker>0</picker>
-        <prettyName>codeToExecute</prettyName>
-        <rows>5</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </codeToExecute>
-      <configurationClass>
-        <disabled>0</disabled>
-        <name>configurationClass</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>configurationClass</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </configurationClass>
-      <configureGlobally>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>checkbox</displayFormType>
-        <displayType/>
-        <name>configureGlobally</name>
-        <number>4</number>
-        <prettyName>configureGlobally</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </configureGlobally>
-      <displayInSection>
-        <disabled>0</disabled>
-        <name>displayInSection</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>displayInSection</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </displayInSection>
-      <heading>
-        <disabled>0</disabled>
-        <name>heading</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>heading</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </heading>
-      <iconAttachment>
-        <disabled>0</disabled>
-        <name>iconAttachment</name>
-        <number>8</number>
-        <picker>0</picker>
-        <prettyName>iconAttachment</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </iconAttachment>
-      <linkPrefix>
-        <disabled>0</disabled>
-        <name>linkPrefix</name>
-        <number>5</number>
-        <picker>0</picker>
-        <prettyName>linkPrefix</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </linkPrefix>
-      <propertiesToShow>
-        <cache>0</cache>
-        <disabled>0</disabled>
-        <displayType>input</displayType>
-        <multiSelect>1</multiSelect>
-        <name>propertiesToShow</name>
-        <number>6</number>
-        <picker>0</picker>
-        <prettyName>propertiesToShow</prettyName>
-        <relationalStorage>1</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>20</size>
-        <sort>none</sort>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values/>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </propertiesToShow>
-    </class>
-    <name>Activiti.ActivitiAdmin</name>
-    <number>0</number>
-    <className>XWiki.ConfigurableClass</className>
-    <guid>7a623beb-f7a6-4750-a556-9e56967d8aa0</guid>
-    <property>
-      <codeToExecute>{{include document='Activiti.ActivitiAdmin'/}}</codeToExecute>
-    </property>
-    <property>
-      <configurationClass/>
-    </property>
-    <property>
-      <configureGlobally>1</configureGlobally>
-    </property>
-    <property>
-      <displayInSection>Activiti</displayInSection>
-    </property>
-    <property>
-      <heading/>
-    </property>
-    <property>
-      <iconAttachment/>
-    </property>
-    <property>
-      <linkPrefix/>
-    </property>
-    <property>
-      <propertiesToShow/>
-    </property>
-  </object>
   <content>{{velocity}}
 #if($hasAdmin &amp;&amp; $xcontext.isMainWiki())
   #if($request.startProcessInstance)
@@ -189,7 +42,7 @@
         $response.sendRedirect($request.xredirect)
       #end
     #end
-  #elseif($request.addObject)
+  #elseif($request.addMapping)
     #set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))
     #set($object = $document.newObject('Activiti.EventListenerMappingClass'))
     #set($event = $request.getParameter("event"))
@@ -204,6 +57,12 @@
     $object.set('message', $message)
     #set($discard=$document.save())
     ## $response.sendRedirect($doc.getURL())
+    $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))
+  #elseif($request.deleteMapping)
+    #set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))
+    #set($object = $document.getObject('Activiti.EventListenerMappingClass', $mathtool.toInteger($request.deleteMapping)))
+    $document.removeObject($object)
+    $document.save()
     $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))
   #end
   = Repository Information =
@@ -317,9 +176,17 @@
 #set($document = $xwiki.getDocument('Activiti.EventListenerMappingConfig'))
 #set($mappingObjects = $document.getObjects('Activiti.EventListenerMappingClass'))
 #if(!$mappingObjects.isEmpty())
-|=Event Type|=Listening in Space|=Message to send to Activiti Engine
+|=Event Type|=Listening in Space|=Message to send to Activiti Engine|=Delete Mapping
   #foreach($mapObject in $mappingObjects)
-   |$mapObject.getProperty('event').getValue()|$mapObject.getProperty('space').getValue()|$mapObject.getProperty('message').getValue()
+   |$mapObject.getProperty('event').getValue()|$mapObject.getProperty('space').getValue()|$mapObject.getProperty('message').getValue()|((({{html wiki="true"}}
+   &lt;form action="" method="post" class="xform third" id="mapListener&gt;
+      &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+      &lt;input type="hidden" name="xredirect" value="$escapetool.xml($xwiki.getRelativeRequestURL())" /&gt;
+      &lt;input type="hidden" name="deleteMapping" value="$mapObject.getNumber()" /&gt;
+      &lt;input type="image" src="$xwiki.getSkinFile('icons/silk/cross.png')" alt="Delete Mapping" "title="Delete Mapping"/&gt;&lt;/div&gt;
+    &lt;/form&gt;
+    {{/html}}
+    )))
   #end
 #end
 = Add Mapping =
@@ -343,7 +210,7 @@
               &lt;input id="message" type="text" id="message" name="message" &gt;
 
             &lt;div class="xform buttons"&gt;
-            &lt;span class="buttonwrapper"&gt;&lt;input type="submit" name="addObject" value="Add Mapping" class="button"/&gt;&lt;/span&gt;
+            &lt;span class="buttonwrapper"&gt;&lt;input type="submit" name="addMapping" value="Add Mapping" class="button"/&gt;&lt;/span&gt;
             &lt;/div&gt;
 )))
 &lt;/form&gt;

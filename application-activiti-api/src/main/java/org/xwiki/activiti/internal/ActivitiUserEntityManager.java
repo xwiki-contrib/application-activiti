@@ -151,7 +151,7 @@ public class ActivitiUserEntityManager extends UserEntityManager implements Sess
         } catch (QueryException e) {
             logger.error("Unable to execute query", e);
         }
-        logger.info("called from User ENtity: " + groups);
+        logger.info("called from User Entity: " + groups);
         return groups;
     }
 
