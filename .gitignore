@@ -39,3 +39,4 @@ nbproject
 *.log
 .sonar-ide.properties
 .clover
+.bpmn2d

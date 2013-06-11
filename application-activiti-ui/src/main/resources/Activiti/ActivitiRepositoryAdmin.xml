@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1369167925000</creationDate>
-  <date>1369872128000</date>
-  <contentUpdateDate>1369868850000</contentUpdateDate>
+  <date>1370992330000</date>
+  <contentUpdateDate>1370992330000</contentUpdateDate>
   <version>1.1</version>
   <title>ActivitiRepositoryAdmin</title>
   <template/>
@@ -171,21 +171,22 @@
     </property>
   </object>
   <content>{{velocity}}
-#if($hasAdmin &amp;&amp; $xcontext.isMainWiki() &amp;&amp; $context.action == 'admin')
+## #if($hasAdmin &amp;&amp; $xcontext.isMainWiki() &amp;&amp; $xcontext.action == 'admin')
+#if($hasAdmin &amp;&amp; $xcontext.isMainWiki())
   $xwiki.ssx.use("Activiti.ActivitiStyleSheet")
-  #if($request.startProcessInstance)
-    #set($discard = $services.activiti.runtime.startProcessInstanceById($request.startProcessInstance))
-  #elseif($request.deleteProcessDefinition)
+  #if($request.deleteProcessDefinition)
     #set($discard = $services.activiti.repository.deleteProcessDefinition($request.deleteProcessDefinition))
   #elseif($request.uploadProcessDefinition)
-    ## $request.uploadProcessDefinition
+    $request.uploadProcessDefinition
     ## Uploads: $uploads
     ## Method: $xwiki.fileupload.getFileItems()
     #set($uploads = $xwiki.fileupload.getFileItems())
+    $uploads
     #foreach ($upload in $xwiki.fileupload.getFileItems())
       ## $upload.getFieldName()
       #if($upload.getFieldName() == "filepath")
         $services.activiti.repository.uploadProcessDefinition("$upload.getName()", $upload.getInputStream())
+        DUPA UPLOAD
         ## $response.sendRedirect($xwiki.getURL('XWiki.XWikiPreferences', 'admin', 'section=Activiti'))
         $response.sendRedirect($request.xredirect)
       #end
@@ -204,21 +205,12 @@
     File Name: $process.getResourceName() |$!process.getDescription()|((({{html}}
       &lt;form action="" method="post"&gt;
           &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
-          &lt;input type="hidden" name="startProcessInstance" value="${process.getId()}" /&gt;
-          &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;
-            &lt;!-- Leave also the line for a regular form button --&gt;
-            &lt;!-- &lt;input type="submit" value="Start Process Instance" class="button"/&gt; --&gt;
-          &lt;!-- &lt;/span&gt; --&gt;
-           &lt;div style="float:right"&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/chart_organisation_add.png')" alt="Start Process" "title="Start Process"/&gt;&lt;/div&gt;
-      &lt;/form&gt;
-      &lt;form action="" method="post"&gt;
-          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
           &lt;input type="hidden" name="deleteProcessDefinition" value="${process.getId()}" /&gt;
           &lt;!-- &lt;span class="buttonwrapper"&gt; --&gt;
             &lt;!-- Leave also the line for a regular form button --&gt;
             &lt;!-- &lt;input type="submit" value="Delete Process" class="button"/&gt; --&gt;
           &lt;!-- &lt;/span&gt; --&gt;
-        &lt;div&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/cross.png')" alt="Delete Process Definition" "title="Delete Process Definition" /&gt;&lt;/div&gt;
+        &lt;div style="text-align:center"&gt;&lt;input type="image" src="$xwiki.getSkinFile('icons/silk/cross.png')" alt="Delete Process Definition" "title="Delete Process Definition" /&gt;&lt;/div&gt;
       &lt;/form&gt;
     {{/html}})))|(% style="text-align:center" %)[[image:icon:chart_organisation&gt;&gt;Activiti.ImageWriter||queryString="processId=$process.getId()" target="_blank"]]
   #end
@@ -226,11 +218,11 @@
   {{info}}You can upload a BPMN 2.0 diagram from here into the Activiti Engine{{/info}}
 
   {{html}}
-  &lt;form class="xform" action="$xwiki.getURL("Activiti.ActivitiAdmin")" enctype="multipart/form-data" method="post"&gt;
+  &lt;form class="xform" action="$xwiki.getURL('Activiti.ActivitiRepositoryAdmin')" enctype="multipart/form-data" method="post"&gt;
 
       ## CSRF prevention
       &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
-      &lt;input type="hidden" name="xredirect" value="$escapetool.xml("${request.getRequestURL()}$!request.getQueryString()")" /&gt;
+      &lt;input type="hidden" name="xredirect" value="$escapetool.xml("${request.getRequestURL()}?$!request.getQueryString()")" /&gt;
       &lt;input type="hidden" name="uploadProcessDefinition" value="upload" /&gt;
         &lt;div class="fileupload-field"&gt;
           &lt;label class="hidden" for="xwikiuploadfile"&gt;$msg.get('core.viewers.attachments.upload.file')&lt;/label&gt;
@@ -240,6 +232,7 @@
         &lt;span class="buttonwrapper"&gt;&lt;a class="cancel secondary button" href="$doc.getURL()"&gt;$msg.get('core.viewers.attachments.upload.cancel')&lt;/a&gt;&lt;/span&gt;
   &lt;/form&gt;
   {{/html}}
+
 #else
 {{info}}Please access this page from Admin Section{{/info}}
 #end
