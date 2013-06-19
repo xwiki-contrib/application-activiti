@@ -59,5 +59,4 @@ public class DefaultXWikiActivitiBridge implements XWikiActivitiBridge
     {
         return (XWikiContext) this.execution.getContext().getProperty(XWikiContext.EXECUTIONCONTEXT_KEY);
     }
-
 }

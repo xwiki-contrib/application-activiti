@@ -17,20 +17,42 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
+package org.xwiki.activiti.internal.scriptservice;
 
-package org.xwiki.activiti;
+import java.util.List;
 
-import org.xwiki.component.annotation.Role;
+import javax.inject.Inject;
+
+import org.activiti.engine.runtime.Execution;
+import org.slf4j.Logger;
+import org.xwiki.activiti.ActivitiEngine;
+import org.xwiki.bridge.DocumentAccessBridge;
 
 /**
- * Interface used for accessing the XWiki Oldcore It is been used to make the Activiti Component independent of
- * xwiki-platform-oldcore
- * 
  * @author Sorin Burjan
  */
-@Role
-public interface XWikiActivitiBridge
+public class RuntimeScriptService
 {
+    @Inject
+    private Logger logger;
 
-    public boolean hasPermissions();
+    @Inject
+    private DocumentAccessBridge documentAccessBridge;
+
+    private ActivitiEngine activitiEngine;
+
+    RuntimeScriptService(ActivitiEngine activitiEngine)
+    {
+        this.activitiEngine = activitiEngine;
+    }
+
+    public List<Execution> getProcessInstances()
+    {
+        return this.activitiEngine.getProcessInstances();
+    }
+
+    public void startProcessInstanceById(String processId)
+    {
+        this.activitiEngine.startProcessInstanceById(processId);
+    }
 }

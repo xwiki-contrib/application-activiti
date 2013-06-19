@@ -17,12 +17,13 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
+
 /**
  * @author Sorin Burjan
  *
  */
 
-package org.xwiki.activiti.internal;
+package org.xwiki.activiti.internal.identity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +33,17 @@ import javax.inject.Named;
 
 import org.activiti.engine.ActivitiException;
 import org.activiti.engine.identity.Group;
-import org.activiti.engine.identity.GroupQuery;
-import org.activiti.engine.impl.GroupQueryImpl;
+import org.activiti.engine.identity.User;
+import org.activiti.engine.identity.UserQuery;
 import org.activiti.engine.impl.Page;
+import org.activiti.engine.impl.UserQueryImpl;
 import org.activiti.engine.impl.persistence.entity.GroupEntity;
-import org.activiti.engine.impl.persistence.entity.GroupEntityManager;
+import org.activiti.engine.impl.persistence.entity.IdentityInfoEntity;
+import org.activiti.engine.impl.persistence.entity.UserEntity;
+import org.activiti.engine.impl.persistence.entity.UserEntityManager;
 import org.slf4j.Logger;
 import org.xwiki.activiti.Session;
+import org.xwiki.bridge.DocumentAccessBridge;
 import org.xwiki.component.annotation.Component;
 import org.xwiki.component.manager.ComponentManager;
 import org.xwiki.model.reference.DocumentReference;
@@ -51,9 +56,10 @@ import org.xwiki.query.QueryManager;
  * @author Sorin Burjan
  */
 @Component
-@Named("group")
-public class ActivitiGroupEntityManager extends GroupEntityManager implements Session
+@Named("user")
+public class ActivitiUserEntityManager extends UserEntityManager implements Session
 {
+
     @Inject
     private ComponentManager componentManager;
 
@@ -66,96 +72,105 @@ public class ActivitiGroupEntityManager extends GroupEntityManager implements Se
     @Inject
     private DocumentReferenceResolver<String> documentReferenceResolver;
 
+    @Inject
+    private DocumentAccessBridge documentAccessBridge;
+
     @Override
-    public Group createNewGroup(String groupId)
+    public User createNewUser(String userId)
     {
-        // Creates an Activiti Group object
-        throw new ActivitiException("You are not allowed to create XWiki groups from Activiti");
+        // Creates an Activiti User object
+        throw new ActivitiException("You are not allowed to create XWiki users from Activiti");
     }
 
     @Override
-    public void insertGroup(Group group)
+    public void insertUser(User user)
     {
-        // Used to actually insert groups in the DB,
-        throw new ActivitiException("You are not allowed to create XWiki groups from Activiti");
+        // Used to actually insert users in the DB,
+        throw new ActivitiException("You are not allowed to create XWiki users from Activiti");
     }
 
     @Override
-    public void updateGroup(GroupEntity updatedGroup)
+    public void updateUser(UserEntity updatedUser)
     {
         // Updates the informations of a User
-        throw new ActivitiException("You are not allowed to update XWiki groups from Activiti");
+        throw new ActivitiException("You are not allowed to modify XWiki users from Activiti");
     }
 
     @Override
-    public void deleteGroup(String groupId)
-    {
-        // Deleting an Activiti group means deleting an XWiki group. This is not allowed from here
-        throw new ActivitiException("You are not allowed to delete XWiki groups from Activiti");
-    }
-
-    @Override
-    public GroupQuery createNewGroupQuery()
+    public UserEntity findUserById(String userId)
     {
         throw new ActivitiException("Method not implemented");
     }
 
     @Override
-    public List<Group> findGroupByQueryCriteria(GroupQueryImpl query, Page page)
+    public void deleteUser(String userId)
+    {
+        // Deleting an Activiti user means deleting an XWiki user. This is not allowed from here
+        throw new ActivitiException("You are not allowed to delete XWiki users from Activiti");
+    }
+
+    @Override
+    public List<User> findUserByQueryCriteria(UserQueryImpl query, Page page)
     {
         throw new ActivitiException("Method not implemented");
     }
 
     @Override
-    public long findGroupCountByQueryCriteria(GroupQueryImpl query)
+    public long findUserCountByQueryCriteria(UserQueryImpl query)
     {
         throw new ActivitiException("Method not implemented");
-    }
-
-    @Override
-    public GroupEntity findGroupById(String groupId)
-    {
-        throw new ActivitiException("Method not implemented");
-        // DocumentReference groupReference = new DocumentReference("xwiki", "XWiki", groupId);
-        // ObjectReference objectReference = new ObjectReference("XWiki.XWikiGroups", groupReference);
-        // // Since in XWiki the group name is the document name which holds the XWiki.XWikiGroups object,
-        // // the groupId and group name will be set with the same value
-        // GroupEntity groupEntity = new GroupEntity(groupId);
-        // groupEntity.setName(groupId);
-        // // Don't set Group type since XWiki has a different architecture
-        // return groupEntity;
     }
 
     @Override
     public List<Group> findGroupsByUser(String userId)
     {
-        // logger.info("I got the userId param: " + userId);
         List<Group> groups = new ArrayList<Group>();
         String queryStatement =
-            "select doc.fullName from Document doc, doc.object(XWiki.XWikiGroups) as grp where grp.member = :username";
+            "select doc.name from Document doc, doc.object(XWiki.XWikiGroups) as grp where grp.member = :username";
         List<Object> queryResults;
         try {
             queryResults = queryManager.createQuery(queryStatement, Query.XWQL).bindValue("username", userId).execute();
-            // logger.info("Query Results: " + queryResults);
             for (Object xwikiGroupObject : queryResults) {
                 Group group = new GroupEntity();
                 DocumentReference docRef = documentReferenceResolver.resolve((String) xwikiGroupObject);
-                group.setId(docRef.toString());
-                group.setName(docRef.toString());
-                // logger.info("adding group " + group.getId() + group.getName() + group.getType());
+                group.setId(docRef.getName());
+                group.setName(docRef.getName());
                 groups.add(group);
             }
         } catch (QueryException e) {
             logger.error("Unable to execute query", e);
         }
-        // logger.info("called from Group Entity: " + groups);
+        logger.info("called from User Entity: " + groups);
         return groups;
     }
 
     @Override
-    public List<Group> findPotentialStarterUsers(String proceDefId)
+    public UserQuery createNewUserQuery()
+    {
+        return super.createNewUserQuery();
+    }
+
+    @Override
+    public IdentityInfoEntity findUserInfoByUserIdAndKey(String userId, String key)
     {
         throw new ActivitiException("Method not implemented");
     }
 
+    @Override
+    public List<String> findUserInfoKeysByUserIdAndType(String userId, String type)
+    {
+        throw new ActivitiException("Method not implemented");
+    }
+
+    @Override
+    public Boolean checkPassword(String userId, String password)
+    {
+        throw new ActivitiException("Method not implemented");
+    }
+
+    @Override
+    public List<User> findPotentialStarterUsers(String proceDefId)
+    {
+        throw new ActivitiException("Method not implemented");
+    }
 }

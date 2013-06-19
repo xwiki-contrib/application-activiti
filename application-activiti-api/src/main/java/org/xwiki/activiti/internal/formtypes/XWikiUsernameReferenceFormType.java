@@ -18,19 +18,35 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.xwiki.activiti;
+package org.xwiki.activiti.internal.formtypes;
 
-import org.xwiki.component.annotation.Role;
+import org.activiti.engine.form.AbstractFormType;
 
-/**
- * Interface used for accessing the XWiki Oldcore It is been used to make the Activiti Component independent of
- * xwiki-platform-oldcore
- * 
- * @author Sorin Burjan
- */
-@Role
-public interface XWikiActivitiBridge
+public class XWikiUsernameReferenceFormType extends AbstractFormType
 {
 
-    public boolean hasPermissions();
+    public static final String TYPE_NAME = "XWikiUsernameReference";
+
+    @Override
+    public String getName()
+    {
+        return TYPE_NAME;
+    }
+
+    @Override
+    public Object convertFormValueToModelValue(String propertyValue)
+    {
+        String textArea = propertyValue;
+        return textArea;
+    }
+
+    @Override
+    public String convertModelValueToFormValue(Object modelValue)
+    {
+        if (modelValue == null) {
+            return null;
+        }
+        return modelValue.toString();
+    }
+
 }

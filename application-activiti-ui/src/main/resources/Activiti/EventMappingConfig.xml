@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1368562727000</creationDate>
-  <date>1369872153000</date>
-  <contentUpdateDate>1369872153000</contentUpdateDate>
+  <date>1371505434000</date>
+  <contentUpdateDate>1371505434000</contentUpdateDate>
   <version>1.1</version>
   <title>EventMappingConfig</title>
   <template/>
@@ -25,7 +25,7 @@
   <hidden>false</hidden>
   <object>
     <class>
-      <name>Activiti.EventSignalMappingClass</name>
+      <name>Activiti.EventStartMappingClass</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>
@@ -54,19 +54,19 @@
         <values>DocumentCreatedEvent=Document Created|DocumentUpdatedEvent=Document Updated|DocumentDeletedEvent=Document Deleted</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </event>
-      <signal>
+      <processId>
         <customDisplay/>
         <disabled>0</disabled>
-        <name>signal</name>
+        <name>processId</name>
         <number>3</number>
         <picker>0</picker>
-        <prettyName>Signal to send to Activiti Engine</prettyName>
+        <prettyName>Process To Start</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
         <validationMessage/>
         <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </signal>
+      </processId>
       <space>
         <customDisplay/>
         <disabled>0</disabled>
@@ -83,232 +83,16 @@
     </class>
     <name>Activiti.EventMappingConfig</name>
     <number>0</number>
-    <className>Activiti.EventSignalMappingClass</className>
-    <guid>6f1c7fe4-1f46-4f32-b83c-2148393f5092</guid>
+    <className>Activiti.EventStartMappingClass</className>
+    <guid>70ff95b9-9b6e-4e57-97aa-2c8ce6d92f9c</guid>
     <property>
       <event>DocumentCreatedEvent</event>
     </property>
     <property>
-      <signal>ada</signal>
+      <processId>DocWorkflow:1:4</processId>
     </property>
     <property>
-      <space>ds</space>
-    </property>
-  </object>
-  <object>
-    <class>
-      <name>Activiti.EventStartMappingClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <event>
-        <cache>0</cache>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <displayType>radio</displayType>
-        <multiSelect>0</multiSelect>
-        <name>event</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>Event Name</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <sort>id</sort>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values>DocumentCreatedEvent=Document Created|DocumentUpdatedEvent=Document Updated|DocumentDeletedEvent=Document Deleted</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </event>
-      <processId>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>processId</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>Process To Start</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </processId>
-      <space>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>space</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>Space to Listen on</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </space>
-    </class>
-    <name>Activiti.EventMappingConfig</name>
-    <number>1</number>
-    <className>Activiti.EventStartMappingClass</className>
-    <guid>77ca3d70-dd7c-4653-83f3-1712263f4d9a</guid>
-    <property>
-      <event>DocumentUpdatedEvent</event>
-    </property>
-    <property>
-      <processId>demoProcess1:1:16</processId>
-    </property>
-    <property>
-      <space>XWiki</space>
-    </property>
-  </object>
-  <object>
-    <class>
-      <name>Activiti.EventStartMappingClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <event>
-        <cache>0</cache>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <displayType>radio</displayType>
-        <multiSelect>0</multiSelect>
-        <name>event</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>Event Name</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <sort>id</sort>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values>DocumentCreatedEvent=Document Created|DocumentUpdatedEvent=Document Updated|DocumentDeletedEvent=Document Deleted</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </event>
-      <processId>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>processId</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>Process To Start</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </processId>
-      <space>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>space</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>Space to Listen on</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </space>
-    </class>
-    <name>Activiti.EventMappingConfig</name>
-    <number>2</number>
-    <className>Activiti.EventStartMappingClass</className>
-    <guid>bfe522ac-68e5-42ab-8485-c687a5f07dc5</guid>
-    <property>
-      <event>DocumentDeletedEvent</event>
-    </property>
-    <property>
-      <processId>demoProcess1:1:16</processId>
-    </property>
-    <property>
-      <space>Sandbox</space>
-    </property>
-  </object>
-  <object>
-    <class>
-      <name>Activiti.EventStartMappingClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <event>
-        <cache>0</cache>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <displayType>radio</displayType>
-        <multiSelect>0</multiSelect>
-        <name>event</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>Event Name</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <sort>id</sort>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values>DocumentCreatedEvent=Document Created|DocumentUpdatedEvent=Document Updated|DocumentDeletedEvent=Document Deleted</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </event>
-      <processId>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>processId</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>Process To Start</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </processId>
-      <space>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>space</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>Space to Listen on</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </space>
-    </class>
-    <name>Activiti.EventMappingConfig</name>
-    <number>3</number>
-    <className>Activiti.EventStartMappingClass</className>
-    <guid>d0cd0d97-36f5-4636-9a7a-4353d3a104df</guid>
-    <property>
-      <event>DocumentCreatedEvent</event>
-    </property>
-    <property>
-      <processId>demoProcess5:1:12</processId>
-    </property>
-    <property>
-      <space>Activiti</space>
+      <space>Drafts</space>
     </property>
   </object>
   <content>{{velocity}}

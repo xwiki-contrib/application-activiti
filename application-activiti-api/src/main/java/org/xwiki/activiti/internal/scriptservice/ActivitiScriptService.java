@@ -18,7 +18,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.xwiki.activiti.internal;
+package org.xwiki.activiti.internal.scriptservice;
 
 import javax.inject.Inject;
 import javax.inject.Named;

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/DocWorkflow">
+  <collaboration id="Collaboration">
+    <participant id="DocumentWorkflowPool" name="Article Publishing" processRef="DocWorkflow"></participant>
+  </collaboration>
+  <process id="DocWorkflow" name="Document Workflow" isExecutable="true" activiti:candidateStarterGroups="xwiki:XWiki.Writers">
+    <documentation>Document Workflow</documentation>
+    <laneSet id="laneSet_DocWorkflow">
+      <lane id="lane1" name="Reporter/Collaborator/Contributor">
+        <flowNodeRef>startevent1</flowNodeRef>
+        <flowNodeRef>DescribeArticle</flowNodeRef>
+        <flowNodeRef>WriteArticle</flowNodeRef>
+      </lane>
+      <lane id="lane2" name="Chief Editor">
+        <flowNodeRef>ApproveArticleCreation</flowNodeRef>
+        <flowNodeRef>gateway1</flowNodeRef>
+      </lane>
+      <lane id="lane3" name="Junior Editor">
+        <flowNodeRef>usertask4</flowNodeRef>
+      </lane>
+      <lane id="lane4" name="Editor">
+        <flowNodeRef>usertask5</flowNodeRef>
+        <flowNodeRef>usertask6</flowNodeRef>
+        <flowNodeRef>exclusivegateway1</flowNodeRef>
+        <flowNodeRef>usertask6</flowNodeRef>
+        <flowNodeRef>usertask5</flowNodeRef>
+        <flowNodeRef>exclusivegateway1</flowNodeRef>
+        <flowNodeRef>scripttask2</flowNodeRef>
+        <flowNodeRef>parallelgateway1</flowNodeRef>
+        <flowNodeRef>parallelgateway2</flowNodeRef>
+      </lane>
+      <lane id="lane5" name="Publishing">
+        <flowNodeRef>scripttask1</flowNodeRef>
+        <flowNodeRef>endevent1</flowNodeRef>
+        <flowNodeRef>scripttask3</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <userTask id="DescribeArticle" name="Write Short Article Description" activiti:candidateGroups="xwiki:XWiki.Writers">
+      <documentation>Fill article information</documentation>
+      <extensionElements>
+        <activiti:formProperty id="short description" name="Article Short Description" type="textArea" variable="Article Short Description" required="true"></activiti:formProperty>
+        <activiti:formProperty id="Article Category" name="Article Category" type="enum" variable="type" required="true">
+          <activiti:value id="IT" name="IT"></activiti:value>
+          <activiti:value id="Politics" name="Politics"></activiti:value>
+          <activiti:value id="Sports" name="Sports"></activiti:value>
+          <activiti:value id="Financial" name="Financial"></activiti:value>
+        </activiti:formProperty>
+        <activiti:taskListener event="create" class="org.xwiki.activiti.documentWorkflow.DescribeArticleTaskListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="DescribeArticle"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="DescribeArticle" targetRef="ApproveArticleCreation"></sequenceFlow>
+    <userTask id="ApproveArticleCreation" name="Approve Article Creation" activiti:candidateGroups="xwiki:XWiki.Writers">
+      <documentation>Approve article creation</documentation>
+      <extensionElements>
+        <activiti:formProperty id="Article Name" name="Article Name" type="XWikiDocumentReference" variable="documentReference" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Article Space" name="Article Space" type="string" variable="documentSpace" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Article Category" name="Article Category" type="enum" variable="type" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Article Author" name="Article Author" type="XWikiUsernameReference" variable="usernameReference" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Allow" name="Allow creation of Article" type="boolean" variable="Allow" required="true"></activiti:formProperty>
+        <activiti:taskListener event="create" class="org.xwiki.activiti.documentWorkflow.ApproveArticleCreationTaskListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <userTask id="WriteArticle" name="Write Article" activiti:candidateGroups="xwiki:XWiki.Writers">
+      <documentation>Write article</documentation>
+      <extensionElements>
+        <activiti:formProperty id="Article Name" name="Article Name" type="XWikiDocumentReference" variable="documentReference" writable="false"></activiti:formProperty>
+        <activiti:taskListener event="create" class="org.xwiki.activiti.documentWorkflow.WriteArticleTaskListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <scriptTask id="scripttask1" name="Publish Article" scriptFormat="groovy" activiti:autoStoreVariables="true">
+      <script>System.out.println("Publishing Article");</script>
+    </scriptTask>
+    <sequenceFlow id="flow16" sourceRef="scripttask1" targetRef="endevent1"></sequenceFlow>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <userTask id="usertask6" name="Review Two" activiti:candidateGroups="xwiki:XWiki.Writers">
+      <documentation>Reivew 2</documentation>
+      <extensionElements>
+        <activiti:formProperty id="Article Name" name="Article Name" type="XWikiDocumentReference" variable="documentReference" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Article Creator" name="Article Creator" type="XWikiUsernameReference" variable="usernameReference" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Review Two Passed" name="Review Two Passed" type="boolean" variable="review2" required="true"></activiti:formProperty>
+        <activiti:formProperty id="Review Two Comment" name="Review Two Comment" type="textArea" variable="review2Comment"></activiti:formProperty>
+        <activiti:taskListener event="create" class="org.xwiki.activiti.documentWorkflow.ReviewTaskListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <userTask id="usertask5" name="Review One" activiti:candidateGroups="xwiki:XWiki.Writers">
+      <documentation>Review 1</documentation>
+      <extensionElements>
+        <activiti:formProperty id="Article Name" name="Article Name" type="XWikiDocumentReference" variable="documentReference" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Article Creator" name="Article Creator" type="XWikiUsernameReference" variable="usernameReference" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Review One Passed" name="Review One Passed" type="boolean" variable="review1" required="true"></activiti:formProperty>
+        <activiti:formProperty id="Review One Comment" name="Review One Comment" type="textArea" variable="review1Comment"></activiti:formProperty>
+        <activiti:taskListener event="create" class="org.xwiki.activiti.documentWorkflow.ReviewTaskListener"></activiti:taskListener>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow15" name="Approved" sourceRef="exclusivegateway1" targetRef="scripttask1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${publish == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow14" name="Not Approved" sourceRef="exclusivegateway1" targetRef="usertask4"></sequenceFlow>
+    <userTask id="usertask4" name="Improve Article" activiti:candidateGroups="xwiki:XWiki.Writers">
+      <documentation>Improve article</documentation>
+      <extensionElements>
+        <activiti:formProperty id="Article Name" name="Article Name" type="XWikiDocumentReference" variable="documentName" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Review Two Comment" name="Review Two Comment" type="textArea" variable="review2Comment" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="Review One Comment" name="Review One Comment" type="textArea" variable="review1Comment" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="gateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow3" sourceRef="ApproveArticleCreation" targetRef="gateway1"></sequenceFlow>
+    <sequenceFlow id="flow4" name="Approved" sourceRef="gateway1" targetRef="WriteArticle">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${Allow == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="WriteArticle" targetRef="usertask4"></sequenceFlow>
+    <scriptTask id="scripttask2" name="Check Status" scriptFormat="groovy" activiti:autoStoreVariables="true">
+      <script>if (execution.getVariable("review1") == true &amp;&amp; execution.getVariable("review2") == true){
+System.out.println('BOTH are true')
+execution.setVariable("publish", true)
+}
+else{
+System.out.println('One of them is not true')
+execution.setVariable("publish", false)
+}</script>
+    </scriptTask>
+    <sequenceFlow id="flow13" sourceRef="scripttask2" targetRef="exclusivegateway1"></sequenceFlow>
+    <sequenceFlow id="flow17" sourceRef="usertask4" targetRef="parallelgateway1"></sequenceFlow>
+    <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
+    <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
+    <sequenceFlow id="flow20" sourceRef="usertask5" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow21" sourceRef="usertask6" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow23" sourceRef="parallelgateway1" targetRef="usertask6"></sequenceFlow>
+    <sequenceFlow id="flow24" sourceRef="parallelgateway1" targetRef="usertask5"></sequenceFlow>
+    <sequenceFlow id="flow25" sourceRef="parallelgateway2" targetRef="scripttask2"></sequenceFlow>
+    <scriptTask id="scripttask3" name="Move To Unapproved Space" scriptFormat="groovy" activiti:autoStoreVariables="true">
+      <script>System.out.println("Moving to Unapproved Space");
+System.out.println("Document Reference: " + execution.getVariable('documentReference'));
+System.out.println("Document Name: " + execution.getVariable('documentName'));
+System.out.println("Document Space: " + execution.getVariable('documentSpace'));
+System.out.println("Username: " + execution.getVariable('usernameReference'));
+def sourceDoc = xwiki.getDocument(execution.getVariable('documentReference'));
+System.out.println("Content Author " + sourceDoc.getContentAuthor());
+def targetDocRef = services.model.createDocumentReference('xwiki', 'Unapproved', sourceDoc.getName());
+sourceDoc.rename(targetDocRef)
+System.out.println("Document Moved");
+System.out.println("CONTEXT DEBUG");
+System.out.println("Context Local Username " + xcontext.getLocalUser());
+System.out.println("Current Requesting Doc " + xcontext.getDoc());
+System.out.println("All Context " + xcontext);
+</script>
+    </scriptTask>
+    <sequenceFlow id="flow26" sourceRef="scripttask3" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow27" name="Not Approved" sourceRef="gateway1" targetRef="scripttask3">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${Allow == false}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_Collaboration">
+    <bpmndi:BPMNPlane bpmnElement="Collaboration" id="BPMNPlane_Collaboration">
+      <bpmndi:BPMNShape bpmnElement="lane3" id="BPMNShape_lane3">
+        <omgdc:Bounds height="100.0" width="1021.0" x="70.0" y="241.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane2" id="BPMNShape_lane2">
+        <omgdc:Bounds height="110.0" width="1021.0" x="70.0" y="131.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="90.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="860.0" y="406.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
+        <omgdc:Bounds height="55.0" width="105.0" x="830.0" y="527.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="1020.0" y="537.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="DocumentWorkflowPool" id="BPMNShape_DocumentWorkflowPool">
+        <omgdc:Bounds height="650.0" width="1041.0" x="50.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane1" id="BPMNShape_lane1">
+        <omgdc:Bounds height="101.0" width="1021.0" x="70.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask4" id="BPMNShape_usertask4">
+        <omgdc:Bounds height="55.0" width="105.0" x="380.0" y="270.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane4" id="BPMNShape_lane4">
+        <omgdc:Bounds height="170.0" width="1021.0" x="70.0" y="341.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask5" id="BPMNShape_usertask5">
+        <omgdc:Bounds height="55.0" width="105.0" x="530.0" y="352.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask6" id="BPMNShape_usertask6">
+        <omgdc:Bounds height="55.0" width="105.0" x="530.0" y="446.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane5" id="BPMNShape_lane5">
+        <omgdc:Bounds height="141.0" width="1021.0" x="70.0" y="510.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask2" id="BPMNShape_scripttask2">
+        <omgdc:Bounds height="55.0" width="105.0" x="740.0" y="399.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="DescribeArticle" id="BPMNShape_DescribeArticle">
+        <omgdc:Bounds height="55.0" width="105.0" x="160.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ApproveArticleCreation" id="BPMNShape_ApproveArticleCreation">
+        <omgdc:Bounds height="55.0" width="105.0" x="160.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="gateway1" id="BPMNShape_gateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="320.0" y="170.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="WriteArticle" id="BPMNShape_WriteArticle">
+        <omgdc:Bounds height="55.0" width="105.0" x="380.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="470.0" y="406.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="parallelgateway2" id="BPMNShape_parallelgateway2">
+        <omgdc:Bounds height="40.0" width="40.0" x="660.0" y="406.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask3" id="BPMNShape_scripttask3">
+        <omgdc:Bounds height="55.0" width="105.0" x="420.0" y="571.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow13" id="BPMNEdge_flow13">
+        <omgdi:waypoint x="845.0" y="426.0"></omgdi:waypoint>
+        <omgdi:waypoint x="860.0" y="426.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow14" id="BPMNEdge_flow14">
+        <omgdi:waypoint x="880.0" y="406.0"></omgdi:waypoint>
+        <omgdi:waypoint x="880.0" y="297.0"></omgdi:waypoint>
+        <omgdi:waypoint x="485.0" y="297.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="13.0" width="65.0" x="10.0" y="0.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow15" id="BPMNEdge_flow15">
+        <omgdi:waypoint x="880.0" y="446.0"></omgdi:waypoint>
+        <omgdi:waypoint x="882.0" y="527.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="13.0" width="46.0" x="9.0" y="-41.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow16" id="BPMNEdge_flow16">
+        <omgdi:waypoint x="935.0" y="554.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1020.0" y="554.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="125.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="77.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="212.0" y="105.0"></omgdi:waypoint>
+        <omgdi:waypoint x="212.0" y="163.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="265.0" y="190.0"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="190.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="340.0" y="170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="340.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="77.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="13.0" width="46.0" x="-56.0" y="54.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="432.0" y="105.0"></omgdi:waypoint>
+        <omgdi:waypoint x="432.0" y="270.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow17" id="BPMNEdge_flow17">
+        <omgdi:waypoint x="432.0" y="325.0"></omgdi:waypoint>
+        <omgdi:waypoint x="432.0" y="426.0"></omgdi:waypoint>
+        <omgdi:waypoint x="470.0" y="426.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow20" id="BPMNEdge_flow20">
+        <omgdi:waypoint x="635.0" y="379.0"></omgdi:waypoint>
+        <omgdi:waypoint x="680.0" y="378.0"></omgdi:waypoint>
+        <omgdi:waypoint x="680.0" y="406.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow21" id="BPMNEdge_flow21">
+        <omgdi:waypoint x="635.0" y="473.0"></omgdi:waypoint>
+        <omgdi:waypoint x="680.0" y="473.0"></omgdi:waypoint>
+        <omgdi:waypoint x="680.0" y="446.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow23" id="BPMNEdge_flow23">
+        <omgdi:waypoint x="490.0" y="446.0"></omgdi:waypoint>
+        <omgdi:waypoint x="489.0" y="473.0"></omgdi:waypoint>
+        <omgdi:waypoint x="530.0" y="473.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow24" id="BPMNEdge_flow24">
+        <omgdi:waypoint x="490.0" y="406.0"></omgdi:waypoint>
+        <omgdi:waypoint x="489.0" y="379.0"></omgdi:waypoint>
+        <omgdi:waypoint x="530.0" y="379.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow25" id="BPMNEdge_flow25">
+        <omgdi:waypoint x="700.0" y="426.0"></omgdi:waypoint>
+        <omgdi:waypoint x="740.0" y="426.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow26" id="BPMNEdge_flow26">
+        <omgdi:waypoint x="525.0" y="598.0"></omgdi:waypoint>
+        <omgdi:waypoint x="784.0" y="599.0"></omgdi:waypoint>
+        <omgdi:waypoint x="784.0" y="599.0"></omgdi:waypoint>
+        <omgdi:waypoint x="784.0" y="599.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1037.0" y="599.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1037.0" y="572.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow27" id="BPMNEdge_flow27">
+        <omgdi:waypoint x="340.0" y="210.0"></omgdi:waypoint>
+        <omgdi:waypoint x="340.0" y="598.0"></omgdi:waypoint>
+        <omgdi:waypoint x="420.0" y="598.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="13.0" width="65.0" x="-70.0" y="-186.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

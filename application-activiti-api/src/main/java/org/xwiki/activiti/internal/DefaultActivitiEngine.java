@@ -65,6 +65,17 @@ import org.xwiki.script.ScriptContextManager;
  * @author Sorin Burjan
  */
 
+/**
+ * @author sorinello
+ *
+ */
+/**
+ * @author sorinello
+ *
+ */
+/**
+ * @author sorinello
+ */
 @Component
 @Singleton
 public class DefaultActivitiEngine implements ActivitiEngine, Initializable
@@ -99,10 +110,13 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
 
     private void deployProcess()
     {
-        this.processEngine.getRepositoryService().createDeployment().name("DemoDeployment")
-            .addClasspathResource("DemoProcess1.bpmn").addClasspathResource("DemoProcess2.bpmn")
-            .addClasspathResource("DemoProcess3.bpmn").addClasspathResource("DemoProcess4.bpmn")
-            .addClasspathResource("DemoProcess5.bpmn").deploy();
+        this.processEngine.getRepositoryService().createDeployment().name("DefaultDeployment")
+            .addClasspathResource("DocumentWorkflow.bpmn").deploy();
+
+        // this.processEngine.getRepositoryService().createDeployment().name("DemoDeployment")
+        // .addClasspathResource("DemoProcess1.bpmn").addClasspathResource("DemoProcess2.bpmn")
+        // .addClasspathResource("DemoProcess3.bpmn").addClasspathResource("DemoProcess4.bpmn")
+        // .addClasspathResource("DemoProcess5.bpmn").addClasspathResource("DocumentWorkflow.bpmn").deploy();
     }
 
     @Override
@@ -305,12 +319,6 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
         }
     }
 
-    @Override
-    public Map<String, Object> getVariables(String executionId)
-    {
-        return this.processEngine.getRuntimeService().getVariables(executionId);
-    }
-
     private String getCurrentUserReference()
     {
         DocumentReference docRef = documentAccessBridge.getCurrentUserReference();
@@ -320,8 +328,8 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
     @Override
     public ProcessDefinition getProcessDefinitionById(String processDefinitionId)
     {
-        return this.processEngine.getRepositoryService().getProcessDefinition(processDefinitionId);
-
+        return this.processEngine.getRepositoryService().createProcessDefinitionQuery()
+            .processDefinitionId(processDefinitionId).singleResult();
     }
 
 }

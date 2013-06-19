@@ -2,7 +2,7 @@
 
 <xwikidoc>
   <web>Activiti</web>
-  <name>TaskFormGenerator</name>
+  <name>UserTaskFormGenerator</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
@@ -12,10 +12,10 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1366582806000</creationDate>
-  <date>1369859640000</date>
-  <contentUpdateDate>1369859533000</contentUpdateDate>
+  <date>1371595129000</date>
+  <contentUpdateDate>1371594478000</contentUpdateDate>
   <version>1.1</version>
-  <title>#if($task.getName())Task: $task.getName() with Description: $task.getDescription()#else Task Form Generator#end</title>
+  <title>#if($task.getName())Task Description: $task.getDescription()#else UserTask Form Generator#end</title>
   <template/>
   <defaultTemplate/>
   <validationScript/>
@@ -95,17 +95,18 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </use>
     </class>
-    <name>Activiti.TaskFormGenerator</name>
+    <name>Activiti.UserTaskFormGenerator</name>
     <number>0</number>
     <className>XWiki.JavaScriptExtension</className>
-    <guid>ef69f946-d157-4632-8140-4479821dd796</guid>
+    <guid>5d4b3406-a8bd-49a6-8b2c-243807e8a7bf</guid>
     <property>
       <cache>default</cache>
     </property>
     <property>
-      <code>$$('input.required').each(function(element) {
+      <code>$$('input.required', 'textarea.required').each(function(element) {
 new LiveValidation(element, {validMessage: 'Ok', failureMessage: "Supply a value!" }).add(Validate.Presence);
-});</code>
+});
+</code>
     </property>
     <property>
       <name>validator</name>
@@ -121,8 +122,6 @@ new LiveValidation(element, {validMessage: 'Ok', failureMessage: "Supply a value
 #if($isGuest)
   {{error}}You must be logged in{{/error}}
 #else
-    $request.getRequestURL()
-  $request.getQueryString()
   $xwiki.get('jsfx').use('uicomponents/widgets/validation/livevalidation_prototype.js')
   $xwiki.get('ssfx').use('uicomponents/widgets/validation/livevalidation.css', true)
   ## We take from the request the parameters starting with "ActivitiFormProperty_"
@@ -156,27 +155,6 @@ new LiveValidation(element, {validMessage: 'Ok', failureMessage: "Supply a value
       #set($formProperties = $services.activiti.form.getTaskFormProperties("$taskId"))
       #set($task = $services.activiti.task.getTaskById($taskId))
       #set($executionId =  $task.getExecutionId())
-      #if($task.getDueDate())
-        Due Date: $task.getDueDate()
-      #end
-      ##
-      ## Get the variables for this Execution and display them
-      ##  so the users sees the input from the previous tasks
-      ##
-      #set($instanceVariables = $services.activiti.runtime.getVariables($executionId))
-      #if(!$instanceVariables.isEmpty())
-
-        {{html}}
-          &lt;form class="xform" action="" name="form" id="ActivitiProcessVariableGenerator"&gt;
-            &lt;dl&gt;
-            #foreach($variable in $instanceVariables.entrySet())
-              &lt;dt&gt;&lt;label for="ActivitiInstanceVariable_$variable.key"&gt;$variable.key&lt;/label&gt;&lt;/dt&gt;
-              &lt;dd&gt;$instanceVariables.get($variable.key)&lt;/dd&gt;
-            #end
-            &lt;/dt&gt;
-          &lt;/form&gt;
-        {{/html}}
-      #end
       ##
       ##
       ##  Since Properties from Activiti have several defined types, this macro generates
@@ -186,31 +164,50 @@ new LiveValidation(element, {validMessage: 'Ok', failureMessage: "Supply a value
       ##  * long (org.activiti.engine.impl.form.LongFormType)
       ##  * enum (org.activiti.engine.impl.form.EnumFormType)
       ##  * date (org.activiti.engine.impl.form.DateFormType)
-      ##  * boolean (org.activiti.engine.impl.form.BooleanFormType)   
+      ##  * boolean (org.activiti.engine.impl.form.BooleanFormType)  
+      ##  * textArea (Custom implementation for displaying textareas which has String as backend)
+      ##  * XWikiDocumentReference used for generating URL's from a XWiki EntityReference for an XWiki Document
+      ##  * XWikiUsernameReference used for generating URL's from a XWiki EntityReference for an XWiki username
       #macro(generateInput $property)
         #set($activitiPropertyTypeName = $property.getType().getName())
         #set($activitiPropertyRequired = $property.isRequired())
+        #set($activitiPropertyWritable = $property.isWritable())
+        #if($activitiPropertyWritable || (!$activitiPropertyWritable &amp;&amp; $property.getValue()))
         &lt;dl&gt;
          &lt;dt&gt;
            &lt;label for="ActivitiFormProperty_$property.getId()"&gt;$property.getName()#if($activitiPropertyRequired)&lt;span class="xRequired"&gt;(Required)&lt;/span&gt;#end&lt;/label&gt;
          &lt;/dt&gt;
          &lt;dd&gt;
+        #end
         #if($activitiPropertyTypeName == "string")
+          #if($activitiPropertyWritable)
           &lt;input id="ActivitiFormProperty_$property.getId()" #if($activitiPropertyRequired)class="required"#end name="ActivitiFormProperty_$property.getId()" type="text" size="60"/&gt;
+          #elseif($property.getValue())
+            $property.getValue()
+          #end
         #end
         #if($activitiPropertyTypeName == "long")
-          ## The Activiti long type is actually not a String input, but a number input.
-          ## Putting a non-number in this field will throw a cast exception
-           &lt;input id="ActivitiFormProperty_$property.getId()" #if($activitiPropertyRequired)class="required"#end name="ActivitiFormProperty_$property.getId()" type="text" size="60"/&gt;
+          #if($activitiPropertyWritable)
+            ## The Activiti long type is actually not a String input, but a number input.
+            ## Putting a non-number in this field will throw a cast exception
+            &lt;input id="ActivitiFormProperty_$property.getId()" #if($activitiPropertyRequired)class="required"#end name="ActivitiFormProperty_$property.getId()" type="text" size="60"/&gt;
+          #elseif($property.getValue())
+            $property.getValue()
+          #end
         #end
         #if($activitiPropertyTypeName == "enum")
-          #set($enumValues = $property.getType().getInformation("values"))
-          #foreach($enumValue in $enumValues.keySet())
-            &lt;input type="radio" id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" value="$enumValue" checked="yes"&gt; $enumValues.get("$enumValue") &lt;br&gt;
-           ## &lt;input type="checkbox" name="ActivitiFormProperty_$property.getId()" value="$enumValue"&gt;$enumValues.get("$enumValue")&lt;br&gt;
+          #if($activitiPropertyWritable)
+            #set($enumValues = $property.getType().getInformation("values"))
+            #foreach($enumValue in $enumValues.keySet())
+              &lt;input type="radio" id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" value="$enumValue" checked="yes"&gt; $enumValues.get("$enumValue") &lt;br&gt;
+              ## &lt;input type="checkbox" name="ActivitiFormProperty_$property.getId()" value="$enumValue"&gt;$enumValues.get("$enumValue")&lt;br&gt;
+            #end
+          #elseif($property.getValue())
+            $property.getValue()
           #end
         #end
         #if($activitiPropertyTypeName == "date")
+          #if($activitiPropertyWritable)
           ## #set ($format = $property.getInformation($property.getType().getKey()))
           #set($xWikiDateFormat = $xwiki.getXWikiPreference('dateformat'))
           DateFormat $xWikiDateFormat
@@ -230,16 +227,47 @@ new LiveValidation(element, {validMessage: 'Ok', failureMessage: "Supply a value
           ## $property.getId()
           &lt;input type="text" id="ActivitiFormProperty_$property.getId()" class="datetime #if($activitiPropertyRequired)required#end" name="ActivitiFormProperty_$property.getId()" title="$!escapetool.xml($format)" value="$datetool.get("dd/MM/yyyy")/&gt;
            ## &lt;input type="text" id="$!id" name="$!id" value="2013/07/12" class="datetime t$!value.time" title="$!escapetool.xml($format)"/&gt;
+          #elseif($property.getValue())
+            $property.getValue()
+          #end
         #end
         #if($activitiPropertyTypeName == "boolean")
+          #if($activitiPropertyWritable)
           &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="true" checked="checked"&gt;Yes&lt;br&gt;
           &lt;input id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()" type="radio" value="false"&gt;No
+          #elseif($property.getValue())
+            $property.getValue()
+          #end
+        #end
+        #if($activitiPropertyTypeName == "textArea")
+          #if($activitiPropertyWritable)
+            &lt;textarea id="ActivitiFormProperty_$property.getId()" name="ActivitiFormProperty_$property.getId()"   #if($activitiPropertyRequired)class="required"#end rows="6" cols="50"&gt;
+           &lt;/textarea&gt;
+          #elseif($property.getValue())
+            $property.getValue()
+          #end
+        #end
+        #if($activitiPropertyTypeName == "XWikiDocumentReference")
+          #if($activitiPropertyWritable)
+          &lt;input id="ActivitiFormProperty_$property.getId()" #if($activitiPropertyRequired)class="required"#end name="ActivitiFormProperty_$property.getId()" type="text" size="60"/&gt;
+          #elseif($property.getValue())
+            #set($document = $xwiki.getDocument($property.getValue()))
+            [[$document.name&gt;&gt;$document.getExternalURL()]]
+          #end
+        #end
+        #if($activitiPropertyTypeName == "XWikiUsernameReference")
+          #if($activitiPropertyWritable)
+          &lt;input id="ActivitiFormProperty_$property.getId()" #if($activitiPropertyRequired)class="required"#end name="ActivitiFormProperty_$property.getId()" type="text" size="60"/&gt;
+          #elseif($property.getValue())
+            ## $property.getValue()
+            #set($document = $xwiki.getDocument($property.getValue()))
+            $xwiki.getUserName($property.getValue(), true)
+          #end
         #end
          &lt;/dd&gt;
          &lt;/dl&gt;
       #end##Macro End
-
-      {{html}}
+      {{html wiki="true"}}
         &lt;form class="xform half" action="" name="form" id="ActivitiFormGenerator"&gt;
         &lt;input type="hidden" name="taskId" value="$taskId"/&gt;
         ## We get the value of the redirect and send it to the next form which will perform the redirect back to the user profile

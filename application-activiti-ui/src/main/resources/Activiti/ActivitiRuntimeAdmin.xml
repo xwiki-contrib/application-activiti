@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1369167964000</creationDate>
-  <date>1369867743000</date>
-  <contentUpdateDate>1369867743000</contentUpdateDate>
+  <date>1371394045000</date>
+  <contentUpdateDate>1371394045000</contentUpdateDate>
   <version>1.1</version>
   <title>ActivitiRuntimeAdmin</title>
   <template/>
@@ -171,29 +171,30 @@
     </property>
   </object>
   <content>{{velocity}}
-#if($hasAdmin &amp;&amp; $xcontext.isMainWiki() &amp;&amp; $context.action == 'admin')
+#if($hasAdmin &amp;&amp; $xcontext.isMainWiki())
   $xwiki.ssx.use("Activiti.ActivitiStyleSheet")
-  == Running Process Instances ==
-  #if(!$completedInstances.isEmpty())
-    #set($runningInstances = $services.activiti.runtime.getProcessInstances())
-    (% class="activitiTable" %)
-    |=(% style="width: 10%;" %)Name|=(% style="width: 20%;" %)Description|=(% style="width: 15%;" %)Definition Id|=(% style="width: 10%;" %)Execution ID|= Suspended
-    #foreach($instance in $runningInstances)
-      #set($definitionObject = $services.activiti.repository.getProcessDefinitionById($instance.getProcessDefinitionId()))
-      |$!definitionObject.getName()|$!definitionObject.getDescription()|$instance.getProcessDefinitionId()|$instance.getId()|$instance.isSuspended()
-    #end
+  #set($runningInstances = $services.activiti.runtime.getProcessInstances())
+   == Running Process Instances ==
+  #if(!$runningInstances.isEmpty())
+      (% class="activitiTable" %)
+      |=(% style="width: 10%;" %)Name|=(% style="width: 20%;" %)Description|=(% style="width: 15%;" %)Definition Id|=(% style="width: 10%;" %)Execution ID|= Suspended
+        #foreach($instance in $runningInstances)
+          #set($definitionObject = $services.activiti.repository.getProcessDefinitionById($instance.getProcessDefinitionId()))
+        |$!definitionObject.getName()|$!definitionObject.getDescription()|$instance.getProcessDefinitionId()|$instance.getId()|$instance.isSuspended()
+      #end
   #else
-    {{info}}No funning process instances{{/info}}
+    {{info}}No running process instances{{/info}}
   #end
   == Finished Process Instances ==
   #set($completedInstances = $services.activiti.history.getCompletedProcessInstances())
   #if(!$completedInstances.isEmpty())
   (% class="activitiTable" %)
-  |=(% style="width: 10%;" %)Name|=(% style="width: 20%;" %)Description|=(% style="width: 15%;" %)Definition ID|=(% style="width: 10%;" %)Execution ID|=Date Started|=Date Completed|=Duration|=Variables
+  |=(% style="width: 10%;" %)Name|=(% style="width: 20%;" %)Description|=(% style="width: 15%;" %)Definition ID|=(% style="width: 10%;" %)Execution ID|=Date Started|=Date Completed|=Variables
   #foreach($instance in $completedInstances)
     #set($definitionObject = $services.activiti.repository.getProcessDefinitionById($instance.getProcessDefinitionId()))
     #set($processVariables = $services.activiti.history.getHistoricaInstanceVariables($instance.getId()))
-    |$!definitionObject.getName()|$!definitionObject.getDescription()|$instance.getProcessDefinitionId()|$instance.getId()|$datetool.format('yyyy/MM/dd HH:mm', $instance.getStartTime())|$datetool.format('yyyy/MM/dd HH:mm', $instance.getEndTime())|$instance.getDurationInMillis()|#foreach ($variable in $processVariables)$variable.getName(): $variable.getValue()#end
+    |$!definitionObject.getName()|$!definitionObject.getDescription()|$instance.getProcessDefinitionId()|$instance.getId()|$datetool.format('yyyy/MM/dd HH:mm', $instance.getStartTime())|$datetool.format('yyyy/MM/dd HH:mm', $instance.getEndTime())|#foreach ($variable in $processVariables)((( * **$variable.getName()**: $variable.getValue()
+)))#end
   ##Blank line left on purpose
 
   #end

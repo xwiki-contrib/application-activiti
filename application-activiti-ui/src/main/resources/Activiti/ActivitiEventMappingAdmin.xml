@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1369168001000</creationDate>
-  <date>1369871536000</date>
-  <contentUpdateDate>1369871536000</contentUpdateDate>
+  <date>1371071480000</date>
+  <contentUpdateDate>1371067197000</contentUpdateDate>
   <version>1.1</version>
   <title>ActivitiEventMappingAdmin</title>
   <template/>
@@ -171,7 +171,7 @@
     </property>
   </object>
   <content>{{velocity}}
-#if($hasAdmin &amp;&amp; $xcontext.isMainWiki() &amp;&amp; $context.action == 'admin')
+#if($hasAdmin &amp;&amp; $xcontext.isMainWiki())
   $xwiki.ssx.use("Activiti.ActivitiStyleSheet")
   #if($request.addStartMapping)
     #set($document = $xwiki.getDocument('Activiti.EventMappingConfig'))
@@ -186,21 +186,6 @@
   #elseif($request.deleteStartMapping)
     #set($document = $xwiki.getDocument('Activiti.EventMappingConfig'))
     #set($object = $document.getObject('Activiti.EventStartMappingClass', $mathtool.toInteger($request.deleteStartMapping)))
-    #set($discard = $document.removeObject($object))
-    #set($discard = $document.save())
-  #elseif($request.addMessageMapping)
-    #set($document = $xwiki.getDocument('Activiti.EventMappingConfig'))
-    #set($object = $document.newObject('Activiti.EventMessageMappingClass'))
-    #set($event = $request.getParameter("event"))
-    #set($space = $request.getParameter("space"))
-    #set($message = $request.getParameter("message"))
-    $object.set('event', $event)
-    $object.set('space', $space)
-    $object.set('message', $message)
-    #set($discard=$document.save())
-  #elseif($request.deleteMessageMapping)
-    #set($document = $xwiki.getDocument('Activiti.EventMappingConfig'))
-    #set($object = $document.getObject('Activiti.EventMessageMappingClass', $mathtool.toInteger($request.deleteMessageMapping)))
     #set($discard = $document.removeObject($object))
     #set($discard = $document.save())
   #elseif($request.addSignalMapping)
@@ -229,15 +214,17 @@
   |=Event Type|=Listening In Space|=Process To Start|=Delete Mapping
     #foreach($mapObject in $mappingObjects)
      #set($processDefinitionObject = $services.activiti.repository.getProcessDefinitionById($mapObject.getProperty('processId').getValue()))
-     #set($space = $mapObject.getProperty('space').getValue()) 
-       |$mapObject.getProperty('event').getValue()|[[${space}&gt;&gt;${space}.WebHome]]|$processDefinitionObject.getName() **Version: $processDefinitionObject.getVersion()**|((({{html}}
-       &lt;form action="" method="post" class="xform third" id="mapListener&gt;
-         &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
-         &lt;input type="hidden" name="deleteStartMapping" value="$mapObject.getNumber()" /&gt;
-         &lt;input type="image" src="$xwiki.getSkinFile('icons/silk/cross.png')" alt="Delete Mapping" "title="Delete Mapping"/&gt;&lt;/div&gt;
-       &lt;/form&gt;
-      {{/html}}
-      )))
+     #if($processDefinitionObject != $NULL)
+       #set($space = $mapObject.getProperty('space').getValue()) 
+         |$mapObject.getProperty('event').getValue()|[[${space}&gt;&gt;${space}.WebHome]]|$!processDefinitionObject.getName() **Version: $!processDefinitionObject.getVersion()**|((({{html}}
+         &lt;form action="" method="post" class="xform third" id="mapListener&gt;
+           &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+           &lt;input type="hidden" name="deleteStartMapping" value="$mapObject.getNumber()" /&gt;
+           &lt;input type="image" src="$xwiki.getSkinFile('icons/silk/cross.png')" alt="Delete Mapping" "title="Delete Mapping"/&gt;&lt;/div&gt;
+         &lt;/form&gt;
+        {{/html}}
+        )))
+      #end
     #end
   #end
   #set($discard=$doc.use($object))
@@ -268,52 +255,14 @@
     )))
     &lt;/form&gt;
   {{/html}}
-   = Existing Message Mappings =
-  {{info}}These mappings will map an XWiki Event which occurs in the specified space to an Activiti Message{{/info}}
-  #set($document = $xwiki.getDocument('Activiti.EventMappingConfig'))
-  #set($mappingObjects = $document.getObjects('Activiti.EventMessageMappingClass'))
-  #if(!$mappingObjects.isEmpty())
-  (% class="activitiTable" %)
-  |=Event Type|=Listening in Space|=Message to send to Activiti Engine|=Delete Mapping
-    #foreach($mapObject in $mappingObjects)
-     |$mapObject.getProperty('event').getValue()|$mapObject.getProperty('space').getValue()|$mapObject.getProperty('message').getValue()|((({{html wiki="true"}}
-     &lt;form action="" method="post" class="xform third" id="mapListener&gt;
-       &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
-       &lt;input type="hidden" name="xredirect" value="$escapetool.xml($xwiki.getRelativeRequestURL())" /&gt;
-       &lt;input type="hidden" name="deleteMessageMapping" value="$mapObject.getNumber()" /&gt;
-       &lt;input type="image" src="$xwiki.getSkinFile('icons/silk/cross.png')" alt="Delete Mapping" "title="Delete Mapping"/&gt;&lt;/div&gt;
-     &lt;/form&gt;
-    {{/html}}
-    )))
-    #end
-  #end
 
-  {{html wiki="true"}}
-    &lt;form action="" method="post" class="xform third" id="mapListener&gt;
-    (((  
-                ; &lt;label for="event"&gt;Event&lt;/label&gt;
-                  &lt;select id="event" name="event"&gt;
-                    &lt;option value="DocumentCreatedEvent"&gt;Document Created&lt;/option&gt;
-                    &lt;option value="DocumentDeletedEvent"&gt;Document Deleted&lt;/option&gt;
-                    &lt;option value="DocumentUpdatedEvent"&gt;Document Updated&lt;/option&gt;
-                &lt;/select&gt; 
-                ; &lt;label for="space"&gt;Space&lt;/label&gt;
-                &lt;input id="space" class="suggestSpaces" type="text" id="space" name="space" autocomplete="off"&gt;
-                ; &lt;label for="message"&gt;Message&lt;/label&gt;
-                  &lt;input id="message" type="text" id="message" name="message" &gt;
-                &lt;div class="xform buttons"&gt;
-                &lt;span class="buttonwrapper"&gt;&lt;input type="submit" name="addMessageMapping" value="Add Mapping" class="button"/&gt;&lt;/span&gt;
-                &lt;/div&gt;
-    )))  
-    &lt;/form&gt;
-  {{/html}}
   = Existing Signal Mappings =
   {{info}}These mappings will map an XWiki Event which occurs in the specified space to an Activiti Signal{{/info}}
   #set($document = $xwiki.getDocument('Activiti.EventMappingConfig'))
   #set($mappingObjects = $document.getObjects('Activiti.EventSignalMappingClass'))
   #if(!$mappingObjects.isEmpty())
   (% class="activitiTable" %)
-  |=Event Type|=Listening in Space|=Message to send to Activiti Engine|=Delete Mapping
+  |=Event Type|=Listening in Space|=Signal to send to Activiti Engine|=Delete Mapping
     #foreach($mapObject in $mappingObjects)
      |$mapObject.getProperty('event').getValue()|$mapObject.getProperty('space').getValue()|$mapObject.getProperty('signal').getValue()|((({{html wiki="true"}}
      &lt;form action="" method="post" class="xform third" id="mapListener&gt;
@@ -337,7 +286,7 @@
                 &lt;/select&gt; 
                 ; &lt;label for="space"&gt;Space&lt;/label&gt;
                 &lt;input id="space" class="suggestSpaces" type="text" id="space" name="space" autocomplete="off"&gt;
-                ; &lt;label for="message"&gt;Signal&lt;/label&gt;
+                ; &lt;label for="signal"&gt;Signal&lt;/label&gt;
                   &lt;input id="signal" type="text" id="signal" name="signal" &gt;
                 &lt;div class="xform buttons"&gt;
                 &lt;span class="buttonwrapper"&gt;&lt;input type="submit" name="addSignalMapping" value="Add Mapping" class="button"/&gt;&lt;/span&gt;

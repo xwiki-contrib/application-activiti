@@ -12,7 +12,7 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1369493670000</creationDate>
-  <date>1370203113000</date>
+  <date>1371393732000</date>
   <contentUpdateDate>1369493697000</contentUpdateDate>
   <version>1.1</version>
   <title>ActivitiStyleSheet</title>
@@ -109,6 +109,10 @@ border-style: none;
 }
 .activitiTable th, .activitiTable tr,.activitiTable td{
 border-style: none;
+
+}
+.activitiTable td{
+vertical-align: top;
 }</code>
     </property>
     <property>

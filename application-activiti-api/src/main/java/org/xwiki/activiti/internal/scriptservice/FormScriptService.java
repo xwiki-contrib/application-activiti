@@ -17,20 +17,33 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
+package org.xwiki.activiti.internal.scriptservice;
 
-package org.xwiki.activiti;
+import java.util.List;
+import java.util.Map;
 
-import org.xwiki.component.annotation.Role;
+import org.activiti.engine.form.FormProperty;
+import org.xwiki.activiti.ActivitiEngine;
 
 /**
- * Interface used for accessing the XWiki Oldcore It is been used to make the Activiti Component independent of
- * xwiki-platform-oldcore
- * 
  * @author Sorin Burjan
  */
-@Role
-public interface XWikiActivitiBridge
+public class FormScriptService
 {
+    private ActivitiEngine activitiEngine;
 
-    public boolean hasPermissions();
+    FormScriptService(ActivitiEngine activitiEngine)
+    {
+        this.activitiEngine = activitiEngine;
+    }
+
+    public List<FormProperty> getTaskFormProperties(String taskId)
+    {
+        return this.activitiEngine.getTaskFormProperties(taskId);
+    }
+
+    public void submitTaskFormData(String taskId, Map<String, String> properties)
+    {
+        this.activitiEngine.submitTaskFormData(taskId, properties);
+    }
 }

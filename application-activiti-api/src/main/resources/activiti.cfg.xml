@@ -17,6 +17,17 @@
     
     <property name="mailServerHost" value="mail.my-corp.com" /> 
     <property name="mailServerPort" value="5025" />    
+    
+    <property name="customFormTypes">
+      <list>
+        <ref bean="textAreaFormType"/>
+        <ref bean="XWikiDocumentReference"/>
+        <ref bean="XWikiUsernameReference"/>
+      </list>
+    </property>
   </bean>
+  <bean id="textAreaFormType" class="org.xwiki.activiti.internal.formtypes.TextAreaFormType"/>
+  <bean id="XWikiDocumentReference" class="org.xwiki.activiti.internal.formtypes.XWikiDocumentReferenceFormType"/>
+  <bean id="XWikiUsernameReference" class="org.xwiki.activiti.internal.formtypes.XWikiUsernameReferenceFormType"/>
 
 </beans>

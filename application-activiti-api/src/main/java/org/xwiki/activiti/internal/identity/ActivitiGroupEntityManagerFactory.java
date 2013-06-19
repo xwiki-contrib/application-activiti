@@ -18,7 +18,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.xwiki.activiti.internal;
+package org.xwiki.activiti.internal.identity;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -36,8 +36,8 @@ import org.xwiki.component.manager.ComponentManager;
  */
 @Component
 @Singleton
-@Named("user")
-public class ActivitiUserEntityManagerFactory implements SessionFactory
+@Named("group")
+public class ActivitiGroupEntityManagerFactory implements SessionFactory
 {
     @Inject
     private ComponentManager componentManager;
@@ -48,20 +48,21 @@ public class ActivitiUserEntityManagerFactory implements SessionFactory
     @Override
     public Class< ? > getSessionType()
     {
-        return ActivitiUserEntityManager.class;
+        return ActivitiGroupEntityManager.class;
     }
 
     @Override
     public org.activiti.engine.impl.interceptor.Session openSession()
     {
-        // Return the custom implementation of UserEntityManager
+        // Return the custom implementation of GroupEntityManager
         // Instantiate a class of type org.xwiki.activiti.Session
         // and return a object of type Session (default Activiti Session)
         try {
-            return componentManager.getInstance(Session.class, "user");
+            return componentManager.getInstance(Session.class, "group");
         } catch (ComponentLookupException e) {
             logger.error("Unable to get User Entity Manager", e);
             return null;
         }
     }
+
 }

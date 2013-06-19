@@ -134,7 +134,7 @@ public interface ActivitiEngine
     /**
      * List of completed tasks for all Users
      * 
-     * @return List of completed tasks for all Users
+     * @return List of completed tasks by all Users
      */
     List<HistoricTaskInstance> getAllUsersHistoryTasks();
 
@@ -181,14 +181,27 @@ public interface ActivitiEngine
      */
     List<HistoricVariableInstance> getHistoricaInstanceVariables(String instanceId);
 
+    /**
+     * @param deploymentId
+     * @return
+     */
     String getDeploymentName(String deploymentId);
 
+    /**
+     * @param resourceName
+     * @param processDefinition
+     */
     void uploadProcessDefinition(String resourceName, InputStream processDefinition);
 
+    /**
+     * @param userId
+     * @return
+     */
     List<ProcessDefinition> getProcessesStartablyByCurrentUser(String userId);
 
+    /**
+     * @param taskId
+     * @param properties
+     */
     void submitTaskFormData(String taskId, Map<String, String> properties);
-
-    Map<String, Object> getVariables(String executionId);
-
 }

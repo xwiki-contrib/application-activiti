@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xwikidoc>
+  <web>Activiti</web>
+  <name>TaskListenerCustom</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>Activiti.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1371380655000</creationDate>
+  <date>1371382512000</date>
+  <contentUpdateDate>1371382512000</contentUpdateDate>
+  <version>1.1</version>
+  <title>TaskListenerCustom</title>
+  <template/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{groovy}}
+package org.xwiki.activiti.internal;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.DelegateTask;
+import org.activiti.engine.delegate.TaskListener;
+
+public class TaskListenerCustom implements TaskListener
+{
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public void notify(DelegateTask delegateTask)
+    {
+        DelegateExecution execution = delegateTask.getExecution();
+
+        System.out.println("Username " + execution.getVariable("Username"));
+
+        System.out.println("Document Name " + execution.getVariable("Document Name"));
+
+        System.out.println("Document Space " + execution.getVariable("Document Space"));
+
+        delegateTask.setAssignee((String) execution.getVariable("Username"));
+        delegateTask.setDescription("Fill article information for document " + execution.getVariable("Document Name"));
+        System.out.println("Dynamically assigning Task to " + delegateTask.getAssignee());
+
+    }
+}
+{{/groovy}}</content>
+</xwikidoc>

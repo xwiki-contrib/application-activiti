@@ -1,14 +1,16 @@
 package org.xwiki.activiti.listener.internal;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import org.activiti.engine.runtime.ProcessInstance;
 import org.slf4j.Logger;
 import org.xwiki.activiti.ActivitiEngine;
+import org.xwiki.activiti.XWikiActivitiBridge;
 import org.xwiki.bridge.DocumentAccessBridge;
 import org.xwiki.bridge.event.DocumentCreatedEvent;
 import org.xwiki.bridge.event.DocumentDeletedEvent;
@@ -18,6 +20,7 @@ import org.xwiki.component.manager.ComponentLookupException;
 import org.xwiki.component.manager.ComponentManager;
 import org.xwiki.model.reference.DocumentReference;
 import org.xwiki.model.reference.DocumentReferenceResolver;
+import org.xwiki.model.reference.EntityReferenceSerializer;
 import org.xwiki.observation.EventListener;
 import org.xwiki.observation.event.Event;
 import org.xwiki.observation.event.FilterableEvent;
@@ -26,7 +29,7 @@ import org.xwiki.query.Query;
 import org.xwiki.query.QueryException;
 import org.xwiki.query.QueryManager;
 
-@Component("activiti")
+@Component("activitiListener")
 @Singleton
 public class DefaultActivitiEventListener implements EventListener
 {
@@ -43,13 +46,16 @@ public class DefaultActivitiEventListener implements EventListener
     private QueryManager queryManager;
 
     @Inject
+    private XWikiActivitiBridge bridge;
+
+    @Inject
     private Logger logger;
+
+    @Inject
+    private EntityReferenceSerializer<String> entityReferenceSerializer;
 
     private String startMappingQuery =
         "select mapping.processId from Document doc, doc.object(Activiti.EventStartMappingClass) as mapping where mapping.event = :event and mapping.space = :space";
-
-    private String messageMappingQuery =
-        "select mapping.message from Document doc, doc.object(Activiti.EventMessageMappingClass) as mapping where mapping.event = :event and mapping.space = :space";
 
     private String signalMappingQuery =
         "select mapping.signal from Document doc, doc.object(Activiti.EventSignalMappingClass) as mapping where mapping.event = :event and mapping.space = :space";
@@ -72,60 +78,64 @@ public class DefaultActivitiEventListener implements EventListener
     {
         FilterableEvent filterableEvent = (FilterableEvent) event;
         EventFilter filter = filterableEvent.getEventFilter();
-        String documentName = filter.getFilter();
-        DocumentReference documentReference = documentReferenceResolver.resolve(documentName);
-        String documentSpace = documentReference.getParent().getName();
-        Boolean documentExists = documentAccessBridge.exists(documentReference);
+        String documentReferenceFromEvent = filter.getFilter();
+        DocumentReference documentReferenceInternal = documentReferenceResolver.resolve(documentReferenceFromEvent);
+        String documentReference = documentReferenceFromEvent;
+        String documentName = documentReferenceInternal.getName();
+        String documentSpace = documentReferenceInternal.getParent().getName();
+        // String documentURL = bridge.getXWikiDocumentURL(documentReference);
+        DocumentReference usernameReferenceInternal = documentAccessBridge.getCurrentUserReference();
+        String usernameReference = this.entityReferenceSerializer.serialize(usernameReferenceInternal);
+        // String usernameURL = bridge.getXWikiDocumentURL(usernameReference);
+        // Boolean documentExists = documentAccessBridge.exists(documentReference);
 
         // Query to get the List of Processes to be started
 
         if (event instanceof DocumentCreatedEvent) {
-            this.computeOnEvent("DocumentCreatedEvent", documentName, documentSpace);
+            this.computeOnEvent("DocumentCreatedEvent", documentReference, documentName, documentSpace,
+                usernameReference);
         }
 
         if (event instanceof DocumentUpdatedEvent) {
-            this.computeOnEvent("DocumentUpdatedEvent", documentName, documentSpace);
+            this.computeOnEvent("DocumentUpdatedEvent", documentReference, documentName, documentSpace,
+                usernameReference);
         }
 
         if (event instanceof DocumentDeletedEvent) {
-            this.computeOnEvent("DocumentDeletedEvent", documentName, documentSpace);
+            this.computeOnEvent("DocumentDeletedEvent", documentReference, documentName, documentSpace,
+                usernameReference);
         }
 
     }
 
-    private void computeOnEvent(String event, String documentName, String documentSpace)
+    private void computeOnEvent(String event, String documentReference, String documentName, String documentSpace,
+        String usernameReference)
     {
         try {
             List<String> startMappingResults =
                 queryManager.createQuery(this.startMappingQuery, Query.XWQL).bindValue("event", event)
                     .bindValue("space", documentSpace).execute();
-            List<String> messageMappingResults =
-                queryManager.createQuery(this.messageMappingQuery, Query.XWQL).bindValue("event", event)
-                    .bindValue("space", documentSpace).execute();
             List<String> signalMappingResults =
                 queryManager.createQuery(this.signalMappingQuery, Query.XWQL).bindValue("event", event)
                     .bindValue("space", documentSpace).execute();
-            if (!startMappingResults.isEmpty() || !messageMappingResults.isEmpty() || !signalMappingResults.isEmpty()) {
+            if (!startMappingResults.isEmpty() || !signalMappingResults.isEmpty()) {
                 ActivitiEngine activiti = componentManager.getInstance(ActivitiEngine.class);
 
                 for (int i = 0; i < startMappingResults.size(); i++) {
-                    ProcessInstance processInstance =
-                        activiti.getProcessEngine().getRuntimeService()
-                            .startProcessInstanceById(startMappingResults.get(i));
+                    Map<String, Object> variables = new HashMap<String, Object>();
+                    variables.put("documentReference", documentReference);
+                    variables.put("documentName", documentName);
+                    variables.put("documentSpace", documentSpace);
+                    variables.put("usernameReference", usernameReference);
                     activiti.getProcessEngine().getRuntimeService()
-                        .setVariable(processInstance.getId(), "document Name", documentName);
-                    activiti.getProcessEngine().getRuntimeService()
-                        .setVariable(processInstance.getId(), "document Space", documentSpace);
-                    logger.info(event + " fired in space " + documentSpace + " on document " + documentName
-                        + ". Starting Process: " + startMappingResults.get(i) + " to Activiti Engine");
-                }
-                for (int i = 0; i < messageMappingResults.size(); i++) {
+                        .startProcessInstanceById(startMappingResults.get(i), variables);
 
-                    // activiti.getRuntimeService().
-
+                    logger.info("Process Variables: " + variables);
                     logger.info(event + " fired in space " + documentSpace + " on document " + documentName
-                        + ". Sending message " + signalMappingResults.get(i) + " to Activiti Engine");
+                        + " by user " + usernameReference + ". Starting Process: " + startMappingResults.get(i)
+                        + " to Activiti Engine");
                 }
+
                 for (int i = 0; i < signalMappingResults.size(); i++) {
                     activiti.getRuntimeService().signalEventReceived(signalMappingResults.get(i));
                     logger.info(event + " fired in space " + documentSpace + " on document " + documentName

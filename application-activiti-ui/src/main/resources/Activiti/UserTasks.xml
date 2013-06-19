@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1366587466000</creationDate>
-  <date>1369867022000</date>
-  <contentUpdateDate>1369866612000</contentUpdateDate>
+  <date>1371584930000</date>
+  <contentUpdateDate>1371584930000</contentUpdateDate>
   <version>1.1</version>
   <title>User Tasks</title>
   <template/>
@@ -153,7 +153,7 @@ $xwiki.ssx.use("Activiti.ActivitiStyleSheet")
   (% style="width: 99%;" %)
   |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Creation Time|=Task Description|=(% style="width: 10%;" %)Action
   #foreach($task in $activeTasks)
-    |$task.getId()|$task.getName()|$datetool.format('yyyy/MM/dd HH:mm', $task.getCreateTime())|$task.getDescription()|[[Go to Task&gt;&gt;Activiti.TaskFormGenerator||queryString="generateFormForTaskId=$task.getId()&amp;xredirect=$escapetool.xml($xwiki.getRelativeRequestURL())"]]
+    |$task.getId()|$task.getName()|$datetool.format('yyyy/MM/dd HH:mm', $task.getCreateTime())|$task.getDescription()|[[Go to Task&gt;&gt;Activiti.UserTaskFormGenerator||queryString="generateFormForTaskId=$task.getId()&amp;xredirect=$escapetool.xml($xwiki.getRelativeRequestURL())"]]
   #end
 #else
   {{info}}No Active Tasks{{/info}}
@@ -174,7 +174,7 @@ $xwiki.ssx.use("Activiti.ActivitiStyleSheet")
 #set($historicalTasks = $services.activiti.history.getCurrentUserHistoryTasks())
 == Completed Tasks ==
 #if(!$historicalTasks.isEmpty())
-  (% style="width: 99%;" %)
+  (% class="activitiTable" %)
   |=(% style="width: 5%;" %)Task ID|=(% style="width: 15%;" %)Task Name|=(% style="width: 15%;" %)Task Start Time|=(% style="width: 15%;" %)Task End Time|=Task Description
   #foreach($task in $historicalTasks)
     |$task.getId()|$task.getName()|$datetool.format('yyyy/MM/dd HH:mm', $task.getStartTime())|$datetool.format('yyyy/MM/dd HH:mm', $task.getEndTime())|$task.getDescription()
