@@ -64,18 +64,6 @@ import org.xwiki.script.ScriptContextManager;
  * 
  * @author Sorin Burjan
  */
-
-/**
- * @author sorinello
- *
- */
-/**
- * @author sorinello
- *
- */
-/**
- * @author sorinello
- */
 @Component
 @Singleton
 public class DefaultActivitiEngine implements ActivitiEngine, Initializable
