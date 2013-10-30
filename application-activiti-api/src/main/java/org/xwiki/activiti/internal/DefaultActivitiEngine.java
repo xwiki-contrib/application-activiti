@@ -96,17 +96,6 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
 
     private ProcessEngine processEngine;
 
-    private void deployProcess()
-    {
-        this.processEngine.getRepositoryService().createDeployment().name("DefaultDeployment")
-            .addClasspathResource("DocumentWorkflow.bpmn").deploy();
-
-        // this.processEngine.getRepositoryService().createDeployment().name("DemoDeployment")
-        // .addClasspathResource("DemoProcess1.bpmn").addClasspathResource("DemoProcess2.bpmn")
-        // .addClasspathResource("DemoProcess3.bpmn").addClasspathResource("DemoProcess4.bpmn")
-        // .addClasspathResource("DemoProcess5.bpmn").addClasspathResource("DocumentWorkflow.bpmn").deploy();
-    }
-
     @Override
     public void initialize() throws InitializationException
     {
@@ -131,9 +120,6 @@ public class DefaultActivitiEngine implements ActivitiEngine, Initializable
 
         logger.info("Injecting into Activiti the following XWiki ScriptServices: "
             + this.scriptContextManager.getScriptContext().getBindings(ScriptContext.ENGINE_SCOPE).keySet());
-
-        logger.info("Deploying Default Process Definitions");
-        deployProcess();
     }
 
     @Override
