@@ -22,6 +22,9 @@ package org.xwiki.activiti.internal.formtypes;
 
 import org.activiti.engine.form.AbstractFormType;
 
+/**
+ * @author Sorin Burjan
+ */
 public class TextAreaFormType extends AbstractFormType
 {
 
