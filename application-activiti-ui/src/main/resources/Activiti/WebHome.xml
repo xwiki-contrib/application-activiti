@@ -11,21 +11,42 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1366545185000</creationDate>
-  <date>1368987914000</date>
-  <contentUpdateDate>1367000020000</contentUpdateDate>
+  <creationDate>1385672273000</creationDate>
+  <date>1385673619000</date>
+  <contentUpdateDate>1385673516000</contentUpdateDate>
   <version>1.1</version>
   <title>Activiti</title>
-  <template/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>false</hidden>
+  <attachment>
+    <filename>activiti.png</filename>
+    <filesize>702</filesize>
+    <author>XWiki.Admin</author>
+    <date>1385673516000</date>
+    <version>1.1</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAFzUkdC
+AK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlz
+AAAOxAAADsQBlSsOGwAAAAZiS0dEAAAAAAAA+UO7fwAAAAl2cEFnAAAAQAAAAEAA6vP4YAAAAgBJ
+REFUOE+NU01IVGEUPd+bZpyJGswYpkKJJBBscFOkEKIbGSmKkCAXqQtBENFAEMedGSGiRCEK7lwV
+RAsjsBTJH5ogokXgwiATXWj5k+bom3lv3sztvm+YUZv3wLv87j3nu/fccwVxwCaa3/6AS1Hw/Fah
+XQmEHYG7JwxtVweY/qzPg81QmSWJYvV6sucTNNUATnDaqWBrOwZ/3+fjEXgYHFXjQMzAg2vncKfE
+B8STWN9QUdD/NZvEHCEd7kdhQucMoXWK2t8tZt7rXn8ntM3Q7z2VWj42HIZQRgOzbflz1MDD4CU8
+u3lUuJ2YhtrpSsQTAgWnLmK08qXsRmrgYcHSbbdXZ4PNmlx3Dqrza5CgJNbUVdRP35cEjoXi2u5v
+S38BIdBYno+h25dtV1bmvyHBK/vL2NH+sExRKBE9IcFgO1zwumzB6UReTh6XEhThgGqoKR+IrtkU
+SUTHSEMATay+Vbz6+QKD809x2unl7TrxJjhxYCTRNZfCRDQM1wfQfP38fxwGSsdKcMblg9vhwVjw
+fSp/eCcI8QpDs4SWSRr5spZJdX9YJnSEaVfforsTVdZrTH8nxwGPs6fjyb0ibLOhBsYX2ZEO+H1e
+/Oq8eqQzy1vIaGIkJRcrJm1Nj8uzpLG8BeqtAJJ8RSbYvFUbsMlme41msmp0njsXGK+7Yrvef3R+
+FSW94RxzAAAAAElFTkSuQmCC
+</content>
+  </attachment>
   <object>
     <class>
-      <name>XWiki.GadgetClass</name>
+      <name>XWiki.UIExtensionClass</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>
@@ -35,122 +56,82 @@
       <validationScript/>
       <content>
         <disabled>0</disabled>
-        <editor>---</editor>
         <name>content</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>content</prettyName>
-        <rows>5</rows>
+        <number>3</number>
+        <prettyName>Extension Content</prettyName>
+        <rows>10</rows>
         <size>40</size>
         <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
       </content>
-      <position>
+      <extensionPointId>
         <disabled>0</disabled>
-        <name>position</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>position</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </position>
-      <title>
-        <disabled>0</disabled>
-        <name>title</name>
+        <name>extensionPointId</name>
         <number>1</number>
-        <picker>0</picker>
-        <prettyName>title</prettyName>
+        <prettyName>Extension Point ID</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </title>
+      </extensionPointId>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>2</number>
+        <prettyName>Extension ID</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parameters>
+        <disabled>0</disabled>
+        <name>parameters</name>
+        <number>4</number>
+        <prettyName>Extension Parameters</prettyName>
+        <rows>10</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </parameters>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>5</number>
+        <prettyName>Extension Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>wiki=Current Wiki|user=Current User|global=Global</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
     </class>
     <name>Activiti.WebHome</name>
     <number>0</number>
-    <className>XWiki.GadgetClass</className>
-    <guid>46faab28-46b6-4a64-ae7c-ef7f954a06a0</guid>
+    <className>XWiki.UIExtensionClass</className>
+    <guid>a1e38bc7-89e8-4464-bee9-a0ae2ea35621</guid>
     <property>
-      <content>{{info}}
-Activiti integration WebHome
-{{/info}}</content>
+      <content/>
     </property>
     <property>
-      <position>1, 1</position>
+      <extensionPointId>org.xwiki.platform.panels.Applications</extensionPointId>
     </property>
     <property>
-      <title/>
-    </property>
-  </object>
-  <object>
-    <class>
-      <name>XWiki.GadgetClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <content>
-        <disabled>0</disabled>
-        <editor>---</editor>
-        <name>content</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>content</prettyName>
-        <rows>5</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </content>
-      <position>
-        <disabled>0</disabled>
-        <name>position</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>position</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </position>
-      <title>
-        <disabled>0</disabled>
-        <name>title</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>title</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </title>
-    </class>
-    <name>Activiti.WebHome</name>
-    <number>1</number>
-    <className>XWiki.GadgetClass</className>
-    <guid>3aa3e99f-7bc3-408b-8ff5-e498e3d5507b</guid>
-    <property>
-      <content>{{spaceindex space="Activiti"/}}</content>
+      <name>Activiti</name>
     </property>
     <property>
-      <position>1, 2</position>
+      <parameters>label=Activiti
+target=Activiti.WebHome
+icon=attach:Activiti.WebHome@activiti.png</parameters>
     </property>
     <property>
-      <title>Pages</title>
+      <scope>wiki</scope>
     </property>
   </object>
-  <content>
-{{dashboard/}}</content>
+  <content>{{info}}You Activiti user page{{/info}}
+
+{{include reference="Activiti.UserTasks"/}}</content>
 </xwikidoc>
