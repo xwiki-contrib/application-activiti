@@ -21,6 +21,7 @@
 package org.xwiki.activiti;
 
 import org.xwiki.component.annotation.Role;
+import org.xwiki.stability.Unstable;
 
 /**
  * Interface used for accessing the XWiki Oldcore It is been used to make the Activiti Component independent of
@@ -28,6 +29,7 @@ import org.xwiki.component.annotation.Role;
  * 
  * @author Sorin Burjan
  */
+@Unstable
 @Role
 public interface XWikiActivitiBridge
 {

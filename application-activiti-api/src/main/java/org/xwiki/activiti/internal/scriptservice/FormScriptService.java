@@ -24,10 +24,12 @@ import java.util.Map;
 
 import org.activiti.engine.form.FormProperty;
 import org.xwiki.activiti.ActivitiEngine;
+import org.xwiki.stability.Unstable;
 
 /**
  * @author Sorin Burjan
  */
+@Unstable
 public class FormScriptService
 {
     private ActivitiEngine activitiEngine;

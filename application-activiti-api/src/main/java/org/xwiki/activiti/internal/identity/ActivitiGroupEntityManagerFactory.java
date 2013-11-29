@@ -30,10 +30,12 @@ import org.xwiki.activiti.SessionFactory;
 import org.xwiki.component.annotation.Component;
 import org.xwiki.component.manager.ComponentLookupException;
 import org.xwiki.component.manager.ComponentManager;
+import org.xwiki.stability.Unstable;
 
 /**
  * @author Sorin Burjan
  */
+@Unstable
 @Component
 @Singleton
 @Named("group")

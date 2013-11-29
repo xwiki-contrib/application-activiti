@@ -24,10 +24,12 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.xwiki.activiti.ActivitiEngine;
 import org.xwiki.bridge.DocumentAccessBridge;
+import org.xwiki.stability.Unstable;
 
 /**
  * @author Sorin Burjan
  */
+@Unstable
 public class IdentityScriptService
 {
     @Inject

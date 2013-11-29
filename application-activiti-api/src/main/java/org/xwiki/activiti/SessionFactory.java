@@ -20,6 +20,7 @@
 package org.xwiki.activiti;
 
 import org.xwiki.component.annotation.Role;
+import org.xwiki.stability.Unstable;
 
 /**
  * Extends the default Activiti SessionFactory interface because XWiki's Component Manager won't inject an
@@ -27,6 +28,7 @@ import org.xwiki.component.annotation.Role;
  * 
  * @author Sorin Burjan
  */
+@Unstable
 @Role
 public interface SessionFactory extends org.activiti.engine.impl.interceptor.SessionFactory
 {

@@ -29,10 +29,12 @@ import org.activiti.engine.history.HistoricVariableInstance;
 import org.slf4j.Logger;
 import org.xwiki.activiti.ActivitiEngine;
 import org.xwiki.bridge.DocumentAccessBridge;
+import org.xwiki.stability.Unstable;
 
 /**
  * @author Sorin Burjan
  */
+@Unstable
 public class HistoryScriptService
 {
     @Inject

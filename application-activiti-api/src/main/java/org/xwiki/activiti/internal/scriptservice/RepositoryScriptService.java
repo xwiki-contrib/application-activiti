@@ -28,10 +28,12 @@ import org.xwiki.activiti.XWikiActivitiBridge;
 import org.xwiki.bridge.DocumentAccessBridge;
 import org.xwiki.model.reference.DocumentReference;
 import org.xwiki.model.reference.EntityReferenceSerializer;
+import org.xwiki.stability.Unstable;
 
 /**
  * @author Sorin Burjan
  */
+@Unstable
 public class RepositoryScriptService
 {
     private ActivitiEngine activitiEngine;

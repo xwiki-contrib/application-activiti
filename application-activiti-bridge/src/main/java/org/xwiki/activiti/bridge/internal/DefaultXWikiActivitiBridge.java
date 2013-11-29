@@ -26,6 +26,7 @@ import javax.inject.Singleton;
 import org.xwiki.activiti.XWikiActivitiBridge;
 import org.xwiki.component.annotation.Component;
 import org.xwiki.context.Execution;
+import org.xwiki.stability.Unstable;
 
 import com.xpn.xwiki.XWikiContext;
 
@@ -35,6 +36,7 @@ import com.xpn.xwiki.XWikiContext;
  * 
  * @author Sorin Burjan
  */
+@Unstable
 @Component
 @Singleton
 public class DefaultXWikiActivitiBridge implements XWikiActivitiBridge

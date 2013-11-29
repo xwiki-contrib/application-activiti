@@ -39,12 +39,14 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.Execution;
 import org.activiti.engine.task.Task;
 import org.xwiki.component.annotation.Role;
+import org.xwiki.stability.Unstable;
 
 /**
  * Interface implementing the main entry point of the Activiti component
  * 
  * @author Sorin Burjan
  */
+@Unstable
 @Role
 public interface ActivitiEngine
 {

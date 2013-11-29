@@ -36,12 +36,14 @@ import org.xwiki.bridge.DocumentAccessBridge;
 import org.xwiki.component.annotation.Component;
 import org.xwiki.model.reference.EntityReferenceSerializer;
 import org.xwiki.script.service.ScriptService;
+import org.xwiki.stability.Unstable;
 
 /**
  * Make the ActivitiEngine API available to scripting.
  * 
  * @author Sorin Burjan
  */
+@Unstable
 @Component
 @Named("activiti")
 @Singleton

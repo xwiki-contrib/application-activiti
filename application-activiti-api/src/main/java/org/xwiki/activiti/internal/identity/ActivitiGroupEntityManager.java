@@ -46,10 +46,12 @@ import org.xwiki.model.reference.DocumentReferenceResolver;
 import org.xwiki.query.Query;
 import org.xwiki.query.QueryException;
 import org.xwiki.query.QueryManager;
+import org.xwiki.stability.Unstable;
 
 /**
  * @author Sorin Burjan
  */
+@Unstable
 @Component
 @Named("group")
 public class ActivitiGroupEntityManager extends GroupEntityManager implements Session

@@ -28,7 +28,9 @@ import org.xwiki.observation.event.filter.EventFilter;
 import org.xwiki.query.Query;
 import org.xwiki.query.QueryException;
 import org.xwiki.query.QueryManager;
+import org.xwiki.stability.Unstable;
 
+@Unstable
 @Component("activitiListener")
 @Singleton
 public class DefaultActivitiEventListener implements EventListener

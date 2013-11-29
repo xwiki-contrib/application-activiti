@@ -21,10 +21,12 @@
 package org.xwiki.activiti.internal.formtypes;
 
 import org.activiti.engine.form.AbstractFormType;
+import org.xwiki.stability.Unstable;
 
 /**
  * @author Sorin Burjan
  */
+@Unstable
 public class XWikiUsernameReferenceFormType extends AbstractFormType
 {
 

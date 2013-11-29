@@ -58,12 +58,14 @@ import org.xwiki.component.phase.InitializationException;
 import org.xwiki.model.reference.DocumentReference;
 import org.xwiki.model.reference.EntityReferenceSerializer;
 import org.xwiki.script.ScriptContextManager;
+import org.xwiki.stability.Unstable;
 
 /**
  * Default implementation of the ActivitiEngine component.
  * 
  * @author Sorin Burjan
  */
+@Unstable
 @Component
 @Singleton
 public class DefaultActivitiEngine implements ActivitiEngine, Initializable
