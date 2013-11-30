@@ -33,34 +33,6 @@
   <name>XWiki Contrib - Activiti integration with XWiki - Bridge</name>
   <packaging>jar</packaging>
   <description>Integrates Activiti BPM Engine in XWiki. This module is the bridge to xwiki-platform-oldcore</description>
-  <repositories>
-    <repository>
-      <id>Alfresco Maven Repository</id>
-      <url>https://maven.alfresco.com/nexus/content/groups/public/</url>
-    </repository>
-    <repository>
-      <id>xwiki-snapshots</id>
-      <name>XWiki Nexus Snapshot Repository Proxy</name>
-      <url>http://nexus.xwiki.org/nexus/content/groups/public-snapshots</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>xwiki-releases</id>
-      <name>XWiki Nexus Releases Repository Proxy</name>
-      <url>http://nexus.xwiki.org/nexus/content/groups/public</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
   <build>
     <plugins>
       <plugin>
