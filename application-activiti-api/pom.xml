@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>application-activiti</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
   </parent>
   <artifactId>application-activiti-api</artifactId>
   <name>XWiki Contrib - Activiti integration with XWiki - API</name>
