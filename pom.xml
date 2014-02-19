@@ -32,14 +32,14 @@
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-activiti</artifactId>
   <name>XWiki Contrib - Activiti integration with XWiki - Parent POM</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
   <description>Integrates Activiti BPM Engine in XWiki</description>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-activiti.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-activiti.git</developerConnection>
     <url>https://github.com/xwiki-contrib/application-activiti</url>
-    <tag>HEAD</tag>
+    <tag>application-activiti-1.0</tag>
   </scm>
   <properties>
     <platform.version>${commons.version}</platform.version>
