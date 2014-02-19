@@ -29,7 +29,7 @@
     <artifactId>application-activiti</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>xwiki-activiti-ui</artifactId>
+  <artifactId>application-activiti-ui</artifactId>
   <name>XWiki Contrib - Activiti integration with XWiki - UI</name>
   <packaging>xar</packaging>
   <description>Integrates Activiti BPM Engine in XWiki</description>
@@ -39,6 +39,23 @@
     <!-- Name to display by the Extension Manager -->
     <xwiki.extension.name>Activiti Integration</xwiki.extension.name>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.xwiki.contrib</groupId>
+      <artifactId>application-activiti-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+    <groupId>org.xwiki.contrib</groupId>
+      <artifactId>application-activiti-bridge</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.contrib</groupId>
+      <artifactId>application-activiti-listener</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
   <build>
     <!-- Needed to add support for the XAR packaging -->
     <extensions>

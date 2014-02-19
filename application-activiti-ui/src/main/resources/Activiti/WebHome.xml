@@ -131,7 +131,7 @@ icon=attach:Activiti.WebHome@activiti.png</parameters>
       <scope>wiki</scope>
     </property>
   </object>
-  <content>{{info}}You Activiti user page{{/info}}
+  <content>{{info}}Your Activiti user page{{/info}}
 
 {{include reference="Activiti.UserTasks"/}}</content>
 </xwikidoc>

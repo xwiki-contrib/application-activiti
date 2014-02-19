@@ -29,7 +29,7 @@
     <artifactId>application-activiti</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>xwiki-activiti-bridge</artifactId>
+  <artifactId>application-activiti-bridge</artifactId>
   <name>XWiki Contrib - Activiti integration with XWiki - Bridge</name>
   <packaging>jar</packaging>
   <description>Integrates Activiti BPM Engine in XWiki. This module is the bridge to xwiki-platform-oldcore</description>
@@ -71,7 +71,7 @@
     </dependency>
     <dependency>
     	<groupId>org.xwiki.contrib</groupId>
-    	<artifactId>xwiki-activiti-api</artifactId>
+    	<artifactId>application-activiti-api</artifactId>
     	<version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>

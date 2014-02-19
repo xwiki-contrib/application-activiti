@@ -29,7 +29,7 @@
     <artifactId>application-activiti</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>xwiki-activiti-api</artifactId>
+  <artifactId>application-activiti-api</artifactId>
   <name>XWiki Contrib - Activiti integration with XWiki - API</name>
   <description>Integrates Activiti BPM Engine in XWiki</description>
   <properties>

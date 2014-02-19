@@ -29,7 +29,7 @@
     <artifactId>application-activiti</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>xwiki-activiti-listener</artifactId>
+  <artifactId>application-activiti-listener</artifactId>
   <name>XWiki Contrib - Activiti integration with XWiki - Listener</name>
   <description>Integrates Activiti BPM Engine in XWiki</description>
   <build>
@@ -48,7 +48,7 @@
   <dependencies>
     <dependency>
       <groupId>org.xwiki.contrib</groupId>
-      <artifactId>xwiki-activiti-api</artifactId>
+      <artifactId>application-activiti-api</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
